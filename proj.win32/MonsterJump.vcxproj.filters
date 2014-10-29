@@ -10,27 +10,72 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{4817a948-2cb1-4b01-9f5f-b88b16fdebcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\layers">
+      <UniqueIdentifier>{1825a3c2-e004-4ed8-a09c-6b90a9a0d5f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\manager">
+      <UniqueIdentifier>{beaa2a1b-1a83-4b7c-8d2b-7afbe27ec468}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AppDelegate.cpp">
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\HelloWorldScene.cpp">
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VisibleRect.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameWorld.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameMap.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HomeLayer.cpp">
+      <Filter>src\layers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\AppDelegate.h">
+    <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\HelloWorldScene.h">
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VisibleRect.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameWorld.h">
+      <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameMap.h">
+      <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseLayer.h">
+      <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Singleton.h">
+      <Filter>src\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HomeLayer.h">
+      <Filter>src\layers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

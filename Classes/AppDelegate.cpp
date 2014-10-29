@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "HomeLayer.h"
+#include "Utils.h"
 
 USING_NS_CC;
 
@@ -27,9 +28,30 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::create("My Game");
+		glview = GLViewImpl::createWithRect("MonsterJump", Rect(0, 0, 320, 480));
         director->setOpenGLView(glview);
     }
+
+	auto frameSize = Director::getInstance()->getVisibleSize();
+
+	auto lsSize = Size(640, 960);
+	float scaleX = frameSize.width / lsSize.width;
+	float scaleY = frameSize.height / lsSize.height;
+
+	float scale_width = 0.0f, scale_height = 0.0f;
+	if (scaleX > scaleY)
+		scale_width = scaleX / (frameSize.height / lsSize.height);
+	else
+		scale_width = scaleX / (frameSize.width / lsSize.width);
+
+	if (scaleX > scaleY)
+		scale_height = scaleY / (frameSize.height / lsSize.height);
+	else
+		scale_height = scaleY / (frameSize.width / lsSize.width);
+
+	float scale = std::max(scale_width, scale_height);
+	
+	glview->setDesignResolutionSize(lsSize.width * scale, lsSize.height * scale, ResolutionPolicy::NO_BORDER);
 
     // turn on display FPS
     director->setDisplayStats(true);
@@ -37,11 +59,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
-    // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
-
-    // run
-    director->runWithScene(scene);
+	Utils::replaceScene(HomeLayer::create());
 
     return true;
 }
