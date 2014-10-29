@@ -4,6 +4,7 @@
 #include "BaseLayer.h"
 
 class GameMap;
+class GameUI;
 class GameWorld: public BaseLayer<GameWorld>
 {
 public:
@@ -12,6 +13,14 @@ public:
 
 	bool init();
 	bool initWithMap();
+	bool initWithUI();
+
+	GameMap* getGameMap() const { return m_pGameMap; }
+	GameUI* getGameUI() const{ return m_pGameUI; }
+
+private:
+	GameMap		*m_pGameMap;
+	GameUI		*m_pGameUI;
 };
 
 #endif

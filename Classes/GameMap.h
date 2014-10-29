@@ -3,6 +3,7 @@
 
 #include "BaseLayer.h"
 
+class GameWorld;
 class GameMap: public BaseLayer<GameMap>
 {
 public:
@@ -11,6 +12,11 @@ public:
 
 	virtual bool init();
 	virtual bool databind(void *data);
+
+	void setGameWorld(GameWorld *gameWorld);
+
+private:
+	GameWorld		*m_pGameWorld;
 };
 
 #endif
