@@ -8,6 +8,10 @@ class Utils
 public:
 	template<typename T>
 	static void replaceScene(BaseLayer<T> *layer, void *data = nullptr);
+
+	static SpriteFrame* getSpriteFrame(std::string szSpriteFrameName);
+
+	static Sprite* createSprite(std::string szSpriteName);
 };
 
 template<typename T>
@@ -19,15 +23,10 @@ void Utils::replaceScene(BaseLayer<T> *layer, void *data)
 		scene->addChild(layer);
 		auto director = Director::getInstance();
 		auto oldScene = director->getRunningScene();
-		if (oldScene)
-		{
+		if (oldScene && layer->databind(data))
 			director->replaceScene(scene);
-		}
 		else
-		{
 			director->runWithScene(scene);
-		}
-		layer->databind(data);
 	}
 }
 

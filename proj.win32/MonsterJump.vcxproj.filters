@@ -19,6 +19,9 @@
     <Filter Include="src\manager">
       <UniqueIdentifier>{beaa2a1b-1a83-4b7c-8d2b-7afbe27ec468}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\C2DXShareSDK">
+      <UniqueIdentifier>{9faf8608-3912-42ad-af2f-bd662344117d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -44,6 +47,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\HomeLayer.cpp">
       <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameUI.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ShareManager.cpp">
+      <Filter>src\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\C2DXShareSDK\C2DXShareSDK.cpp">
+      <Filter>src\C2DXShareSDK</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +88,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HomeLayer.h">
       <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameUI.h">
+      <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ShareManager.h">
+      <Filter>src\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDK.h">
+      <Filter>src\C2DXShareSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDKTypeDef.h">
+      <Filter>src\C2DXShareSDK</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
