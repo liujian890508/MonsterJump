@@ -22,6 +22,9 @@
     <Filter Include="src\C2DXShareSDK">
       <UniqueIdentifier>{9faf8608-3912-42ad-af2f-bd662344117d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\dialog">
+      <UniqueIdentifier>{0d0d11e6-e919-4bd9-bb22-a352d85b1176}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -56,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\C2DXShareSDK\C2DXShareSDK.cpp">
       <Filter>src\C2DXShareSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Dialog.cpp">
+      <Filter>src\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DialogManager.cpp">
+      <Filter>src\manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDKTypeDef.h">
       <Filter>src\C2DXShareSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Dialog.h">
+      <Filter>src\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DialogManager.h">
+      <Filter>src\manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
