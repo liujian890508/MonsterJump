@@ -12,9 +12,26 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
+				   ../../Classes/Dialog.cpp \
+				   ../../Classes/DialogManager.cpp \
+				   ../../Classes/GameMap.cpp \
+				   ../../Classes/GameUI.cpp \
+				   ../../Classes/GameWorld.cpp \
+				   ../../Classes/HomeLayer.cpp \
+				   ../../Classes/ShareManager.cpp \
+                   ../../Classes/HelloWorldScene.cpp \
+				   ../../Classes/Utils.cpp \
+				   ../../Classes/VisibleRect.cpp \
+				   ../../Classes/C2DXShareSDK/Android/JSON/cJSON/cJSON.c \
+				   ../../Classes/C2DXShareSDK/Android/JSON/CCJSONConverter.cpp \
+				   ../../Classes/C2DXShareSDK/Android/ShareSDKUtils.cpp \
+				   ../../Classes/C2DXShareSDK/C2DXShareSDK.cpp \
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/C2DXShareSDK
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON/cJSON
 
 LOCAL_STATIC_LIBRARIES := cocos2dx_static
 
