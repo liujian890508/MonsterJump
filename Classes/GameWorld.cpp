@@ -34,3 +34,12 @@ bool GameWorld::initWithUI()
 	this->addChild(this->m_pGameUI);
 	return true;
 }
+
+bool GameWorld::databind(void *data)
+{
+	int num;
+	std::string param;
+	std::tie(num, param) = *static_cast<std::tuple<int, std::string>*>(data);
+	CCLOG("%d -- %s",num, param.c_str());
+	return true;
+}

@@ -7,7 +7,6 @@
 class DialogManager: public Singleton<DialogManager>
 {
 public:
-	
 
 	
 };

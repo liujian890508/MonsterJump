@@ -12,6 +12,8 @@ public:
 	static SpriteFrame* getSpriteFrame(std::string szSpriteFrameName);
 
 	static Sprite* createSprite(std::string szSpriteName);
+
+	static void testRandom();
 };
 
 template<typename T>
