@@ -145,6 +145,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\GameUI.cpp" />
     <ClCompile Include="..\Classes\GameWorld.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\HeroSprite.cpp" />
+    <ClCompile Include="..\Classes\NormalWall.cpp" />
     <ClCompile Include="..\Classes\ShareManager.cpp" />
     <ClCompile Include="..\Classes\Utils.cpp" />
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
@@ -153,6 +155,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\BaseEntity.h" />
     <ClInclude Include="..\Classes\BaseLayer.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDK.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDKTypeDef.h" />
@@ -162,6 +165,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\GameUI.h" />
     <ClInclude Include="..\Classes\GameWorld.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\HeroSprite.h" />
+    <ClInclude Include="..\Classes\NormalWall.h" />
     <ClInclude Include="..\Classes\ShareManager.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
     <ClInclude Include="..\Classes\Utils.h" />

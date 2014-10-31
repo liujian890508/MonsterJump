@@ -25,6 +25,12 @@
     <Filter Include="src\dialog">
       <UniqueIdentifier>{0d0d11e6-e919-4bd9-bb22-a352d85b1176}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\wall">
+      <UniqueIdentifier>{f089effd-aaf1-4e91-be3e-4e94eba6558e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity">
+      <UniqueIdentifier>{845d7097-6ecc-4efb-8818-4f769728f5f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +71,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\DialogManager.cpp">
       <Filter>src\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HeroSprite.cpp">
+      <Filter>src\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NormalWall.cpp">
+      <Filter>src\wall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +127,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\DialogManager.h">
       <Filter>src\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseEntity.h">
+      <Filter>src\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HeroSprite.h">
+      <Filter>src\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NormalWall.h">
+      <Filter>src\wall</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
