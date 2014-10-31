@@ -27,7 +27,7 @@
 			<arguments>
 				<dictionary>
 					<key>?children?</key>
-					<value>?name?=outputEntries\|?children?=?name?=entry\\\\\\\|\\\|\||</value>
+					<value>?name?=outputEntries\|?children?=?name?=entry\\\\\\\|\\\|?name?=entry\\\\\\\|\\\|\||</value>
 				</dictionary>
 				<dictionary>
 					<key>?name?</key>
@@ -112,16 +112,6 @@
 			<name>Classes</name>
 			<type>2</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Classes</locationURI>
-		</link>
-		<link>
-			<name>cocos2d</name>
-			<type>2</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/cocos2d</locationURI>
-		</link>
-		<link>
-			<name>libcocos2d</name>
-			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/cocos2d/cocos/platform/android/java/src</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

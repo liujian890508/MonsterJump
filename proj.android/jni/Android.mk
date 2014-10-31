@@ -22,6 +22,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/HelloWorldScene.cpp \
 				   ../../Classes/Utils.cpp \
 				   ../../Classes/VisibleRect.cpp \
+				   ../../Classes/HeroSprite.cpp \
+				   ../../Classes/NormalWall.cpp \
 				   ../../Classes/C2DXShareSDK/Android/JSON/cJSON/cJSON.c \
 				   ../../Classes/C2DXShareSDK/Android/JSON/CCJSONConverter.cpp \
 				   ../../Classes/C2DXShareSDK/Android/ShareSDKUtils.cpp \
