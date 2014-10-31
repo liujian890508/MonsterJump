@@ -14,12 +14,11 @@ HomeLayer::~HomeLayer()
 
 bool HomeLayer::init()
 {
+	if (!LayerColor::initWithColor(Color4B(255, 0, 0, 255))) return false;
 	this->loadResource();
 
-	CCLOG("welcome to HomeLayer");
 	auto enterMenu = MenuItemFont::create("Play", [=](Ref *pSender){
-		std::tuple<int, std::string> info = std::make_tuple(5, "hello world");
-		Utils::replaceScene(GameWorld::create(), &info);
+		Utils::replaceScene(GameWorld::create());
 	});
 	auto menu = Menu::create(enterMenu, nullptr);
 	this->addChild(menu);

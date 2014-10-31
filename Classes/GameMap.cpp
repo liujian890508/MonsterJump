@@ -1,5 +1,12 @@
 #include "GameMap.h"
 #include "GameWorld.h"
+#include "NormalWall.h"
+#include "VisibleRect.h"
+
+#include "2d/CCFastTMXTiledMap.h"
+#include "2d/CCFastTMXLayer.h"
+
+#define MAP_TAG 10
 
 GameMap::GameMap()
 {
@@ -14,7 +21,38 @@ GameMap::~GameMap()
 
 bool GameMap::init()
 {
+	if (!LayerColor::initWithColor(Color4B(255, 0, 0, 255))) return false;
+	this->setContentSize(Size(640, 960));
+	this->ignoreAnchorPointForPosition(false);
+	this->setAnchorPoint(Vec2(0.5, 0.5));
+
+	this->_map = experimental::TMXTiledMap::create("map/map_1.tmx");
+	this->addChild(this->_map, MAP_TAG);
+	this->_map->setPosition(VisibleRect::leftBottom());
+
 	return true;
+}
+
+void GameMap::loadAllObject()
+{
+	TMXObjectGroup *objectGroup = this->_map->getObjectGroup("game");
+	if (objectGroup == nullptr) return;
+	ValueVector objects = objectGroup->getObjects();
+	for (unsigned int i = 0; i < objects.size(); i++)
+	{
+		ValueMap objProperties = objects.at(i).asValueMap();
+		ValueMap gidProperties = this->_map->getPropertiesForGID(objProperties["gid"].asInt()).asValueMap();
+		std::string type = gidProperties["type"].asString();
+		if (type == "brick")
+		{
+			auto normalWall = NormalWall::create(objProperties, gidProperties);
+			this->addChild(normalWall);
+		}
+		else if (type == "hero")
+		{
+			this->m_pGameWorld->initHeroSprite(objProperties, gidProperties);
+		}
+	}
 }
 
 bool GameMap::databind(void *data)

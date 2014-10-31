@@ -5,7 +5,7 @@
 USING_NS_CC;
 
 template<class T>
-class BaseLayer: public Node
+class BaseLayer: public LayerColor
 {
 public:
 	BaseLayer()
@@ -15,7 +15,7 @@ public:
 	{
 	}
 
-	virtual bool init(){ return true; }
+	virtual bool init(){ if (!LayerColor::initWithColor(Color4B(255, 0, 0, 255))) return false; return true; }
 	virtual bool databind(void *data){ return true; }
 
 	static T* create()
