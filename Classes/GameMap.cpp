@@ -21,7 +21,6 @@ GameMap::~GameMap()
 
 bool GameMap::init()
 {
-	if (!LayerColor::initWithColor(Color4B(255, 0, 0, 255))) return false;
 	this->setContentSize(Size(640, 960));
 	this->ignoreAnchorPointForPosition(false);
 	this->setAnchorPoint(Vec2(0.5, 0.5));

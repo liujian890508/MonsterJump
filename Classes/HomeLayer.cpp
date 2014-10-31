@@ -14,7 +14,6 @@ HomeLayer::~HomeLayer()
 
 bool HomeLayer::init()
 {
-	if (!LayerColor::initWithColor(Color4B(255, 0, 0, 255))) return false;
 	this->loadResource();
 
 	auto enterMenu = MenuItemFont::create("Play", [=](Ref *pSender){

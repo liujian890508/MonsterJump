@@ -15,7 +15,6 @@ GameWorld::~GameWorld()
 
 bool GameWorld::init()
 {
-	if (!LayerColor::initWithColor(Color4B(125, 0, 0, 255))) return false;
 	this->initWithUI();
 	this->initWithMap();
 	this->startGame();
