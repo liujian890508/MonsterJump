@@ -1,6 +1,7 @@
 #include "AppDelegate.h"
 #include "HomeLayer.h"
 #include "Utils.h"
+#include "ShareManager.h"
 
 USING_NS_CC;
 
@@ -24,6 +25,7 @@ void AppDelegate::initGLContextAttrs()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
+    ShareMgr->initShareSDK("2f5d7a211988");
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();

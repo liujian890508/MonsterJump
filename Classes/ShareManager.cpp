@@ -47,3 +47,8 @@ void ShareManager::setDefaultContent()
 	this->setShareAttribute("type", std::to_string(C2DXContentTypeNews));
 }
 
+void ShareManager::initShareSDK(std::string apiID)
+{
+    C2DXShareSDK::open(apiID.c_str(), true);
+}
+

@@ -2,6 +2,7 @@
 #include "VisibleRect.h"
 #include "Utils.h"
 #include "GameWorld.h"
+#include "ShareManager.h"
 
 HomeLayer::HomeLayer()
 {
@@ -20,7 +21,12 @@ bool HomeLayer::init()
         std::tuple<int, std::string> param = std::make_tuple(12, "Hello World");
 		Utils::replaceScene(GameWorld::create(), &param);
 	});
-	auto menu = Menu::create(enterMenu, nullptr);
+    auto shareMenu = MenuItemFont::create("Share", [=](Ref* pSender){
+        ShareMgr->setDefaultContent();
+        ShareMgr->sendShare();
+    });
+	auto menu = Menu::create(enterMenu, shareMenu, nullptr);
+    menu->alignItemsVerticallyWithPadding(20);
 	this->addChild(menu);
 	menu->setPosition(VisibleRect::center());
 

@@ -12,6 +12,7 @@ HeroSprite::~HeroSprite()
 
 bool HeroSprite::initEntity()
 {
+    setEntityType(EntityType::kType_Hero);
 	_offset = 0.0f;
 	_moveDir = MoveDir_Up;
 	return true;
@@ -38,21 +39,24 @@ void HeroSprite::setAccelerometerEnabled(bool enabled)
 
 void HeroSprite::onAcceleration(Acceleration* acc, Event* unused_event)
 {
-	float deceleration = 0.5f;
-	//加速计的敏感值越大，主角对加速计的输入会越敏感   
-	float sensitivity = 15.0;
-	//最大移动距离   
-	float maxVelocity = 30.0f;
-
-	_offset = _offset*deceleration + acc->x*sensitivity;
-	if (_offset >= maxVelocity)
-	{
-		_offset = maxVelocity;
-	}
-	else if (_offset <= -maxVelocity)
-	{
-		_offset = -maxVelocity;
-	}
+    if( unused_event->getType() == Event::Type::ACCELERATION)
+    {
+        float sensitivity = 25.0;
+        float maxVelocity = 30.0f;
+        
+        CCLOG("%f", acc->x);
+        
+        _offset = acc->x*sensitivity;
+        if (_offset >= maxVelocity)
+        {
+            _offset = maxVelocity;
+        }
+        else if (_offset <= -maxVelocity)
+        {
+            _offset = -maxVelocity;
+        }
+        
+    }
 }
 
 void HeroSprite::startJump()

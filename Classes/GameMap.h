@@ -3,9 +3,12 @@
 
 #include "BaseLayer.h"
 
+class NormalWall;
 class GameWorld;
 class GameMap: public BaseLayer<GameMap>
 {
+    typedef std::vector<NormalWall*> WallVector;
+    typedef WallVector::iterator WallVectorIt;
 public:
 	GameMap();
 	virtual ~GameMap();

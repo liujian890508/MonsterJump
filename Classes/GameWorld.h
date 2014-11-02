@@ -16,6 +16,8 @@ public:
 	bool initWithMap();
 	bool initWithUI();
 	bool initHeroSprite(ValueMap &objProperties, ValueMap& gidProperties);
+    
+    virtual void onEnterTransitionDidFinish();
 
 	bool databind(void *data);
 

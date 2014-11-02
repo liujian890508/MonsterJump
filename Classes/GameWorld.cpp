@@ -17,8 +17,12 @@ bool GameWorld::init()
 {
 	this->initWithUI();
 	this->initWithMap();
-	this->startGame();
 	return true;
+}
+
+void GameWorld::onEnterTransitionDidFinish()
+{
+    this->startGame();
 }
 
 bool GameWorld::initWithMap()

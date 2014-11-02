@@ -13,6 +13,7 @@ public:
 	void setShareAttribute(std::string key, std::string value);
 	void sendShare();
 	void setDefaultContent();
+    void initShareSDK(std::string apiID);
 
 private:
 	Dictionary		*m_pContent;
