@@ -23,6 +23,7 @@ public:
 
 	GameMap* getGameMap() const { return m_pGameMap; }
 	GameUI* getGameUI() const{ return m_pGameUI; }
+    HeroSprite* getHero() const { return m_pHeroSprite; }
 
 private:
 	GameMap		*m_pGameMap;

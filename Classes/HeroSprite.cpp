@@ -59,7 +59,7 @@ void HeroSprite::startJump()
 {
 	_previousPos = getPosition();
 	auto seqAction = Sequence::create(
-		JumpBy::create(1.4f, Vec2(0, 0), 500, 1),
+		JumpBy::create(1.2f, Vec2(0, 0), JUMP_HEIGHT, 1),
 		nullptr);
 	this->runAction(RepeatForever::create(seqAction));
 	this->setAccelerometerEnabled(true);

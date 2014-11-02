@@ -17,7 +17,8 @@ bool HomeLayer::init()
 	this->loadResource();
 
 	auto enterMenu = MenuItemFont::create("Play", [=](Ref *pSender){
-		Utils::replaceScene(GameWorld::create());
+        std::tuple<int, std::string> param = std::make_tuple(12, "Hello World");
+		Utils::replaceScene(GameWorld::create(), &param);
 	});
 	auto menu = Menu::create(enterMenu, nullptr);
 	this->addChild(menu);

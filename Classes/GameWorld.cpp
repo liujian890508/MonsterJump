@@ -41,6 +41,10 @@ bool GameWorld::initWithUI()
 
 bool GameWorld::databind(void *data)
 {
+    int id;
+    std::string desc;
+    std::tie(id, desc) = *static_cast<std::tuple<int, std::string>*>(data);
+    CCLOG("%d -- %s", id, desc.c_str());
 	return true;
 }
 
