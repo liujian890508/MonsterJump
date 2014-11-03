@@ -4,7 +4,7 @@
 #include "BaseEntity.h"
 #include "TypeInfoDef.h"
 
-#define JUMP_HEIGHT 300
+#define JUMP_HEIGHT 200
 
 class HeroSprite: public BaseEntity<HeroSprite>
 {

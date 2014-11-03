@@ -10,6 +10,14 @@
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DBDF5DE1A07B2C9003212BD /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBDF5D71A07B2C9003212BD /* CloseNormal.png */; };
+		1DBDF5DF1A07B2C9003212BD /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBDF5D81A07B2C9003212BD /* CloseSelected.png */; };
+		1DBDF5E01A07B2C9003212BD /* elementStone013.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBDF5D91A07B2C9003212BD /* elementStone013.png */; };
+		1DBDF5E11A07B2C9003212BD /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1DBDF5DA1A07B2C9003212BD /* fonts */; };
+		1DBDF5E21A07B2C9003212BD /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBDF5DB1A07B2C9003212BD /* HelloWorld.png */; };
+		1DBDF5E31A07B2C9003212BD /* map in Resources */ = {isa = PBXBuildFile; fileRef = 1DBDF5DC1A07B2C9003212BD /* map */; };
+		1DBDF5E41A07B2C9003212BD /* res in Resources */ = {isa = PBXBuildFile; fileRef = 1DBDF5DD1A07B2C9003212BD /* res */; };
+		1DBDF5E81A07B318003212BD /* GameMapLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBDF5E51A07B318003212BD /* GameMapLogic.cpp */; };
 		1DBFCD621A05CAA7005AB74D /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD341A05CAA7005AB74D /* AppDelegate.cpp */; };
 		1DBFCD661A05CAA7005AB74D /* C2DXShareSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD431A05CAA7005AB74D /* C2DXShareSDK.cpp */; };
 		1DBFCD671A05CAA7005AB74D /* C2DXiOSShareSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD481A05CAA7005AB74D /* C2DXiOSShareSDK.mm */; };
@@ -25,14 +33,6 @@
 		1DBFCD711A05CAA7005AB74D /* ShareManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD5B1A05CAA7005AB74D /* ShareManager.cpp */; };
 		1DBFCD721A05CAA7005AB74D /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD5E1A05CAA7005AB74D /* Utils.cpp */; };
 		1DBFCD731A05CAA7005AB74D /* VisibleRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD601A05CAA7005AB74D /* VisibleRect.cpp */; };
-		1DBFCD7C1A05CACE005AB74D /* avatar_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBFCD741A05CACE005AB74D /* avatar_01.png */; };
-		1DBFCD7D1A05CACE005AB74D /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBFCD751A05CACE005AB74D /* CloseNormal.png */; };
-		1DBFCD7E1A05CACE005AB74D /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBFCD761A05CACE005AB74D /* CloseSelected.png */; };
-		1DBFCD7F1A05CACE005AB74D /* elementStone013.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBFCD771A05CACE005AB74D /* elementStone013.png */; };
-		1DBFCD801A05CACE005AB74D /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1DBFCD781A05CACE005AB74D /* fonts */; };
-		1DBFCD811A05CACE005AB74D /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBFCD791A05CACE005AB74D /* HelloWorld.png */; };
-		1DBFCD821A05CACE005AB74D /* map in Resources */ = {isa = PBXBuildFile; fileRef = 1DBFCD7A1A05CACE005AB74D /* map */; };
-		1DBFCD831A05CACE005AB74D /* res in Resources */ = {isa = PBXBuildFile; fileRef = 1DBFCD7B1A05CACE005AB74D /* res */; };
 		1DBFCDA21A05CCD3005AB74D /* FacebookConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBFCD861A05CCD3005AB74D /* FacebookConnection.framework */; };
 		1DBFCDA31A05CCD3005AB74D /* QQConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBFCD871A05CCD3005AB74D /* QQConnection.framework */; };
 		1DBFCDA41A05CCD3005AB74D /* SinaWeiboConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBFCD881A05CCD3005AB74D /* SinaWeiboConnection.framework */; };
@@ -138,6 +138,16 @@
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MonsterJump iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MonsterJump iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DBDF5D71A07B2C9003212BD /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
+		1DBDF5D81A07B2C9003212BD /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		1DBDF5D91A07B2C9003212BD /* elementStone013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elementStone013.png; sourceTree = "<group>"; };
+		1DBDF5DA1A07B2C9003212BD /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		1DBDF5DB1A07B2C9003212BD /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
+		1DBDF5DC1A07B2C9003212BD /* map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = map; sourceTree = "<group>"; };
+		1DBDF5DD1A07B2C9003212BD /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		1DBDF5E51A07B318003212BD /* GameMapLogic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMapLogic.cpp; sourceTree = "<group>"; };
+		1DBDF5E61A07B318003212BD /* GameMapLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapLogic.h; sourceTree = "<group>"; };
+		1DBDF5E71A07B318003212BD /* TypeInfoDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeInfoDef.h; sourceTree = "<group>"; };
 		1DBFCD341A05CAA7005AB74D /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		1DBFCD351A05CAA7005AB74D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DBFCD361A05CAA7005AB74D /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
@@ -172,14 +182,6 @@
 		1DBFCD5F1A05CAA7005AB74D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		1DBFCD601A05CAA7005AB74D /* VisibleRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleRect.cpp; sourceTree = "<group>"; };
 		1DBFCD611A05CAA7005AB74D /* VisibleRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisibleRect.h; sourceTree = "<group>"; };
-		1DBFCD741A05CACE005AB74D /* avatar_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_01.png; sourceTree = "<group>"; };
-		1DBFCD751A05CACE005AB74D /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		1DBFCD761A05CACE005AB74D /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		1DBFCD771A05CACE005AB74D /* elementStone013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elementStone013.png; sourceTree = "<group>"; };
-		1DBFCD781A05CACE005AB74D /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		1DBFCD791A05CACE005AB74D /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
-		1DBFCD7A1A05CACE005AB74D /* map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = map; sourceTree = "<group>"; };
-		1DBFCD7B1A05CACE005AB74D /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		1DBFCD861A05CCD3005AB74D /* FacebookConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookConnection.framework; sourceTree = "<group>"; };
 		1DBFCD871A05CCD3005AB74D /* QQConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQConnection.framework; sourceTree = "<group>"; };
 		1DBFCD881A05CCD3005AB74D /* SinaWeiboConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinaWeiboConnection.framework; sourceTree = "<group>"; };
@@ -499,14 +501,13 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1DBFCD741A05CACE005AB74D /* avatar_01.png */,
-				1DBFCD751A05CACE005AB74D /* CloseNormal.png */,
-				1DBFCD761A05CACE005AB74D /* CloseSelected.png */,
-				1DBFCD771A05CACE005AB74D /* elementStone013.png */,
-				1DBFCD781A05CACE005AB74D /* fonts */,
-				1DBFCD791A05CACE005AB74D /* HelloWorld.png */,
-				1DBFCD7A1A05CACE005AB74D /* map */,
-				1DBFCD7B1A05CACE005AB74D /* res */,
+				1DBDF5D71A07B2C9003212BD /* CloseNormal.png */,
+				1DBDF5D81A07B2C9003212BD /* CloseSelected.png */,
+				1DBDF5D91A07B2C9003212BD /* elementStone013.png */,
+				1DBDF5DA1A07B2C9003212BD /* fonts */,
+				1DBDF5DB1A07B2C9003212BD /* HelloWorld.png */,
+				1DBDF5DC1A07B2C9003212BD /* map */,
+				1DBDF5DD1A07B2C9003212BD /* res */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -515,6 +516,9 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1DBDF5E51A07B318003212BD /* GameMapLogic.cpp */,
+				1DBDF5E61A07B318003212BD /* GameMapLogic.h */,
+				1DBDF5E71A07B318003212BD /* TypeInfoDef.h */,
 				1DBFCD341A05CAA7005AB74D /* AppDelegate.cpp */,
 				1DBFCD351A05CAA7005AB74D /* AppDelegate.h */,
 				1DBFCD361A05CAA7005AB74D /* BaseEntity.h */,
@@ -699,8 +703,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DBDF5E31A07B2C9003212BD /* map in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				1DBFCD831A05CACE005AB74D /* res in Resources */,
+				1DBDF5DE1A07B2C9003212BD /* CloseNormal.png in Resources */,
+				1DBDF5E41A07B2C9003212BD /* res in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
@@ -710,26 +716,23 @@
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
-				1DBFCD801A05CACE005AB74D /* fonts in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				1DBDF5DF1A07B2C9003212BD /* CloseSelected.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				1DBDF5E11A07B2C9003212BD /* fonts in Resources */,
 				1DBFCDA71A05CCD3005AB74D /* ShareSDKLocalizable.strings in Resources */,
 				1DBFCDAB1A05CCD4005AB74D /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				1DBFCDAD1A05CCD4005AB74D /* WeiboSDK.bundle in Resources */,
-				1DBFCD7F1A05CACE005AB74D /* elementStone013.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				1DBFCDA81A05CCD3005AB74D /* Resource.bundle in Resources */,
+				1DBDF5E01A07B2C9003212BD /* elementStone013.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
-				1DBFCD7D1A05CACE005AB74D /* CloseNormal.png in Resources */,
+				1DBDF5E21A07B2C9003212BD /* HelloWorld.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
-				1DBFCD811A05CACE005AB74D /* HelloWorld.png in Resources */,
-				1DBFCD7C1A05CACE005AB74D /* avatar_01.png in Resources */,
-				1DBFCD7E1A05CACE005AB74D /* CloseSelected.png in Resources */,
 				1DBFCDB01A05CCD4005AB74D /* ShareSDKFlatShareViewUI.bundle in Resources */,
-				1DBFCD821A05CACE005AB74D /* map in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +766,7 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1DBFCD691A05CAA7005AB74D /* DialogManager.cpp in Sources */,
 				1DBFCD6D1A05CAA7005AB74D /* HelloWorldScene.cpp in Sources */,
+				1DBDF5E81A07B318003212BD /* GameMapLogic.cpp in Sources */,
 				1DBFCD661A05CAA7005AB74D /* C2DXShareSDK.cpp in Sources */,
 				1DBFCD6C1A05CAA7005AB74D /* GameWorld.cpp in Sources */,
 				1DBFCD6B1A05CAA7005AB74D /* GameUI.cpp in Sources */,
