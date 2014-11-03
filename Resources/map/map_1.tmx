@@ -15,7 +15,7 @@
   </tile>
  </tileset>
  <objectgroup name="game">
-  <object gid="1" x="170" y="782"/>
+  <object gid="1" x="191" y="782"/>
   <object gid="1" x="338" y="686"/>
   <object gid="1" x="502" y="594"/>
   <object gid="1" x="182" y="490"/>

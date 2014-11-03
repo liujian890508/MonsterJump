@@ -5,11 +5,14 @@
 
 class NormalWall: public BaseEntity<NormalWall>
 {
+	friend class BaseEntity<NormalWall>;
 public:
 	NormalWall();
 	~NormalWall();
 
-	virtual bool initEntity();
+protected:
+
+	bool initEntity();
 
 };
 

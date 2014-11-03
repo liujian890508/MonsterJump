@@ -31,6 +31,9 @@
     <Filter Include="src\entity">
       <UniqueIdentifier>{845d7097-6ecc-4efb-8818-4f769728f5f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\logic">
+      <UniqueIdentifier>{e333e5b9-0bca-4f29-82bb-2965f68f3f3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -77,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\NormalWall.cpp">
       <Filter>src\wall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameMapLogic.cpp">
+      <Filter>src\logic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +142,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\NormalWall.h">
       <Filter>src\wall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TypeInfoDef.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameMapLogic.h">
+      <Filter>src\logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

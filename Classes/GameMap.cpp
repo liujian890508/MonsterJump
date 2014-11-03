@@ -1,7 +1,7 @@
 #include "GameMap.h"
 #include "GameWorld.h"
-#include "NormalWall.h"
 #include "VisibleRect.h"
+#include "GameMapLogic.h"
 
 #include "2d/CCFastTMXTiledMap.h"
 #include "2d/CCFastTMXLayer.h"
@@ -11,16 +11,19 @@
 GameMap::GameMap()
 {
 	m_pGameWorld = nullptr;
+	m_pGameMapLogic = nullptr;
 }
 
 
 GameMap::~GameMap()
 {
 	CC_SAFE_RELEASE(this->m_pGameWorld);
+	delete m_pGameMapLogic;
 }
 
 bool GameMap::init()
 {
+	m_pGameMapLogic = GameMapLogic::create(this);
 	this->setContentSize(Size(640, 960));
 	this->ignoreAnchorPointForPosition(false);
 	this->setAnchorPoint(Vec2(0.5, 0.5));
@@ -34,6 +37,7 @@ bool GameMap::init()
 
 void GameMap::loadAllObject()
 {
+	m_allNormals.clear();
 	TMXObjectGroup *objectGroup = this->_map->getObjectGroup("game");
 	if (objectGroup == nullptr) return;
 	ValueVector objects = objectGroup->getObjects();
@@ -46,12 +50,19 @@ void GameMap::loadAllObject()
 		{
 			auto normalWall = NormalWall::create(objProperties, gidProperties);
 			this->addChild(normalWall);
+			this->m_allNormals.push_back(normalWall);
 		}
 		else if (type == "hero")
 		{
 			this->m_pGameWorld->initHeroSprite(objProperties, gidProperties);
 		}
 	}
+	this->scheduleUpdate();
+}
+
+void GameMap::update(float dt)
+{
+	m_pGameMapLogic->update(dt);
 }
 
 bool GameMap::databind(void *data)

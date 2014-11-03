@@ -17,13 +17,16 @@ public:
 	BaseEntity(){}
 	virtual ~BaseEntity(){}
 
-	virtual bool initEntity() = 0;
-	bool init(const ValueMap &valueMap, const ValueMap &gidProperties);
-
 	EntityType getEntityType() const { return m_entityType; }
 	void setEntityType(EntityType type){ this->m_entityType = type; }
 
 	static T* create(const ValueMap &valueMap, const ValueMap &gidProperties);
+
+protected:
+
+	bool initEntity(){ return true; }
+
+	bool init(const ValueMap &valueMap, const ValueMap &gidProperties);
 
 protected:
 	int				m_nGid;
@@ -58,7 +61,8 @@ bool BaseEntity<T>::init(const ValueMap &valueMap, const ValueMap &gidProperties
 	if (!Sprite::initWithFile(m_sSource)) return false;
 	getTexture()->setAliasTexParameters();
 	this->setPosition(this->_initVec + this->getContentSize() / 2);
-	return this->initEntity();
+	T *pt = static_cast<T*>(this);
+	return pt->initEntity();
 }
 
 #endif

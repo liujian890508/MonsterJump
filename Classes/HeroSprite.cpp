@@ -43,9 +43,6 @@ void HeroSprite::onAcceleration(Acceleration* acc, Event* unused_event)
     {
         float sensitivity = 25.0;
         float maxVelocity = 30.0f;
-        
-        CCLOG("%f", acc->x);
-        
         _offset = acc->x*sensitivity;
         if (_offset >= maxVelocity)
         {
@@ -55,24 +52,32 @@ void HeroSprite::onAcceleration(Acceleration* acc, Event* unused_event)
         {
             _offset = -maxVelocity;
         }
-        
     }
 }
 
 void HeroSprite::startJump()
 {
 	_previousPos = getPosition();
-	auto seqAction = Sequence::create(
-		JumpBy::create(1.2f, Vec2(0, 0), JUMP_HEIGHT, 1),
-		nullptr);
-	this->runAction(RepeatForever::create(seqAction));
+	this->setPositionY(getPositionY());
 	this->setAccelerometerEnabled(true);
 	this->scheduleUpdate();
+}
+
+void HeroSprite::setPositionY(float y)
+{
+	this->_moveDir = MoveDir_None;
+	this->stopAllActions();
+	BaseEntity::setPositionY(y);
+	auto seqAction = Sequence::create(
+		JumpBy::create(1.2f, Vec2(0, -10), JUMP_HEIGHT, 1),
+		nullptr);
+	this->runAction(seqAction);
 }
 
 void HeroSprite::update(float dt)
 {
 	_moveDir = _previousPos.y > getPositionY() ? MoveDir_Down : MoveDir_Up;
+	_previousPos = getPosition();
 	if (getPositionX() > VisibleRect::right().x + getContentSize().width / 2)
 	{
 		setPositionX(-getContentSize().width / 2);

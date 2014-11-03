@@ -2,29 +2,32 @@
 #define __HEROSPRITE_H__
 
 #include "BaseEntity.h"
+#include "TypeInfoDef.h"
 
 #define JUMP_HEIGHT 300
 
-enum MoveDir
-{
-	MoveDir_Up,
-	MoveDir_Down
-};
 class HeroSprite: public BaseEntity<HeroSprite>
 {
+	friend class BaseEntity<HeroSprite>;
 public:
 	HeroSprite();
 	~HeroSprite();
 
 	void update(float dt);
 
-	bool initEntity();
-
 	void startJump();
+
+	void setPositionY(float y);
 
 	void setAccelerometerEnabled(bool enabled);
 
 	virtual void onAcceleration(Acceleration* acc, Event* unused_event);
+
+	MoveDir getMoveDir() const{ return this->_moveDir; }
+
+protected:
+
+	bool initEntity();
 
 private:
 	MoveDir			_moveDir;

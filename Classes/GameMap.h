@@ -2,13 +2,12 @@
 #define __GAMEMAP_H__
 
 #include "BaseLayer.h"
+#include "TypeInfoDef.h"
 
-class NormalWall;
 class GameWorld;
+class GameMapLogic;
 class GameMap: public BaseLayer<GameMap>
 {
-    typedef std::vector<NormalWall*> WallVector;
-    typedef WallVector::iterator WallVectorIt;
 public:
 	GameMap();
 	virtual ~GameMap();
@@ -17,11 +16,19 @@ public:
 	void loadAllObject();
 	virtual bool databind(void *data);
 
+	void update(float dt);
+
 	void setGameWorld(GameWorld *gameWorld);
+	GameWorld* getGameWorld() const { return m_pGameWorld; }
+
+	NormalVector getNormals() const { return m_allNormals; }
 
 private:
 	GameWorld		*m_pGameWorld;
+	GameMapLogic	*m_pGameMapLogic;
 	experimental::TMXTiledMap	*_map;
+
+	NormalVector		m_allNormals;
 };
 
 #endif
