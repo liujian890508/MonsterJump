@@ -43,7 +43,7 @@ void HeroSprite::onAcceleration(Acceleration* acc, Event* unused_event)
     {
         float sensitivity = 25.0;
         float maxVelocity = 30.0f;
-        _offset = acc->x*sensitivity;
+        _offset = acc->x * sensitivity;
         if (_offset >= maxVelocity)
         {
             _offset = maxVelocity;

@@ -13,4 +13,10 @@ enum MoveDir
 	MoveDir_None
 };
 
+enum DialogEvent
+{
+	Event_show,
+	Event_hide
+};
+
 #endif

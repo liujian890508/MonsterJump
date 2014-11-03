@@ -2,13 +2,8 @@
 #define __DIALOG_H__
 
 #include "cocos2d.h"
+#include "TypeInfoDef.h"
 USING_NS_CC;
-
-enum DialogEvent
-{
-    Event_show,
-    Event_hide
-};
 
 typedef std::function<void(void *data)> DialogCallback;
 
