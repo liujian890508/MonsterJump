@@ -15,6 +15,8 @@ public:
 
 	void update(float dt);
 
+	void onExit();
+
 	void startJump();
 
 	void setPositionY(float y);

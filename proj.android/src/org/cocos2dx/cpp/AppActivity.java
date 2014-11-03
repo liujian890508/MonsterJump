@@ -28,7 +28,7 @@ package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
-import com.xiandiao.jump.ShareSDKUtils;
+import cn.sharesdk.ShareSDKUtils;
 
 import android.os.Bundle;
 

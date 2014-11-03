@@ -11,7 +11,7 @@
    <properties>
     <property name="type" value="hero"/>
    </properties>
-   <image width="45" height="45" source="../avatar_01.png"/>
+   <image width="45" height="45" source="avatar_01.png"/>
   </tile>
  </tileset>
  <objectgroup name="game">
@@ -30,7 +30,7 @@
   <object gid="1" x="480" y="178"/>
   <object gid="1" x="54" y="128"/>
   <object gid="1" x="368" y="66"/>
-  <object gid="2" x="258" y="925"/>
   <object gid="1" x="240" y="950"/>
+  <object gid="2" x="256" y="925"/>
  </objectgroup>
 </map>

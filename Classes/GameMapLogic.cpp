@@ -47,7 +47,9 @@ void GameMapLogic::checkContact(NormalWall *wall)
 	HeroSprite *heroSprite = this->m_pGameMap->getGameWorld()->getHero();
 	Rect heroRect = heroSprite->getBoundingBox();
 	Rect wallRect = wall->getBoundingBox();
-	if (heroSprite->getMoveDir() == MoveDir_Down && heroRect.intersectsRect(wallRect))
+	if (heroSprite->getMoveDir() == MoveDir_Down && heroRect.intersectsRect(wallRect) &&
+		heroSprite->getPositionY() > wall->getPositionY() + 
+		wall->getContentSize().height / 2 + heroSprite->getContentSize().height / 2 - 10)
 	{
 		float y = wall->getPositionY() + wall->getContentSize().height / 2 +
 			heroSprite->getContentSize().height / 2;

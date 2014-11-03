@@ -14,7 +14,7 @@ bool HeroSprite::initEntity()
 {
     setEntityType(EntityType::kType_Hero);
 	_offset = 0.0f;
-	_moveDir = MoveDir_Up;
+	_moveDir = MoveDir_None;
 	return true;
 }
 
@@ -25,6 +25,7 @@ void HeroSprite::setAccelerometerEnabled(bool enabled)
 		_accelerometerEnabled = enabled;
 
 		Device::setAccelerometerEnabled(enabled);
+		Device::setAccelerometerInterval(0.01f);
 
 		_eventDispatcher->removeEventListener(_accelerationListener);
 		_accelerationListener = nullptr;
@@ -63,6 +64,14 @@ void HeroSprite::startJump()
 	this->scheduleUpdate();
 }
 
+void HeroSprite::onExit()
+{
+	BaseEntity::onExit();
+	this->stopAllActions();
+	this->setAccelerometerEnabled(false);
+	this->unscheduleUpdate();
+}
+
 void HeroSprite::setPositionY(float y)
 {
 	this->_moveDir = MoveDir_None;
@@ -70,6 +79,7 @@ void HeroSprite::setPositionY(float y)
 	BaseEntity::setPositionY(y);
 	auto seqAction = Sequence::create(
 		JumpBy::create(1.2f, Vec2(0, -10), JUMP_HEIGHT, 1),
+		MoveBy::create(1.5f, Point(0, -700)),
 		nullptr);
 	this->runAction(seqAction);
 }
