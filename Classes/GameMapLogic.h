@@ -19,6 +19,8 @@ public:
 	void update(float dt);
 
 	void checkContact(NormalWall* wall);
+    
+    void moveMapByHero();
 
 private:
 	GameMap		*m_pGameMap;

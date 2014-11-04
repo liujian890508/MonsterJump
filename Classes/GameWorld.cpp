@@ -55,12 +55,11 @@ bool GameWorld::databind(void *data)
 bool GameWorld::initHeroSprite(ValueMap &objProperties, ValueMap& gidProperties)
 {
 	this->m_pHeroSprite = HeroSprite::create(objProperties,gidProperties);
-	this->m_pGameMap->addChild(m_pHeroSprite);
+	this->m_pGameMap->addChild(m_pHeroSprite, 10);
 	return true;
 }
 
 void GameWorld::startGame()
 {
 	this->m_pHeroSprite->startJump();
-	//this->m_pGameMap->runAction();
 }

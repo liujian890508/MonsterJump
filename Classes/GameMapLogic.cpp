@@ -1,6 +1,7 @@
 #include "GameMapLogic.h"
 #include "HeroSprite.h"
 #include "GameWorld.h"
+#include "VisibleRect.h"
 
 GameMapLogic::GameMapLogic()
 {
@@ -37,9 +38,24 @@ void GameMapLogic::update(float dt)
 		Point worldPos = wall->getParent()->convertToWorldSpace(wall->getPosition());
 		if (worldPos.y < -wall->getContentSize().height / 2)
 		{
-			wall->removeFromParent();
+            //normals.erase(it);
+            //CCLOG("%d", normals.size());
+			//wall->removeFromParent();
 		}
 	}
+    this->moveMapByHero();
+}
+
+void GameMapLogic::moveMapByHero()
+{
+ 	HeroSprite *heroSprite = this->m_pGameMap->getGameWorld()->getHero();
+    Vec2 worldPos = heroSprite->getParent()->convertToWorldSpace(heroSprite->getPosition());
+    if( worldPos.y > VisibleRect::center().y)
+    {
+        float y = this->m_pGameMap->getPositionY() -
+            worldPos.y + VisibleRect::center().y;
+        this->m_pGameMap->setPositionY(y);
+    }
 }
 
 void GameMapLogic::checkContact(NormalWall *wall)

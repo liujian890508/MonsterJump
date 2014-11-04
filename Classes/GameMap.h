@@ -21,7 +21,7 @@ public:
 	void setGameWorld(GameWorld *gameWorld);
 	GameWorld* getGameWorld() const { return m_pGameWorld; }
 
-	NormalVector getNormals() const { return m_allNormals; }
+	NormalVector& getNormals() { return m_allNormals; }
 
 private:
 	GameWorld		*m_pGameWorld;

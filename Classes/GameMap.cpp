@@ -34,7 +34,7 @@ bool GameMap::init()
 		auto map = experimental::TMXTiledMap::create(String::createWithFormat("map/map_%d.tmx", i + 1)->getCString());
 		this->addChild(map, 0, MAP_TAG + i);
 		map->setPosition(VisibleRect::leftBottom() + Point(0, height));
-		height = map->getContentSize().height;
+		height += map->getMapSize().height * map->getTileSize().height;
 		m_allMaps.push_back(map);
 	}
 	return true;
@@ -57,6 +57,7 @@ void GameMap::loadAllObject()
 			{
 				auto normalWall = NormalWall::create(objProperties, gidProperties);
 				this->addChild(normalWall);
+                normalWall->setPosition(normalWall->getPosition() + (*it)->getPosition());
 				this->m_allNormals.push_back(normalWall);
 			}
 			else if (type == "hero")

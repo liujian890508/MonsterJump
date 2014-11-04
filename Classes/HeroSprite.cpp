@@ -25,7 +25,7 @@ void HeroSprite::setAccelerometerEnabled(bool enabled)
 		_accelerometerEnabled = enabled;
 
 		Device::setAccelerometerEnabled(enabled);
-		Device::setAccelerometerInterval(0.01f);
+		Device::setAccelerometerInterval(0.1f);
 
 		_eventDispatcher->removeEventListener(_accelerationListener);
 		_accelerationListener = nullptr;
