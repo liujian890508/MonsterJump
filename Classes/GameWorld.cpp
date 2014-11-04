@@ -62,4 +62,5 @@ bool GameWorld::initHeroSprite(ValueMap &objProperties, ValueMap& gidProperties)
 void GameWorld::startGame()
 {
 	this->m_pHeroSprite->startJump();
+	//this->m_pGameMap->runAction();
 }

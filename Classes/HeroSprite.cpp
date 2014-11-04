@@ -75,17 +75,15 @@ void HeroSprite::onExit()
 void HeroSprite::setPositionY(float y)
 {
 	this->_moveDir = MoveDir_None;
-	this->stopAllActions();
+	this->_time = 0.0f;
 	BaseEntity::setPositionY(y);
-	auto seqAction = Sequence::create(
-		JumpBy::create(1.2f, Vec2(0, -10), JUMP_HEIGHT, 1),
-		MoveBy::create(1.5f, Point(0, -700)),
-		nullptr);
-	this->runAction(seqAction);
+	this->_startPos = y;
 }
 
 void HeroSprite::update(float dt)
 {
+	_time += dt * 3.0;
+	float s = VELOCITY * _time + ACCELERATED * _time * _time / 2;
 	_moveDir = _previousPos.y > getPositionY() ? MoveDir_Down : MoveDir_Up;
 	_previousPos = getPosition();
 	if (getPositionX() > VisibleRect::right().x + getContentSize().width / 2)
@@ -96,5 +94,5 @@ void HeroSprite::update(float dt)
 	{
 		setPositionX(VisibleRect::right().x + getContentSize().width / 2);
 	}
-	setPositionX(getPositionX() + _offset);
+	setPosition(Point(getPositionX() + _offset, this->_startPos + s));
 }

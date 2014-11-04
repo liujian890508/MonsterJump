@@ -2,6 +2,7 @@
 #include "HomeLayer.h"
 #include "Utils.h"
 #include "ShareManager.h"
+#include "HelloWorldScene.h"
 
 USING_NS_CC;
 
@@ -62,6 +63,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
 	Utils::replaceScene(HomeLayer::create());
+
+	//Director::getInstance()->replaceScene(HelloWorld::createScene());
 
     return true;
 }

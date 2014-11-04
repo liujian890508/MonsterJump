@@ -28,18 +28,29 @@ bool HelloWorld::init()
         return false;
     }
 
-	auto wallSprite = Sprite::create("elementStone013.png");
-	this->addChild(wallSprite);
-	wallSprite->setPosition(VisibleRect::center());
-
-	auto boxSprite = Sprite::create("avatar_01.png");
-	this->addChild(boxSprite);
-	boxSprite->setPosition(wallSprite->getPosition() + Point(0, wallSprite->getContentSize().height / 2 + boxSprite->getContentSize().height / 2));
-	boxSprite->runAction(RepeatForever::create( Sequence::create(
-		JumpBy::create(1.3, Point(0, 0), 300, 1),
-		nullptr)));
-    
+	_time = 0.0f;
+	auto heroSprite = Sprite::create("map/avatar_01.png");
+	this->addChild(heroSprite, 0, 1);
+	heroSprite->setPosition(VisibleRect::center());
+	this->scheduleUpdate();
+	
     return true;
+}
+
+void HelloWorld::update(float t)
+{
+	_time += t * 3;
+	float v = 150.0f;
+	float a = -58.0f;
+	float s = v * _time + a * _time * _time / 2;
+	auto node = this->getChildByTag(1);
+	node->setPositionY(VisibleRect::center().y + s);
+
+	if (node->getPositionY() < 0)
+	{
+		node->setPosition(VisibleRect::center());
+		_time = 0.0f;
+	}
 }
                                                                                                                                    
  

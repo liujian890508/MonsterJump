@@ -4,7 +4,8 @@
 #include "BaseEntity.h"
 #include "TypeInfoDef.h"
 
-#define JUMP_HEIGHT 200
+#define VELOCITY 200
+#define ACCELERATED -98
 
 class HeroSprite: public BaseEntity<HeroSprite>
 {
@@ -37,6 +38,8 @@ private:
 	bool			_accelerometerEnabled;
 	EventListenerAcceleration	*_accelerationListener;
 	float			_offset;
+	float			_time;
+	float			_startPos;
 };
 
 #endif

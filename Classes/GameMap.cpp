@@ -28,33 +28,41 @@ bool GameMap::init()
 	this->ignoreAnchorPointForPosition(false);
 	this->setAnchorPoint(Vec2(0.5, 0.5));
 
-	this->_map = experimental::TMXTiledMap::create("map/map_1.tmx");
-	this->addChild(this->_map, MAP_TAG);
-	this->_map->setPosition(VisibleRect::leftBottom());
-
+	float height = 0.0f;
+	for (int i = 0; i < 10; i++)
+	{
+		auto map = experimental::TMXTiledMap::create(String::createWithFormat("map/map_%d.tmx", i + 1)->getCString());
+		this->addChild(map, 0, MAP_TAG + i);
+		map->setPosition(VisibleRect::leftBottom() + Point(0, height));
+		height = map->getContentSize().height;
+		m_allMaps.push_back(map);
+	}
 	return true;
 }
 
 void GameMap::loadAllObject()
 {
 	m_allNormals.clear();
-	TMXObjectGroup *objectGroup = this->_map->getObjectGroup("game");
-	if (objectGroup == nullptr) return;
-	ValueVector objects = objectGroup->getObjects();
-	for (unsigned int i = 0; i < objects.size(); i++)
+	for (MapVectorIt it = m_allMaps.begin(); it != m_allMaps.end(); it++)
 	{
-		ValueMap objProperties = objects.at(i).asValueMap();
-		ValueMap gidProperties = this->_map->getPropertiesForGID(objProperties["gid"].asInt()).asValueMap();
-		std::string type = gidProperties["type"].asString();
-		if (type == "brick")
+		TMXObjectGroup *objectGroup = (*it)->getObjectGroup("game");
+		if (objectGroup == nullptr) return;
+		ValueVector objects = objectGroup->getObjects();
+		for (unsigned int i = 0; i < objects.size(); i++)
 		{
-			auto normalWall = NormalWall::create(objProperties, gidProperties);
-			this->addChild(normalWall);
-			this->m_allNormals.push_back(normalWall);
-		}
-		else if (type == "hero")
-		{
-			this->m_pGameWorld->initHeroSprite(objProperties, gidProperties);
+			ValueMap objProperties = objects.at(i).asValueMap();
+			ValueMap gidProperties = (*it)->getPropertiesForGID(objProperties["gid"].asInt()).asValueMap();
+			std::string type = gidProperties["type"].asString();
+			if (type == "brick")
+			{
+				auto normalWall = NormalWall::create(objProperties, gidProperties);
+				this->addChild(normalWall);
+				this->m_allNormals.push_back(normalWall);
+			}
+			else if (type == "hero")
+			{
+				this->m_pGameWorld->initHeroSprite(objProperties, gidProperties);
+			}
 		}
 	}
 	this->scheduleUpdate();

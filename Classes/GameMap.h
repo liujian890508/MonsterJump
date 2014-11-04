@@ -26,7 +26,7 @@ public:
 private:
 	GameWorld		*m_pGameWorld;
 	GameMapLogic	*m_pGameMapLogic;
-	experimental::TMXTiledMap	*_map;
+	MapVector			m_allMaps;
 
 	NormalVector		m_allNormals;
 };
