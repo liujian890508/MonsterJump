@@ -29,7 +29,7 @@ bool GameWorld::initWithMap()
 {
 	this->m_pGameMap = GameMap::create();
 	this->m_pGameMap->setGameWorld(this);
-	this->m_pGameMap->loadAllObject();
+	this->m_pGameMap->initWithMap();
 	this->addChild(this->m_pGameMap);
 	m_pGameMap->setPosition(VisibleRect::center());
 	return true;
@@ -61,5 +61,6 @@ bool GameWorld::initHeroSprite(ValueMap &objProperties, ValueMap& gidProperties)
 
 void GameWorld::startGame()
 {
+	this->m_pGameMap->startGame();
 	this->m_pHeroSprite->startJump();
 }

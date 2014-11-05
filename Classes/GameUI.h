@@ -10,6 +10,8 @@ public:
 	GameUI();
 	~GameUI();
 
+	virtual bool init();
+
 	void setGameWorld(GameWorld *gameWorld);
 
 private:

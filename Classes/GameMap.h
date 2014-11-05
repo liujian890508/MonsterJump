@@ -13,15 +13,18 @@ public:
 	virtual ~GameMap();
 
 	virtual bool init();
-	void loadAllObject();
+	void initWithMap();
+	void loadObject(experimental::TMXTiledMap *map, int height);
 	virtual bool databind(void *data);
 
 	void update(float dt);
 
+	void startGame();
+
 	void setGameWorld(GameWorld *gameWorld);
 	GameWorld* getGameWorld() const { return m_pGameWorld; }
 
-	NormalVector& getNormals() { return m_allNormals; }
+	NormalVector* getNormals() { return &m_allNormals; }
 
 private:
 	GameWorld		*m_pGameWorld;

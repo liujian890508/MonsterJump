@@ -30,18 +30,20 @@ bool GameMapLogic::initWithGameMap(GameMap *gameMap)
 
 void GameMapLogic::update(float dt)
 {
-	NormalVector normals = this->m_pGameMap->getNormals();
-	for (NormalVectorIt it = normals.begin(); it != normals.end(); it++)
+	NormalVector* normals = this->m_pGameMap->getNormals();
+	int count = 0;
+	for (NormalVectorIt it = normals->begin(); it != normals->end();)
 	{
 		NormalWall *wall = *it;
 		this->checkContact(wall);
 		Point worldPos = wall->getParent()->convertToWorldSpace(wall->getPosition());
 		if (worldPos.y < -wall->getContentSize().height / 2)
 		{
-            //normals.erase(it);
-            //CCLOG("%d", normals.size());
-			//wall->removeFromParent();
+			wall->removeFromParent();
+			it = normals->erase(it);
 		}
+		else
+			++it;
 	}
     this->moveMapByHero();
 }
