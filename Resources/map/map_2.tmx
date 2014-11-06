@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="8" height="38" tilewidth="80" tileheight="25">
- <tileset firstgid="1" name="images" tilewidth="80" tileheight="45">
+ <tileset firstgid="1" name="images" tilewidth="170" tileheight="45">
   <tile id="0">
    <properties>
     <property name="type" value="brick"/>
    </properties>
-   <image width="80" height="25" source="Stone elements/elementStone013.png"/>
+   <image width="170" height="42" source="Stone elements/elementStone013.png"/>
   </tile>
   <tile id="1">
    <properties>
@@ -15,17 +15,15 @@
   </tile>
  </tileset>
  <objectgroup name="game">
-  <object gid="1" x="191" y="782"/>
-  <object gid="1" x="338" y="686"/>
-  <object gid="1" x="502" y="594"/>
+  <object gid="1" x="398" y="678"/>
   <object gid="1" x="182" y="490"/>
   <object gid="1" x="42" y="362"/>
   <object gid="1" x="428" y="360"/>
   <object gid="1" x="238" y="252"/>
-  <object gid="1" x="344" y="554"/>
+  <object gid="1" x="443" y="536"/>
   <object gid="1" x="56" y="634"/>
   <object gid="1" x="514" y="824"/>
-  <object gid="1" x="332" y="846"/>
+  <object gid="1" x="189" y="754"/>
   <object gid="1" x="42" y="862"/>
   <object gid="1" x="480" y="178"/>
   <object gid="1" x="54" y="128"/>

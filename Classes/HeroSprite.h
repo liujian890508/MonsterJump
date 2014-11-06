@@ -24,9 +24,11 @@ public:
 
 	void setAccelerometerEnabled(bool enabled);
 
-	virtual void onAcceleration(Acceleration* acc, Event* unused_event);
+	void onAcceleration(Acceleration* acc, Event* unused_event);
 
 	MoveDir getMoveDir() const{ return this->_moveDir; }
+
+	void changeState(HeroState state);
 
 protected:
 

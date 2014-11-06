@@ -1,5 +1,6 @@
 #include "HeroSprite.h"
 #include "VisibleRect.h"
+#include "Utils.h"
 
 HeroSprite::HeroSprite()
 {
@@ -12,6 +13,9 @@ HeroSprite::~HeroSprite()
 
 bool HeroSprite::initEntity()
 {
+	if (!Sprite::initWithFile(m_sSource)) return false;
+	getTexture()->setAliasTexParameters();
+	this->setPosition(this->_initVec + this->getContentSize() / 2);
     setEntityType(EntityType::kType_Hero);
 	_offset = 0.0f;
 	_moveDir = MoveDir_None;
@@ -78,6 +82,7 @@ void HeroSprite::setPositionY(float y)
 	this->_time = 0.0f;
 	BaseEntity::setPositionY(y);
 	this->_startPos = y;
+	this->changeState(kState_jump);
 }
 
 void HeroSprite::update(float dt)
@@ -95,4 +100,29 @@ void HeroSprite::update(float dt)
 		setPositionX(VisibleRect::right().x + getContentSize().width / 2);
 	}
 	setPosition(Point(getPositionX() + _offset, this->_startPos + s));
+}
+
+void HeroSprite::changeState(HeroState state)
+{
+	this->stopAllActions();
+	Animate* animate = nullptr;
+	switch (state)
+	{
+	case kState_fall:
+		animate = Utils::getAnimate("fall/rabbit_fall_", 1, 8);
+		break;
+	case kState_jump:
+		animate = Utils::getAnimate("jump/rabbit_jump_", 1, 7);
+		break;
+	case kState_rush:
+		animate = Utils::getAnimate("rush/rabbit_rush_", 1, 8);
+		break;
+	case kState_rush_end:
+		animate = Utils::getAnimate("rush_end/rabbit_rush2_", 1, 8);
+		break;
+	case kState_walk:
+		animate = Utils::getAnimate("walk/rabbit_walk_", 1, 14);
+		break;
+	}
+	this->runAction(animate);
 }

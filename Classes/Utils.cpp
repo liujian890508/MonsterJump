@@ -22,6 +22,20 @@ Sprite* Utils::createSprite(std::string szSpriteName)
 	return Sprite::createWithSpriteFrame(frame);
 }
 
+Animate* Utils::getAnimate(std::string prefix, int begin, int end, float time)
+{
+	Vector<SpriteFrame*> spriteFrames;
+	for (int i = begin; i < end; i++)
+	{
+		std::string fileName = prefix + std::to_string(i) + ".png";
+		auto spriteFrame = Utils::getSpriteFrame(fileName);
+		spriteFrames.pushBack(spriteFrame);
+	}
+	auto animation = Animation::createWithSpriteFrames(spriteFrames, time);
+	auto animate = Animate::create(animation);
+	return animate;
+}
+
 void Utils::testRandom()
 {
 	std::random_device rd;

@@ -13,6 +13,8 @@ public:
 
 	static Sprite* createSprite(std::string szSpriteName);
 
+	static Animate* getAnimate(std::string prefix, int begin, int end, float time = 0.1f);
+
 	static void testRandom();
 };
 

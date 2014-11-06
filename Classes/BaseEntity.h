@@ -58,9 +58,6 @@ bool BaseEntity<T>::init(const ValueMap &valueMap, const ValueMap &gidProperties
 	this->m_nGid = valueMap.find("gid")->second.asInt();
 	this->m_sSource = gidProperties.find("source")->second.asString();
 	this->m_sTypeName = gidProperties.find("type")->second.asString();
-	if (!Sprite::initWithFile(m_sSource)) return false;
-	getTexture()->setAliasTexParameters();
-	this->setPosition(this->_initVec + this->getContentSize() / 2);
 	T *pt = static_cast<T*>(this);
 	return pt->initEntity();
 }

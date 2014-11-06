@@ -29,12 +29,12 @@ bool HomeLayer::init()
     menu->alignItemsVerticallyWithPadding(20);
 	this->addChild(menu);
 	menu->setPosition(VisibleRect::center());
-
 	return true;
 }
 
 bool HomeLayer::loadResource()
 {
-
+	auto spriteFrameCache = SpriteFrameCache::getInstance();
+	spriteFrameCache->addSpriteFramesWithFile("player/player.plist", "player/player.png");
 	return true;
 }

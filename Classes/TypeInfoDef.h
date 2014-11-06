@@ -24,4 +24,13 @@ enum DialogEvent
 	Event_hide
 };
 
+enum HeroState
+{
+	kState_fall,
+	kState_jump,
+	kState_rush,
+	kState_rush_end,
+	kState_walk
+};
+
 #endif
