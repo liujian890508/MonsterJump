@@ -15,8 +15,9 @@ bool HeroSprite::initEntity()
 {
 	if (!Sprite::initWithFile(m_sSource)) return false;
 	getTexture()->setAliasTexParameters();
-	this->setPosition(this->_initVec + this->getContentSize() / 2);
+	this->setPosition(this->_initVec + Point(this->getContentSize().width / 2, 0));
     setEntityType(EntityType::kType_Hero);
+    this->setAnchorPoint(Point(0.5, 0));
 	_offset = 0.0f;
 	_moveUpOrDown = MoveDir_None;
 	_moveLeftOrRight = MoveDir_None;

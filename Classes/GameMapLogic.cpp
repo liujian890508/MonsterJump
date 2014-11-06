@@ -31,7 +31,6 @@ bool GameMapLogic::initWithGameMap(GameMap *gameMap)
 void GameMapLogic::update(float dt)
 {
 	NormalVector* normals = this->m_pGameMap->getNormals();
-	int count = 0;
 	for (NormalVectorIt it = normals->begin(); it != normals->end();)
 	{
 		NormalWall *wall = *it;
@@ -65,6 +64,19 @@ void GameMapLogic::checkContact(NormalWall *wall)
 	HeroSprite *heroSprite = this->m_pGameMap->getGameWorld()->getHero();
 	Rect heroRect = heroSprite->getBoundingBox();
 	Rect wallRect = wall->getBoundingBox();
+    
+    if( heroSprite->getMoveDir() == MoveDir_Down)
+    {
+        if( wallRect.containsPoint(heroRect.origin))
+        {
+            float y = wall->getPositionY() + wall->getContentSize().height / 2 +
+			heroSprite->getContentSize().height / 2;
+            if (std::fabs(y - heroSprite->getPositionY()) > 5)
+                heroSprite->setPositionY(y);
+        }
+    }
+    
+    /*
 	if (heroSprite->getMoveDir() == MoveDir_Down && heroRect.intersectsRect(wallRect) &&
         heroSprite->getPositionY() > wall->getPositionY() + wall->getContentSize().height / 2)
 	{
@@ -72,5 +84,5 @@ void GameMapLogic::checkContact(NormalWall *wall)
 			heroSprite->getContentSize().height / 2;
 		if (std::fabs(y - heroSprite->getPositionY()) > 5)
 			heroSprite->setPositionY(y);
-	}
+	}*/
 }
