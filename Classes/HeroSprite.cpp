@@ -18,7 +18,8 @@ bool HeroSprite::initEntity()
 	this->setPosition(this->_initVec + this->getContentSize() / 2);
     setEntityType(EntityType::kType_Hero);
 	_offset = 0.0f;
-	_moveDir = MoveDir_None;
+	_moveUpOrDown = MoveDir_None;
+	_moveLeftOrRight = MoveDir_None;
 	return true;
 }
 
@@ -57,6 +58,7 @@ void HeroSprite::onAcceleration(Acceleration* acc, Event* unused_event)
         {
             _offset = -maxVelocity;
         }
+		this->changeDir(_offset > 0 ? MoveDir_Left: MoveDir_Right);
     }
 }
 
@@ -78,7 +80,7 @@ void HeroSprite::onExit()
 
 void HeroSprite::setPositionY(float y)
 {
-	this->_moveDir = MoveDir_None;
+	this->_moveUpOrDown = MoveDir_None;
 	this->_time = 0.0f;
 	BaseEntity::setPositionY(y);
 	this->_startPos = y;
@@ -89,7 +91,8 @@ void HeroSprite::update(float dt)
 {
 	_time += dt * 3.0;
 	float s = VELOCITY * _time + ACCELERATED * _time * _time / 2;
-	_moveDir = _previousPos.y > getPositionY() ? MoveDir_Down : MoveDir_Up;
+	MoveDir dir = _previousPos.y > getPositionY() ? MoveDir_Down : MoveDir_Up;
+	this->changeDir(dir);
 	_previousPos = getPosition();
 	if (getPositionX() > VisibleRect::right().x + getContentSize().width / 2)
 	{
@@ -125,4 +128,16 @@ void HeroSprite::changeState(HeroState state)
 		break;
 	}
 	this->runAction(animate);
+}
+
+void HeroSprite::changeDir(MoveDir dir)
+{
+	if ((dir == MoveDir_Left || dir == MoveDir_Right) && _moveLeftOrRight != dir)
+	{
+		_moveLeftOrRight = dir;
+	}
+	else if ((dir == MoveDir_Down || dir == MoveDir_Up) && _moveUpOrDown != dir)
+	{
+		_moveUpOrDown = dir;
+	}
 }

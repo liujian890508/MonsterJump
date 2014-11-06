@@ -15,6 +15,8 @@ enum MoveDir
 {
 	MoveDir_Up,
 	MoveDir_Down,
+	MoveDir_Left, 
+	MoveDir_Right,
 	MoveDir_None
 };
 

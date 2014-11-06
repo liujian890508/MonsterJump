@@ -26,16 +26,18 @@ public:
 
 	void onAcceleration(Acceleration* acc, Event* unused_event);
 
-	MoveDir getMoveDir() const{ return this->_moveDir; }
+	MoveDir getMoveDir() const{ return this->_moveUpOrDown; }
 
 	void changeState(HeroState state);
+	void changeDir(MoveDir dir);
 
 protected:
 
 	bool initEntity();
 
 private:
-	MoveDir			_moveDir;
+	MoveDir			_moveUpOrDown;
+	MoveDir			_moveLeftOrRight;
 	Vec2			_previousPos;
 	bool			_accelerometerEnabled;
 	EventListenerAcceleration	*_accelerationListener;
