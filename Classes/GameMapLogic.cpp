@@ -57,32 +57,29 @@ void GameMapLogic::moveMapByHero()
             worldPos.y + VisibleRect::center().y;
         this->m_pGameMap->setPositionY(y);
     }
+	if (worldPos.y <= 0)
+	{
+		m_pGameMap->gameOver();
+	}
 }
 
 void GameMapLogic::checkContact(NormalWall *wall)
 {
 	HeroSprite *heroSprite = this->m_pGameMap->getGameWorld()->getHero();
-	Rect heroRect = heroSprite->getBoundingBox();
-	Rect wallRect = wall->getBoundingBox();
-    
-    if( heroSprite->getMoveDir() == MoveDir_Down)
-    {
-        if( wallRect.containsPoint(heroRect.origin))
-        {
-            float y = wall->getPositionY() + wall->getContentSize().height / 2 +
-			heroSprite->getContentSize().height / 2;
-            if (std::fabs(y - heroSprite->getPositionY()) > 5)
-                heroSprite->setPositionY(y);
-        }
-    }
-    
-    /*
-	if (heroSprite->getMoveDir() == MoveDir_Down && heroRect.intersectsRect(wallRect) &&
-        heroSprite->getPositionY() > wall->getPositionY() + wall->getContentSize().height / 2)
+	if (heroSprite->getMoveDir() == MoveDir_Down)
 	{
-		float y = wall->getPositionY() + wall->getContentSize().height / 2 +
-			heroSprite->getContentSize().height / 2;
-		if (std::fabs(y - heroSprite->getPositionY()) > 5)
-			heroSprite->setPositionY(y);
-	}*/
+		Point heroPos = heroSprite->getPosition();
+		Size heroSize = heroSprite->getContentSize();
+		Point wallPos = wall->getPosition();
+		Size wallSize = wall->getContentSize();
+
+		if (wall->getBoundingBox().containsPoint(heroPos) || 
+			wall->getBoundingBox().containsPoint(heroPos + Point(30, 0)) ||
+			wall->getBoundingBox().containsPoint(heroPos - Point(30, 0)))
+		{
+			float y = wallPos.y + wallSize.height / 2 - 20;
+			if (std::fabs(y - heroPos.y) > 5)
+				heroSprite->setPositionY(y);
+		}
+	}
 }

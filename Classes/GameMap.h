@@ -20,6 +20,7 @@ public:
 	void update(float dt);
 
 	void startGame();
+	void gameOver();
 
 	void setGameWorld(GameWorld *gameWorld);
 	GameWorld* getGameWorld() const { return m_pGameWorld; }

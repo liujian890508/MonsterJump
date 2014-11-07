@@ -59,7 +59,8 @@ void HeroSprite::onAcceleration(Acceleration* acc, Event* unused_event)
         {
             _offset = -maxVelocity;
         }
-		this->changeDir(_offset > 0 ? MoveDir_Left: MoveDir_Right);
+		if (_offset > 0.6f) this->changeDir(MoveDir_Left);
+		else if (_offset < -0.6f) this->changeDir(MoveDir_Right);
     }
 }
 
@@ -136,6 +137,7 @@ void HeroSprite::changeDir(MoveDir dir)
 	if ((dir == MoveDir_Left || dir == MoveDir_Right) && _moveLeftOrRight != dir)
 	{
 		_moveLeftOrRight = dir;
+		this->setFlippedX(_moveLeftOrRight == MoveDir_Right);
 	}
 	else if ((dir == MoveDir_Down || dir == MoveDir_Up) && _moveUpOrDown != dir)
 	{

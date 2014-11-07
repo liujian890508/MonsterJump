@@ -73,9 +73,16 @@ void GameMap::startGame()
 	this->scheduleUpdate();
 }
 
+void GameMap::gameOver()
+{
+	this->unscheduleUpdate();
+	this->runAction(MoveBy::create(0.2f, Point(0, VisibleRect::top().y)));
+}
+
 void GameMap::update(float dt)
 {
 	m_pGameMapLogic->update(dt);
+	
 }
 
 bool GameMap::databind(void *data)
