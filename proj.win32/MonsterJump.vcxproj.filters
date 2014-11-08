@@ -93,6 +93,15 @@
     <ClCompile Include="..\Classes\ObjectManager.cpp">
       <Filter>src\manager</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Plane.cpp">
+      <Filter>src\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Bird.cpp">
+      <Filter>src\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Gold.cpp">
+      <Filter>src\items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -166,6 +175,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ObjectManager.h">
       <Filter>src\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Plane.h">
+      <Filter>src\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Bird.h">
+      <Filter>src\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Gold.h">
+      <Filter>src\items</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
