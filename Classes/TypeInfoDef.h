@@ -7,7 +7,9 @@ USING_NS_CC;
 enum EntityType
 {
 	kType_Hero,
-	kType_Normal
+	kType_Normal,
+	kType_Collapsar,
+	kType_Plane
 };
 
 enum MoveDir

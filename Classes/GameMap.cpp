@@ -3,6 +3,10 @@
 #include "VisibleRect.h"
 #include "GameMapLogic.h"
 #include "NormalWall.h"
+#include "Collapsar.h"
+#include "Plane.h"
+#include "Bird.h"
+#include "Gold.h"
 #include "ObjectManager.h"
 
 #include "2d/CCFastTMXTiledMap.h"
@@ -66,6 +70,34 @@ void GameMap::loadObject(experimental::TMXTiledMap *map, int height)
 		else if (type == "hero")
 		{
 			this->m_pGameWorld->initHeroSprite(objProperties, gidProperties);
+		}
+		else if (type == "collapsar")
+		{
+			auto collapsar = Collapsar::create(objProperties, gidProperties);
+			this->addChild(collapsar);
+			collapsar->setPosition(collapsar->getPosition() + Point(0, height));
+			ObjectMgr->put(collapsar);
+		}
+		else if (type == "plane")
+		{
+			auto plane = Plane::create(objProperties, gidProperties);
+			this->addChild(plane);
+			plane->setPosition(plane->getPosition() + Point(0, height));
+			ObjectMgr->put(plane);
+		}
+		else if (type == "bird")
+		{
+			auto bird = Bird::create(objProperties, gidProperties);
+			this->addChild(bird);
+			bird->setPosition(bird->getPosition() + Point(0, height));
+			ObjectMgr->put(bird);
+		}
+		else if (type == "gold")
+		{
+			auto gold = Gold::create(objProperties, gidProperties);
+			this->addChild(gold);
+			gold->setPosition(gold->getPosition() + Point(0, height));
+			ObjectMgr->put(gold);
 		}
 	}
 }

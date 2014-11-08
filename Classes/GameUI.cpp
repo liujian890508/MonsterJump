@@ -23,6 +23,10 @@ void GameUI::setGameWorld(GameWorld *gameWorld)
 
 bool GameUI::init()
 {
+	auto bgSprite = Sprite::create("blue_land.png");
+	bgSprite->setPosition(VisibleRect::center());
+	this->addChild(bgSprite);
+
 	auto closeMenu = MenuItemFont::create("Close", [=](Ref *pSender){
 		Utils::replaceScene(HomeLayer::create());
 	});
