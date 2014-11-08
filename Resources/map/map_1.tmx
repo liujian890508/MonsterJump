@@ -20,7 +20,28 @@
    <image width="170" height="122" source="item/npc_01.png"/>
   </tile>
   <tile id="4">
+   <properties>
+    <property name="type" value="collapsar"/>
+   </properties>
    <image width="233" height="225" source="item/obj_blackhole.png"/>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="type" value="plane"/>
+   </properties>
+   <image width="70" height="56" source="item/item_rocket.png"/>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="type" value="bird"/>
+   </properties>
+   <image width="170" height="122" source="item/npc_01.png"/>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="type" value="gold"/>
+   </properties>
+   <image width="58" height="56" source="item/item_coin.png"/>
   </tile>
  </tileset>
  <objectgroup name="game">
@@ -34,9 +55,12 @@
   <object gid="1" x="441" y="66"/>
   <object gid="1" x="240" y="950"/>
   <object gid="2" x="238" y="921"/>
-  <object gid="5" x="-33" y="340"/>
+  <object gid="5" x="-19" y="290"/>
   <object gid="1" x="236" y="760"/>
   <object gid="1" x="179" y="547"/>
-  <object gid="1" x="256" y="379"/>
+  <object gid="6" x="258" y="170"/>
+  <object gid="6" x="543" y="300"/>
+  <object gid="7" x="443" y="41"/>
+  <object gid="8" x="489" y="559"/>
  </objectgroup>
 </map>
