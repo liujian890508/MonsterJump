@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="8" height="38" tilewidth="80" tileheight="25">
- <tileset firstgid="1" name="images" tilewidth="170" tileheight="200">
+ <tileset firstgid="1" name="images" tilewidth="233" tileheight="225">
   <tile id="0">
    <properties>
     <property name="type" value="brick"/>
@@ -12,6 +12,15 @@
     <property name="type" value="hero"/>
    </properties>
    <image width="120" height="200" source="rabbit_walk_1.png"/>
+  </tile>
+  <tile id="2">
+   <image width="70" height="56" source="item/item_rocket.png"/>
+  </tile>
+  <tile id="3">
+   <image width="170" height="122" source="item/npc_01.png"/>
+  </tile>
+  <tile id="4">
+   <image width="233" height="225" source="item/obj_blackhole.png"/>
   </tile>
  </tileset>
  <objectgroup name="game">
@@ -25,5 +34,9 @@
   <object gid="1" x="441" y="66"/>
   <object gid="1" x="240" y="950"/>
   <object gid="2" x="238" y="921"/>
+  <object gid="5" x="-33" y="340"/>
+  <object gid="1" x="236" y="760"/>
+  <object gid="1" x="179" y="547"/>
+  <object gid="1" x="256" y="379"/>
  </objectgroup>
 </map>
