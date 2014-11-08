@@ -2,6 +2,8 @@
 #include "GameWorld.h"
 #include "VisibleRect.h"
 #include "GameMapLogic.h"
+#include "NormalWall.h"
+#include "ObjectManager.h"
 
 #include "2d/CCFastTMXTiledMap.h"
 #include "2d/CCFastTMXLayer.h"
@@ -59,7 +61,7 @@ void GameMap::loadObject(experimental::TMXTiledMap *map, int height)
 			auto normalWall = NormalWall::create(objProperties, gidProperties);
 			this->addChild(normalWall);
             normalWall->setPosition(normalWall->getPosition() + Point(0, height));
-			this->m_allNormals.push_back(normalWall);
+			ObjectMgr->put(normalWall);
 		}
 		else if (type == "hero")
 		{
@@ -81,7 +83,7 @@ void GameMap::gameOver()
 
 void GameMap::update(float dt)
 {
-	m_pGameMapLogic->update(dt);
+ 	m_pGameMapLogic->update(dt);
 	
 }
 

@@ -19,6 +19,7 @@ public:
 	void onExit();
 
 	void startJump();
+	void gameOver();
 
 	void setPositionY(float y);
 

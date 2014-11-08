@@ -22,6 +22,7 @@ public:
 	bool databind(void *data);
 
 	void startGame();
+	void gameOver();
 
 	GameMap* getGameMap() const { return m_pGameMap; }
 	GameUI* getGameUI() const{ return m_pGameUI; }

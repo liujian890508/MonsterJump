@@ -25,14 +25,9 @@ public:
 	void setGameWorld(GameWorld *gameWorld);
 	GameWorld* getGameWorld() const { return m_pGameWorld; }
 
-	NormalVector* getNormals() { return &m_allNormals; }
-
 private:
 	GameWorld		*m_pGameWorld;
 	GameMapLogic	*m_pGameMapLogic;
-	MapVector			m_allMaps;
-
-	NormalVector		m_allNormals;
 };
 
 #endif

@@ -2,6 +2,7 @@
 #include "HeroSprite.h"
 #include "GameWorld.h"
 #include "VisibleRect.h"
+#include "ObjectManager.h"
 
 GameMapLogic::GameMapLogic()
 {
@@ -30,19 +31,21 @@ bool GameMapLogic::initWithGameMap(GameMap *gameMap)
 
 void GameMapLogic::update(float dt)
 {
-	NormalVector* normals = this->m_pGameMap->getNormals();
-	for (NormalVectorIt it = normals->begin(); it != normals->end();)
+	for (unsigned int i = 0; i < ObjectMgr->size(); i++)
 	{
-		NormalWall *wall = *it;
-		this->checkContact(wall);
-		Point worldPos = wall->getParent()->convertToWorldSpace(wall->getPosition());
-		if (worldPos.y < -wall->getContentSize().height / 2)
+		auto baseSprite = ObjectMgr->get(i);
+		switch (baseSprite->getEntityType())
 		{
-			wall->removeFromParent();
-			it = normals->erase(it);
+		case kType_Normal:
+			this->checkContact(baseSprite);
+			break;
 		}
-		else
-			++it;
+		Point worldPos = baseSprite->getParent()->convertToWorldSpace(baseSprite->getPosition());
+		if (worldPos.y < -baseSprite->getContentSize().height / 2)
+		{
+			baseSprite->removeFromParent();
+			ObjectMgr->remove(i);
+		}
 	}
     this->moveMapByHero();
 }
@@ -59,11 +62,11 @@ void GameMapLogic::moveMapByHero()
     }
 	if (worldPos.y <= 0)
 	{
-		m_pGameMap->gameOver();
+		m_pGameMap->getGameWorld()->gameOver();
 	}
 }
 
-void GameMapLogic::checkContact(NormalWall *wall)
+void GameMapLogic::checkContact(BaseSprite *wall)
 {
 	HeroSprite *heroSprite = this->m_pGameMap->getGameWorld()->getHero();
 	if (heroSprite->getMoveDir() == MoveDir_Down)

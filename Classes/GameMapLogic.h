@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "GameMap.h"
+#include "BaseSprite.h"
 #include "TypeInfoDef.h"
 USING_NS_CC;
 
@@ -18,7 +19,7 @@ public:
 
 	void update(float dt);
 
-	void checkContact(NormalWall* wall);
+	void checkContact(BaseSprite* wall);
     
     void moveMapByHero();
 

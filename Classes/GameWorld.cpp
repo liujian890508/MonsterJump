@@ -64,3 +64,9 @@ void GameWorld::startGame()
 	this->m_pGameMap->startGame();
 	this->m_pHeroSprite->startJump();
 }
+
+void GameWorld::gameOver()
+{
+	this->m_pGameMap->gameOver();
+	//this->m_pHeroSprite->gameOver();
+}

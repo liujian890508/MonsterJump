@@ -1,24 +1,14 @@
 #ifndef __BASEENTITY_H__
 #define __BASEENTITY_H__
 
-#include "cocos2d.h"
-USING_NS_CC;
-
-enum EntityType
-{
-	kType_Hero,
-	kType_Normal
-};
+#include "BaseSprite.h"
 
 template<typename T>
-class BaseEntity: public Sprite
+class BaseEntity: public BaseSprite
 {
 public:
 	BaseEntity(){}
 	virtual ~BaseEntity(){}
-
-	EntityType getEntityType() const { return m_entityType; }
-	void setEntityType(EntityType type){ this->m_entityType = type; }
 
 	static T* create(const ValueMap &valueMap, const ValueMap &gidProperties);
 
@@ -31,7 +21,6 @@ protected:
 protected:
 	int				m_nGid;
 	Vec2			_initVec;
-	EntityType		m_entityType;
 	std::string		m_sSource;
 	std::string		m_sTypeName;
 };

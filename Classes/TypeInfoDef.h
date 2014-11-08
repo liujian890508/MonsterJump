@@ -2,14 +2,13 @@
 #define __TYPEINFODEF_H__
 
 #include "cocos2d.h"
-#include "NormalWall.h"
 USING_NS_CC;
 
-typedef std::vector<NormalWall*> NormalVector;
-typedef NormalVector::iterator NormalVectorIt;
-
-typedef std::vector<experimental::TMXTiledMap*> MapVector;
-typedef MapVector::iterator MapVectorIt;
+enum EntityType
+{
+	kType_Hero,
+	kType_Normal
+};
 
 enum MoveDir
 {

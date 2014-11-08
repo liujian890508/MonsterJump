@@ -72,12 +72,17 @@ void HeroSprite::startJump()
 	this->scheduleUpdate();
 }
 
-void HeroSprite::onExit()
+void HeroSprite::gameOver()
 {
-	BaseEntity::onExit();
 	this->stopAllActions();
 	this->setAccelerometerEnabled(false);
 	this->unscheduleUpdate();
+}
+
+void HeroSprite::onExit()
+{
+	BaseEntity::onExit();
+	this->gameOver();
 }
 
 void HeroSprite::setPositionY(float y)
