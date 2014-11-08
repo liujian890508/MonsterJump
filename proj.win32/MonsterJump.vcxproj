@@ -139,6 +139,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\C2DXShareSDK\C2DXShareSDK.cpp" />
+    <ClCompile Include="..\Classes\Collapsar.cpp" />
     <ClCompile Include="..\Classes\Dialog.cpp" />
     <ClCompile Include="..\Classes\DialogManager.cpp" />
     <ClCompile Include="..\Classes\GameMap.cpp" />
@@ -148,6 +149,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\HeroSprite.cpp" />
     <ClCompile Include="..\Classes\NormalWall.cpp" />
+    <ClCompile Include="..\Classes\ObjectManager.cpp" />
     <ClCompile Include="..\Classes\ShareManager.cpp" />
     <ClCompile Include="..\Classes\Utils.cpp" />
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
@@ -158,8 +160,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\BaseEntity.h" />
     <ClInclude Include="..\Classes\BaseLayer.h" />
+    <ClInclude Include="..\Classes\BaseSprite.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDK.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDKTypeDef.h" />
+    <ClInclude Include="..\Classes\Collapsar.h" />
     <ClInclude Include="..\Classes\Dialog.h" />
     <ClInclude Include="..\Classes\DialogManager.h" />
     <ClInclude Include="..\Classes\GameMap.h" />
@@ -169,6 +173,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\HeroSprite.h" />
     <ClInclude Include="..\Classes\NormalWall.h" />
+    <ClInclude Include="..\Classes\ObjectManager.h" />
     <ClInclude Include="..\Classes\ShareManager.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
     <ClInclude Include="..\Classes\TypeInfoDef.h" />

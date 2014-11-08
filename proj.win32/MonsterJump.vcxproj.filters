@@ -34,6 +34,9 @@
     <Filter Include="src\logic">
       <UniqueIdentifier>{e333e5b9-0bca-4f29-82bb-2965f68f3f3e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\items">
+      <UniqueIdentifier>{58da0f7f-28fa-42b3-a91c-729fa4423c29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\GameMapLogic.cpp">
       <Filter>src\logic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Collapsar.cpp">
+      <Filter>src\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ObjectManager.cpp">
+      <Filter>src\manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +157,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GameMapLogic.h">
       <Filter>src\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Collapsar.h">
+      <Filter>src\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseSprite.h">
+      <Filter>src\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ObjectManager.h">
+      <Filter>src\manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
