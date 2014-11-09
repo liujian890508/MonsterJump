@@ -96,7 +96,7 @@ void HeroSprite::setPositionY(float y)
 
 void HeroSprite::update(float dt)
 {
-	_time += dt * 3.0;
+	_time += dt * 4.5f;
 	float s = VELOCITY * _time + ACCELERATED * _time * _time / 2;
 	MoveDir dir = _previousPos.y > getPositionY() ? MoveDir_Down : MoveDir_Up;
 	this->changeDir(dir);
@@ -122,7 +122,7 @@ void HeroSprite::changeState(HeroState state)
 		animate = Utils::getAnimate("fall/rabbit_fall_", 1, 8);
 		break;
 	case kState_jump:
-		animate = Utils::getAnimate("jump/rabbit_jump_", 1, 7);
+		animate = Utils::getAnimate("jump/rabbit_jump_", 1, 7, 0.02);
 		break;
 	case kState_rush:
 		animate = Utils::getAnimate("rush/rabbit_rush_", 1, 8);
