@@ -19,10 +19,12 @@ GameWorld::~GameWorld()
 bool GameWorld::init()
 {
 	this->m_pGameLogic = GameLogic::create(this);
+	addKeyboardSupport();
 	this->initWithUI();
 	this->initWithMap();
 	return true;
 }
+ 
 
 void GameWorld::onEnterTransitionDidFinish()
 {
@@ -83,4 +85,29 @@ void GameWorld::move(Point point)
 void GameWorld::update(float dt)
 {
 	this->m_pGameLogic->update(dt);
+}
+
+
+
+
+
+
+void GameWorld::onKeyPressed( cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event )
+{
+	if (keyCode == EventKeyboard::KeyCode::KEY_A ) 
+	{
+		this->m_pHeroSprite->setOffset(-4);
+		this->m_pHeroSprite->changeDir(MoveDir_Right);
+	}
+	if (keyCode == EventKeyboard::KeyCode::KEY_D ) 
+	{
+		this->m_pHeroSprite->setOffset(4);
+		this->m_pHeroSprite->changeDir(MoveDir_Left);
+	}
+}
+
+void GameWorld::onKeyReleased( cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event )
+{
+	//release 
+	this->m_pHeroSprite->setOffset(0);
 }

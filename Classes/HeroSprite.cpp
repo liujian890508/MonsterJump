@@ -154,3 +154,8 @@ void HeroSprite::changeDir(MoveDir dir)
         }
 	}
 }
+
+void HeroSprite::setOffset( float offset )
+{
+	_offset = offset;
+}

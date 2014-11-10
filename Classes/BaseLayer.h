@@ -15,6 +15,17 @@ public:
 	{
 	}
 
+	virtual void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {};
+	virtual void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {} ;
+
+	void addKeyboardSupport()
+	{
+		auto _listener = EventListenerKeyboard::create();
+		_listener->onKeyPressed = [this](EventKeyboard::KeyCode keycode, Event* event){this->onKeyPressed(keycode , event);};
+		_listener->onKeyReleased = [this](EventKeyboard::KeyCode keycode, Event* event){this->onKeyReleased(keycode , event);};
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(_listener , this);
+	}
+
 	virtual bool init(){ return true; }
 	virtual bool databind(void *data){ return true; }
 

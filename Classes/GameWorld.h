@@ -12,6 +12,7 @@ class GameWorld: public BaseLayer<GameWorld>
 public:
 	GameWorld();
 	~GameWorld();
+	
 
 	bool init();
 	bool initWithMap();
@@ -32,6 +33,10 @@ public:
 	GameMap* getGameMap() const { return m_pGameMap; }
 	GameUI* getGameUI() const{ return m_pGameUI; }
     HeroSprite* getHero() const { return m_pHeroSprite; }
+
+	virtual void onKeyPressed( cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event );
+
+	virtual void onKeyReleased( cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event );
 
 private:
 	GameMap		*m_pGameMap;

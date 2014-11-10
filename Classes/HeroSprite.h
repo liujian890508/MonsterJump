@@ -32,6 +32,7 @@ public:
 	void changeState(HeroState state);
 	void changeDir(MoveDir dir);
 
+	void setOffset(float offset);
 protected:
 
 	bool initEntity();
