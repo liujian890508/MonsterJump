@@ -1,28 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="8" height="38" tilewidth="80" tileheight="25">
- <tileset firstgid="1" name="images" tilewidth="170" tileheight="45">
+ <tileset firstgid="1" name="images" tilewidth="233" tileheight="225">
   <tile id="0">
-   <properties>
-    <property name="type" value="brick"/>
-   </properties>
-   <image width="170" height="42" source="Stone elements/elementStone013.png"/>
-  </tile>
-  <tile id="1">
    <properties>
     <property name="type" value="hero"/>
    </properties>
-   <image width="45" height="45" source="avatar_01.png"/>
+   <image width="120" height="200" source="rabbit_walk_1.png"/>
+  </tile>
+  <tile id="1">
+   <image width="70" height="56" source="item/item_rocket.png"/>
+  </tile>
+  <tile id="2">
+   <image width="170" height="122" source="item/npc_01.png"/>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="collapsar"/>
+   </properties>
+   <image width="233" height="225" source="item/obj_blackhole.png"/>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="type" value="plane"/>
+   </properties>
+   <image width="70" height="56" source="item/item_rocket.png"/>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="type" value="bird"/>
+   </properties>
+   <image width="170" height="122" source="item/npc_01.png"/>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="type" value="gold"/>
+   </properties>
+   <image width="58" height="56" source="item/item_coin.png"/>
+  </tile>
+  <tile id="7">
+   <image width="70" height="57" source="item/item_shoe.png"/>
+  </tile>
+  <tile id="8">
+   <image width="58" height="57" source="item/item_spring.png"/>
+  </tile>
+  <tile id="9">
+   <image width="57" height="57" source="item/item_spring2.png"/>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="type" value="brick"/>
+   </properties>
+   <image width="170" height="42" source="Stone elements/bg_platform_01.png"/>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="type" value="brick"/>
+   </properties>
+   <image width="170" height="69" source="Stone elements/bg_platform_02.png"/>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="type" value="brick"/>
+   </properties>
+   <image width="170" height="85" source="Stone elements/bg_platform_03.png"/>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="type" value="brick"/>
+   </properties>
+   <image width="170" height="64" source="Stone elements/bg_platform_04.png"/>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="type" value="brick"/>
+   </properties>
+   <image width="170" height="76" source="Stone elements/bg_platform_05.png"/>
   </tile>
  </tileset>
  <objectgroup name="game">
-  <object gid="1" x="410" y="635"/>
-  <object gid="1" x="127" y="533"/>
-  <object gid="1" x="59" y="279"/>
-  <object gid="1" x="432" y="390"/>
-  <object gid="1" x="456" y="819"/>
-  <object gid="1" x="37" y="776"/>
-  <object gid="1" x="384" y="136"/>
-  <object gid="1" x="18" y="80"/>
-  <object gid="1" x="240" y="950"/>
+  <object gid="11" x="210" y="951"/>
+  <object gid="12" x="9" y="759"/>
+  <object gid="13" x="357" y="675"/>
+  <object gid="14" x="449" y="846"/>
+  <object gid="15" x="90" y="577"/>
+  <object gid="14" x="423" y="481"/>
+  <object gid="12" x="258" y="350"/>
+  <object gid="13" x="16" y="243"/>
+  <object gid="14" x="438" y="161"/>
  </objectgroup>
 </map>

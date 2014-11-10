@@ -4,7 +4,7 @@
 #include "BaseEntity.h"
 #include "TypeInfoDef.h"
 
-#define VELOCITY 200
+#define VELOCITY 230
 #define ACCELERATED -98
 
 class HeroSprite: public BaseEntity<HeroSprite>

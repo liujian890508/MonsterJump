@@ -1,12 +1,12 @@
 #include "GameMap.h"
 #include "GameWorld.h"
 #include "VisibleRect.h"
-#include "GameMapLogic.h"
 #include "NormalWall.h"
 #include "Collapsar.h"
 #include "Plane.h"
 #include "Bird.h"
 #include "Gold.h"
+#include "Spring.h"
 #include "ObjectManager.h"
 
 #include "2d/CCFastTMXTiledMap.h"
@@ -17,19 +17,16 @@
 GameMap::GameMap()
 {
 	m_pGameWorld = nullptr;
-	m_pGameMapLogic = nullptr;
 }
 
 
 GameMap::~GameMap()
 {
 	CC_SAFE_RELEASE(this->m_pGameWorld);
-	delete m_pGameMapLogic;
 }
 
 bool GameMap::init()
 {
-	m_pGameMapLogic = GameMapLogic::create(this);
 	this->setContentSize(Size(640, 960));
 	this->ignoreAnchorPointForPosition(false);
 	this->setAnchorPoint(Vec2(0.5, 0.5));
@@ -99,6 +96,13 @@ void GameMap::loadObject(experimental::TMXTiledMap *map, int height)
 			gold->setPosition(gold->getPosition() + Point(0, height));
 			ObjectMgr->put(gold);
 		}
+		else if (type == "spring")
+		{
+			auto spring = Spring::create(objProperties, gidProperties);
+			this->addChild(spring);
+			spring->setPosition(spring->getPosition() + Point(0, height));
+			ObjectMgr->put(spring);
+		}
 	}
 }
 
@@ -113,12 +117,6 @@ void GameMap::gameOver()
 	this->runAction(MoveBy::create(0.2f, Point(0, VisibleRect::top().y)));
 }
 
-void GameMap::update(float dt)
-{
- 	m_pGameMapLogic->update(dt);
-	
-}
-
 bool GameMap::databind(void *data)
 {
 	return true;
@@ -130,4 +128,9 @@ void GameMap::setGameWorld(GameWorld *gameWorld)
 	m_pGameWorld = gameWorld;
 	CC_SAFE_RETAIN(m_pGameWorld);
 	
+}
+
+void GameMap::move(Point point)
+{
+	this->setPosition(this->getPosition() - point);
 }

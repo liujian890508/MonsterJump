@@ -2,29 +2,27 @@
 #define __GAMEMAPLOGIC_H__
 
 #include "cocos2d.h"
-#include "GameMap.h"
+#include "GameWorld.h"
 #include "BaseSprite.h"
 #include "TypeInfoDef.h"
 USING_NS_CC;
 
-class GameMapLogic
+class GameLogic
 {
 public:
-	GameMapLogic();
-	~GameMapLogic();
+	GameLogic();
+	~GameLogic();
 
-	bool initWithGameMap(GameMap *gameMap);
+	bool initWithGameMap(GameWorld *gameWorld);
 
-	static GameMapLogic* create(GameMap *gameMap);
+	static GameLogic* create(GameWorld *gameWorld);
 
 	void update(float dt);
-
-	void checkContact(BaseSprite* wall);
     
     void moveMapByHero();
 
 private:
-	GameMap		*m_pGameMap;
+	GameWorld		*m_pGameWorld;
 };
 
 #endif

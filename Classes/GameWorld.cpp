@@ -3,18 +3,22 @@
 #include "GameUI.h"
 #include "HeroSprite.h"
 #include "VisibleRect.h"
+#include "GameLogic.h"
 
 GameWorld::GameWorld()
 {
+	m_pGameLogic = nullptr;
 }
 
 
 GameWorld::~GameWorld()
 {
+	delete this->m_pGameLogic;
 }
 
 bool GameWorld::init()
 {
+	this->m_pGameLogic = GameLogic::create(this);
 	this->initWithUI();
 	this->initWithMap();
 	return true;
@@ -48,7 +52,6 @@ bool GameWorld::databind(void *data)
     int id;
     std::string desc;
     std::tie(id, desc) = *static_cast<std::tuple<int, std::string>*>(data);
-    CCLOG("%d -- %s", id, desc.c_str());
 	return true;
 }
 
@@ -63,10 +66,21 @@ void GameWorld::startGame()
 {
 	this->m_pGameMap->startGame();
 	this->m_pHeroSprite->startJump();
+	this->scheduleUpdate();
 }
 
 void GameWorld::gameOver()
 {
 	this->m_pGameMap->gameOver();
-	//this->m_pHeroSprite->gameOver();
+}
+
+void GameWorld::move(Point point)
+{
+	this->m_pGameMap->move(point);
+	this->m_pGameUI->move(point);
+}
+
+void GameWorld::update(float dt)
+{
+	this->m_pGameLogic->update(dt);
 }

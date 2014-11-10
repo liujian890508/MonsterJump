@@ -119,10 +119,10 @@ void HeroSprite::changeState(HeroState state)
 	switch (state)
 	{
 	case kState_fall:
-		animate = Utils::getAnimate("fall/rabbit_fall_", 1, 8);
+		animate = Utils::getAnimate("fall/rabbit_fall_", 1, 8, 0.05f);
 		break;
 	case kState_jump:
-		animate = Utils::getAnimate("jump/rabbit_jump_", 1, 7, 0.02);
+		animate = Utils::getAnimate("jump/rabbit_jump_", 1, 7, 0.02f);
 		break;
 	case kState_rush:
 		animate = Utils::getAnimate("rush/rabbit_rush_", 1, 8);
@@ -147,5 +147,9 @@ void HeroSprite::changeDir(MoveDir dir)
 	else if ((dir == MoveDir_Down || dir == MoveDir_Up) && _moveUpOrDown != dir)
 	{
 		_moveUpOrDown = dir;
+		if (_moveUpOrDown == MoveDir_Down)
+		{
+			this->changeState(kState_fall);
+		}
 	}
 }

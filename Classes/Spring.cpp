@@ -1,20 +1,20 @@
-#include "Gold.h"
+#include "Spring.h"
 
 
-Gold::Gold()
+Spring::Spring()
 {
 }
 
 
-Gold::~Gold()
+Spring::~Spring()
 {
 }
 
-bool Gold::initEntity()
+bool Spring::initEntity()
 {
 	if (!BaseEntity::initWithFile(m_sSource)) return false;
 	this->getTexture()->setAliasTexParameters();
 	this->setPosition(_initVec + getContentSize() / 2);
-	this->setEntityType(kType_Gold);
+	this->setEntityType(kType_Spring);
 	return true;
 }

@@ -9,7 +9,10 @@ enum EntityType
 	kType_Hero,
 	kType_Normal,
 	kType_Collapsar,
-	kType_Plane
+	kType_Plane,
+	kType_Gold,
+	kType_Bird,
+	kType_Spring
 };
 
 enum MoveDir
