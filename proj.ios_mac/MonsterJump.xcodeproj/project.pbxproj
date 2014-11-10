@@ -9,14 +9,21 @@
 /* Begin PBXBuildFile section */
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
-		1D5BAD411A0BA9F900CCA9C6 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5BAD391A0BA9F800CCA9C6 /* CloseNormal.png */; };
-		1D5BAD421A0BA9F900CCA9C6 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5BAD3A1A0BA9F800CCA9C6 /* CloseSelected.png */; };
-		1D5BAD431A0BA9F900CCA9C6 /* elementStone013.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5BAD3B1A0BA9F800CCA9C6 /* elementStone013.png */; };
-		1D5BAD441A0BA9F900CCA9C6 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1D5BAD3C1A0BA9F800CCA9C6 /* fonts */; };
-		1D5BAD451A0BA9F900CCA9C6 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5BAD3D1A0BA9F800CCA9C6 /* HelloWorld.png */; };
-		1D5BAD461A0BA9F900CCA9C6 /* map in Resources */ = {isa = PBXBuildFile; fileRef = 1D5BAD3E1A0BA9F800CCA9C6 /* map */; };
-		1D5BAD471A0BA9F900CCA9C6 /* player in Resources */ = {isa = PBXBuildFile; fileRef = 1D5BAD3F1A0BA9F800CCA9C6 /* player */; };
-		1D5BAD481A0BA9F900CCA9C6 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 1D5BAD401A0BA9F900CCA9C6 /* res */; };
+		1D3C66001A0E4C7B000C7AF2 /* Bird.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C65F61A0E4C7B000C7AF2 /* Bird.cpp */; };
+		1D3C66011A0E4C7B000C7AF2 /* Collapsar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C65F81A0E4C7B000C7AF2 /* Collapsar.cpp */; };
+		1D3C66021A0E4C7B000C7AF2 /* Gold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C65FA1A0E4C7B000C7AF2 /* Gold.cpp */; };
+		1D3C66031A0E4C7B000C7AF2 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C65FC1A0E4C7B000C7AF2 /* ObjectManager.cpp */; };
+		1D3C66041A0E4C7B000C7AF2 /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C65FE1A0E4C7B000C7AF2 /* Plane.cpp */; };
+		1D3C660F1A0E4C98000C7AF2 /* blue_land.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C66051A0E4C98000C7AF2 /* blue_land.png */; };
+		1D3C66101A0E4C98000C7AF2 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C66061A0E4C98000C7AF2 /* CloseNormal.png */; };
+		1D3C66111A0E4C98000C7AF2 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C66071A0E4C98000C7AF2 /* CloseSelected.png */; };
+		1D3C66121A0E4C98000C7AF2 /* effect in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C66081A0E4C98000C7AF2 /* effect */; };
+		1D3C66131A0E4C98000C7AF2 /* elementStone013.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C66091A0E4C98000C7AF2 /* elementStone013.png */; };
+		1D3C66141A0E4C98000C7AF2 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C660A1A0E4C98000C7AF2 /* fonts */; };
+		1D3C66151A0E4C98000C7AF2 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C660B1A0E4C98000C7AF2 /* HelloWorld.png */; };
+		1D3C66161A0E4C98000C7AF2 /* map in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C660C1A0E4C98000C7AF2 /* map */; };
+		1D3C66171A0E4C98000C7AF2 /* player in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C660D1A0E4C98000C7AF2 /* player */; };
+		1D3C66181A0E4C98000C7AF2 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C660E1A0E4C98000C7AF2 /* res */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DBDF5E81A07B318003212BD /* GameMapLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBDF5E51A07B318003212BD /* GameMapLogic.cpp */; };
 		1DBFCD621A05CAA7005AB74D /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD341A05CAA7005AB74D /* AppDelegate.cpp */; };
@@ -138,14 +145,27 @@
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D5BAD391A0BA9F800CCA9C6 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		1D5BAD3A1A0BA9F800CCA9C6 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		1D5BAD3B1A0BA9F800CCA9C6 /* elementStone013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elementStone013.png; sourceTree = "<group>"; };
-		1D5BAD3C1A0BA9F800CCA9C6 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		1D5BAD3D1A0BA9F800CCA9C6 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
-		1D5BAD3E1A0BA9F800CCA9C6 /* map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = map; sourceTree = "<group>"; };
-		1D5BAD3F1A0BA9F800CCA9C6 /* player */ = {isa = PBXFileReference; lastKnownFileType = folder; path = player; sourceTree = "<group>"; };
-		1D5BAD401A0BA9F900CCA9C6 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		1D3C65F51A0E4C7B000C7AF2 /* BaseSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSprite.h; sourceTree = "<group>"; };
+		1D3C65F61A0E4C7B000C7AF2 /* Bird.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bird.cpp; sourceTree = "<group>"; };
+		1D3C65F71A0E4C7B000C7AF2 /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
+		1D3C65F81A0E4C7B000C7AF2 /* Collapsar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collapsar.cpp; sourceTree = "<group>"; };
+		1D3C65F91A0E4C7B000C7AF2 /* Collapsar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collapsar.h; sourceTree = "<group>"; };
+		1D3C65FA1A0E4C7B000C7AF2 /* Gold.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gold.cpp; sourceTree = "<group>"; };
+		1D3C65FB1A0E4C7B000C7AF2 /* Gold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gold.h; sourceTree = "<group>"; };
+		1D3C65FC1A0E4C7B000C7AF2 /* ObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectManager.cpp; sourceTree = "<group>"; };
+		1D3C65FD1A0E4C7B000C7AF2 /* ObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectManager.h; sourceTree = "<group>"; };
+		1D3C65FE1A0E4C7B000C7AF2 /* Plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plane.cpp; sourceTree = "<group>"; };
+		1D3C65FF1A0E4C7B000C7AF2 /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
+		1D3C66051A0E4C98000C7AF2 /* blue_land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_land.png; sourceTree = "<group>"; };
+		1D3C66061A0E4C98000C7AF2 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
+		1D3C66071A0E4C98000C7AF2 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		1D3C66081A0E4C98000C7AF2 /* effect */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effect; sourceTree = "<group>"; };
+		1D3C66091A0E4C98000C7AF2 /* elementStone013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elementStone013.png; sourceTree = "<group>"; };
+		1D3C660A1A0E4C98000C7AF2 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		1D3C660B1A0E4C98000C7AF2 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
+		1D3C660C1A0E4C98000C7AF2 /* map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = map; sourceTree = "<group>"; };
+		1D3C660D1A0E4C98000C7AF2 /* player */ = {isa = PBXFileReference; lastKnownFileType = folder; path = player; sourceTree = "<group>"; };
+		1D3C660E1A0E4C98000C7AF2 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* MonsterJump iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MonsterJump iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DBDF5E51A07B318003212BD /* GameMapLogic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMapLogic.cpp; sourceTree = "<group>"; };
 		1DBDF5E61A07B318003212BD /* GameMapLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMapLogic.h; sourceTree = "<group>"; };
@@ -503,14 +523,16 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1D5BAD391A0BA9F800CCA9C6 /* CloseNormal.png */,
-				1D5BAD3A1A0BA9F800CCA9C6 /* CloseSelected.png */,
-				1D5BAD3B1A0BA9F800CCA9C6 /* elementStone013.png */,
-				1D5BAD3C1A0BA9F800CCA9C6 /* fonts */,
-				1D5BAD3D1A0BA9F800CCA9C6 /* HelloWorld.png */,
-				1D5BAD3E1A0BA9F800CCA9C6 /* map */,
-				1D5BAD3F1A0BA9F800CCA9C6 /* player */,
-				1D5BAD401A0BA9F900CCA9C6 /* res */,
+				1D3C66051A0E4C98000C7AF2 /* blue_land.png */,
+				1D3C66061A0E4C98000C7AF2 /* CloseNormal.png */,
+				1D3C66071A0E4C98000C7AF2 /* CloseSelected.png */,
+				1D3C66081A0E4C98000C7AF2 /* effect */,
+				1D3C66091A0E4C98000C7AF2 /* elementStone013.png */,
+				1D3C660A1A0E4C98000C7AF2 /* fonts */,
+				1D3C660B1A0E4C98000C7AF2 /* HelloWorld.png */,
+				1D3C660C1A0E4C98000C7AF2 /* map */,
+				1D3C660D1A0E4C98000C7AF2 /* player */,
+				1D3C660E1A0E4C98000C7AF2 /* res */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -519,6 +541,17 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1D3C65F51A0E4C7B000C7AF2 /* BaseSprite.h */,
+				1D3C65F61A0E4C7B000C7AF2 /* Bird.cpp */,
+				1D3C65F71A0E4C7B000C7AF2 /* Bird.h */,
+				1D3C65F81A0E4C7B000C7AF2 /* Collapsar.cpp */,
+				1D3C65F91A0E4C7B000C7AF2 /* Collapsar.h */,
+				1D3C65FA1A0E4C7B000C7AF2 /* Gold.cpp */,
+				1D3C65FB1A0E4C7B000C7AF2 /* Gold.h */,
+				1D3C65FC1A0E4C7B000C7AF2 /* ObjectManager.cpp */,
+				1D3C65FD1A0E4C7B000C7AF2 /* ObjectManager.h */,
+				1D3C65FE1A0E4C7B000C7AF2 /* Plane.cpp */,
+				1D3C65FF1A0E4C7B000C7AF2 /* Plane.h */,
 				1DBDF5E51A07B318003212BD /* GameMapLogic.cpp */,
 				1DBDF5E61A07B318003212BD /* GameMapLogic.h */,
 				1DBDF5E71A07B318003212BD /* TypeInfoDef.h */,
@@ -706,35 +739,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D5BAD461A0BA9F900CCA9C6 /* map in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				1D5BAD481A0BA9F900CCA9C6 /* res in Resources */,
-				1D5BAD411A0BA9F900CCA9C6 /* CloseNormal.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
+				1D3C66161A0E4C98000C7AF2 /* map in Resources */,
+				1D3C66131A0E4C98000C7AF2 /* elementStone013.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				1D3C660F1A0E4C98000C7AF2 /* blue_land.png in Resources */,
+				1D3C66121A0E4C98000C7AF2 /* effect in Resources */,
+				1D3C66101A0E4C98000C7AF2 /* CloseNormal.png in Resources */,
+				1D3C66141A0E4C98000C7AF2 /* fonts in Resources */,
+				1D3C66181A0E4C98000C7AF2 /* res in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				1D3C66151A0E4C98000C7AF2 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
-				1D5BAD421A0BA9F900CCA9C6 /* CloseSelected.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
-				1D5BAD471A0BA9F900CCA9C6 /* player in Resources */,
+				1D3C66171A0E4C98000C7AF2 /* player in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
-				1D5BAD441A0BA9F900CCA9C6 /* fonts in Resources */,
 				1DBFCDA71A05CCD3005AB74D /* ShareSDKLocalizable.strings in Resources */,
 				1DBFCDAB1A05CCD4005AB74D /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				1D3C66111A0E4C98000C7AF2 /* CloseSelected.png in Resources */,
 				1DBFCDAD1A05CCD4005AB74D /* WeiboSDK.bundle in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				1DBFCDA81A05CCD3005AB74D /* Resource.bundle in Resources */,
-				1D5BAD431A0BA9F900CCA9C6 /* elementStone013.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
-				1D5BAD451A0BA9F900CCA9C6 /* HelloWorld.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				1DBFCDB01A05CCD4005AB74D /* ShareSDKFlatShareViewUI.bundle in Resources */,
 			);
@@ -760,15 +795,20 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				1DBFCD721A05CAA7005AB74D /* Utils.cpp in Sources */,
 				1DBFCD711A05CAA7005AB74D /* ShareManager.cpp in Sources */,
+				1D3C66011A0E4C7B000C7AF2 /* Collapsar.cpp in Sources */,
 				1DBFCD731A05CAA7005AB74D /* VisibleRect.cpp in Sources */,
 				1DBFCD671A05CAA7005AB74D /* C2DXiOSShareSDK.mm in Sources */,
 				1DBFCD701A05CAA7005AB74D /* NormalWall.cpp in Sources */,
 				1DBFCD6E1A05CAA7005AB74D /* HeroSprite.cpp in Sources */,
 				1DBFCD6A1A05CAA7005AB74D /* GameMap.cpp in Sources */,
+				1D3C66021A0E4C7B000C7AF2 /* Gold.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				1D3C66031A0E4C7B000C7AF2 /* ObjectManager.cpp in Sources */,
 				1DBFCD681A05CAA7005AB74D /* Dialog.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1DBFCD691A05CAA7005AB74D /* DialogManager.cpp in Sources */,
+				1D3C66001A0E4C7B000C7AF2 /* Bird.cpp in Sources */,
+				1D3C66041A0E4C7B000C7AF2 /* Plane.cpp in Sources */,
 				1DBFCD6D1A05CAA7005AB74D /* HelloWorldScene.cpp in Sources */,
 				1DBDF5E81A07B318003212BD /* GameMapLogic.cpp in Sources */,
 				1DBFCD661A05CAA7005AB74D /* C2DXShareSDK.cpp in Sources */,
@@ -817,8 +857,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ren wang (4DV3HVTLTV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ren wang (4DV3HVTLTV)";
 				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -850,7 +890,7 @@
 					/Volumes/liujian/Study/git_res/MonsterJump/sdk/ShareSDK/Extend/SinaWeiboSDK,
 					/Volumes/liujian/Study/git_res/MonsterJump/sdk/ShareSDK/Extend/WeChatSDK,
 				);
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0aa7a6e0-1d98-4866-bda0-b2b422745e9b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -862,8 +902,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ren wang (8HEK49T79L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ren wang (8HEK49T79L)";
 				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -893,7 +933,7 @@
 					/Volumes/liujian/Study/git_res/MonsterJump/sdk/ShareSDK/Extend/SinaWeiboSDK,
 					/Volumes/liujian/Study/git_res/MonsterJump/sdk/ShareSDK/Extend/WeChatSDK,
 				);
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bcdf386f-1656-4604-8c29-40b89baf963a";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
