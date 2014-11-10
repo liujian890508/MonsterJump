@@ -3,6 +3,7 @@
 #include "VisibleRect.h"
 #include "Utils.h"
 #include "HomeLayer.h"
+#include "Background.h"
 
 GameUI::GameUI()
 {
@@ -23,9 +24,8 @@ void GameUI::setGameWorld(GameWorld *gameWorld)
 
 bool GameUI::init()
 {
-	auto bgSprite = Sprite::create("blue_land.png");
-	bgSprite->setPosition(VisibleRect::center());
-	this->addChild(bgSprite);
+	m_pBgSprite = Background::create();
+	this->addChild(m_pBgSprite);
 
 	auto closeMenu = MenuItemFont::create("Close", [=](Ref *pSender){
 		Utils::replaceScene(HomeLayer::create());
@@ -34,4 +34,10 @@ bool GameUI::init()
 	this->addChild(menu);
 	menu->setPosition(VisibleRect::rightTop() - closeMenu->getContentSize() / 2);
 	return true;
+}
+
+void GameUI::move(Point point)
+{
+	Point newPos = m_pBgSprite->getPosition() - point;
+	m_pBgSprite->setPosition(newPos);
 }

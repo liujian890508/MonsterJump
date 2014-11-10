@@ -5,6 +5,7 @@
 #include "TypeInfoDef.h"
 USING_NS_CC;
 
+class HeroSprite;
 class BaseSprite : public Sprite
 {
 public:
@@ -13,6 +14,8 @@ public:
 
 	EntityType getEntityType() const { return m_entityType; }
 	void setEntityType(EntityType type){ this->m_entityType = type; }
+
+	virtual void checkContact(HeroSprite *heroSprite){}
 
 protected:
 

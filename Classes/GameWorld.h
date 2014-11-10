@@ -6,6 +6,7 @@
 class GameMap;
 class GameUI;
 class HeroSprite;
+class GameLogic;
 class GameWorld: public BaseLayer<GameWorld>
 {
 public:
@@ -24,6 +25,10 @@ public:
 	void startGame();
 	void gameOver();
 
+	void update(float dt);
+
+	void move(Point point);
+
 	GameMap* getGameMap() const { return m_pGameMap; }
 	GameUI* getGameUI() const{ return m_pGameUI; }
     HeroSprite* getHero() const { return m_pHeroSprite; }
@@ -32,6 +37,7 @@ private:
 	GameMap		*m_pGameMap;
 	GameUI		*m_pGameUI;
 	HeroSprite  *m_pHeroSprite;
+	GameLogic	*m_pGameLogic;
 };
 
 #endif

@@ -84,9 +84,6 @@
     <ClCompile Include="..\Classes\NormalWall.cpp">
       <Filter>src\wall</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameMapLogic.cpp">
-      <Filter>src\logic</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Collapsar.cpp">
       <Filter>src\items</Filter>
     </ClCompile>
@@ -101,6 +98,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Gold.cpp">
       <Filter>src\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Background.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Spring.cpp">
+      <Filter>src\items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameLogic.cpp">
+      <Filter>src\logic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +170,6 @@
     <ClInclude Include="..\Classes\TypeInfoDef.h">
       <Filter>src\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameMapLogic.h">
-      <Filter>src\logic</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Collapsar.h">
       <Filter>src\items</Filter>
     </ClInclude>
@@ -184,6 +187,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Gold.h">
       <Filter>src\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Background.h">
+      <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Spring.h">
+      <Filter>src\items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameLogic.h">
+      <Filter>src\logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
