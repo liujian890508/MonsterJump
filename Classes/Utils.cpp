@@ -27,7 +27,8 @@ Animate* Utils::getAnimate(std::string prefix, int begin, int end, float time)
 	Vector<SpriteFrame*> spriteFrames;
 	for (int i = begin; i < end; i++)
 	{
-		std::string fileName = prefix + std::to_string(i) + ".png";
+		const char * sIndex = CCString::createWithFormat("%0.5d",i)->getCString();
+		std::string fileName = prefix + sIndex + ".png";
 		auto spriteFrame = Utils::getSpriteFrame(fileName);
 		spriteFrames.pushBack(spriteFrame);
 	}

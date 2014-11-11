@@ -119,19 +119,19 @@ void HeroSprite::changeState(HeroState state)
 	switch (state)
 	{
 	case kState_fall:
-		animate = Utils::getAnimate("fall/rabbit_fall_", 1, 8, 0.05);
+		animate = Utils::getAnimate("rabbit_", 7, 12, 0.05);
 		break;
 	case kState_jump:
-		animate = Utils::getAnimate("jump/rabbit_jump_", 1, 7, 0.05);
+		animate = Utils::getAnimate("rabbit_", 1, 6, 0.05);
 		break;
 	case kState_rush:
-		animate = Utils::getAnimate("rush/rabbit_rush_", 1, 8);
+		animate = Utils::getAnimate("rabbit_", 13, 18);
 		break;
 	case kState_rush_end:
-		animate = Utils::getAnimate("rush_end/rabbit_rush2_", 1, 8);
+		animate = Utils::getAnimate("rabbit_", 19, 24);
 		break;
 	case kState_walk:
-		animate = Utils::getAnimate("walk/rabbit_walk_", 1, 14);
+		animate = Utils::getAnimate("rabbit_", 25, 35);
 		break;
 	}
 	this->runAction(animate);

@@ -2,7 +2,7 @@
 <data version="1.0">
     <struct type="Settings">
         <key>fileFormatVersion</key>
-        <int>0</int>
+        <int>1</int>
         <key>variation</key>
         <string>main</string>
         <key>verbose</key>
@@ -74,7 +74,7 @@
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
-            <enum type="AlgorithmSettings::SizeConstraints">POT</enum>
+            <enum type="AlgorithmSettings::SizeConstraints">AnySize</enum>
             <key>forceSquared</key>
             <false/>
             <key>forceWordAligned</key>
@@ -141,7 +141,7 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>player</filename>
+            <filename>all</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
