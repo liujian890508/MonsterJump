@@ -43,12 +43,19 @@ import cn.sharesdk.ShareSDKUtils;
 
 public class AppActivity extends Cocos2dxActivity {
 	
+	private static AppActivity _instance;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		_instance = this;
 		
 		this.initShareSDK();
 		this.initAdManager();
+	}
+	
+	public static AppActivity getInstance(){
+		return _instance;
 	}
 	
 	private void initAdManager(){
