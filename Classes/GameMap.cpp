@@ -108,12 +108,11 @@ void GameMap::loadObject(experimental::TMXTiledMap *map, int height)
 
 void GameMap::startGame()
 {
-	this->scheduleUpdate();
+	
 }
 
 void GameMap::gameOver()
 {
-	this->unscheduleUpdate();
 	this->runAction(MoveBy::create(0.2f, Point(0, VisibleRect::top().y)));
 }
 

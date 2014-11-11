@@ -73,6 +73,7 @@ void GameWorld::startGame()
 
 void GameWorld::gameOver()
 {
+	this->unscheduleUpdate();
 	this->m_pGameMap->gameOver();
 }
 

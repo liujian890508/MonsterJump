@@ -90,6 +90,7 @@ void HeroSprite::setPositionY(float y)
 	this->_moveUpOrDown = MoveDir_None;
 	this->_time = 0.0f;
 	BaseEntity::setPositionY(y);
+	_previousPos = Point(_previousPos.x, y);
 	this->_startPos = y;
 	this->changeState(kState_jump);
 }
