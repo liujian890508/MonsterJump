@@ -54,9 +54,15 @@ public class AppActivity extends Cocos2dxActivity {
 		this.initAdManager();
 	}
 	
-	public static AppActivity getInstance(){
+	public static Object getInstance(){
 		return _instance;
 	}
+	
+	private void initShareSDK(){
+		ShareSDKUtils.prepare();
+	}
+	
+	public native void adsResultCallback(int resultCode);
 	
 	private void initAdManager(){
 		AdManager.getInstance(this).init("4bab86630bbf80a7", "451a4f3fe73c639b", true);
@@ -66,66 +72,56 @@ public class AppActivity extends Cocos2dxActivity {
 		
 		FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.FILL_PARENT,
 				FrameLayout.LayoutParams.WRAP_CONTENT);
-		// 设置广告条的悬浮位置
-		layoutParams.gravity = Gravity.BOTTOM | Gravity.RIGHT; // 这里示例为右下角
-		// 实例化广告条
+		layoutParams.gravity = Gravity.BOTTOM | Gravity.RIGHT; 
 		AdView adView = new AdView(this, AdSize.FIT_SCREEN);
 		this.addContentView(adView, layoutParams);
-		// 监听广告条接口
 		adView.setAdListener(new AdViewListener() {
 			@Override
 			public void onSwitchedAd(AdView arg0) {
-				Log.i("YoumiAdDemo", "广告条切换");
+				Log.i("AppActivity", "骞垮憡鍒囨崲");
+				adsResultCallback(0);
 			}
 			@Override
 			public void onReceivedAd(AdView arg0) {
-				Log.i("YoumiAdDemo", "请求广告成功");
+				Log.i("AppActivity", "璇锋眰鎴愬姛");
+				adsResultCallback(1);
 			}
 			@Override
 			public void onFailedToReceivedAd(AdView arg0) {
-				Log.i("YoumiAdDemo", "请求广告失败");
+				Log.i("AppActivity", "璇锋眰澶辫触");
+				adsResultCallback(2);
 			}
 		});
 		
-		// 加载插播资源
-		SpotManager.getInstance(this).loadSpotAds();
-		SpotManager.getInstance(this).setShowInterval(20);// 设置20秒的显示时间间隔
+		SpotManager.getInstance(this).setShowInterval(20);
 		SpotManager.getInstance(this).setSpotOrientation(
 				SpotManager.ORIENTATION_PORTRAIT);
+		SpotManager.getInstance(this).loadSpotAds();
 	}
 	
 	public void showSpotAds(){
-		// 展示插播广告，可以不调用loadSpot独立使用
-		if(SpotManager.getInstance(this).checkLoadComplete()){
-			SpotManager.getInstance(AppActivity.this).showSpotAds(
-					AppActivity.this, new SpotDialogListener() {
-						@Override
-						public void onShowSuccess() {
-							Log.i("YoumiAdDemo", "展示成功");
-						}
-						@Override
-						public void onShowFailed() {
-							Log.i("YoumiAdDemo", "展示失败");
-						}
-						@Override
-						public void onSpotClosed() {
-							Log.e("YoumiAdDemo", "插屏关闭");
-						}
-					}); // //
-		}
-		// 可以根据需要设置Theme，如下调用，如果无特殊需求，直接调用上方的接口即可
-		// SpotManager.getInstance(YoumiAdDemo.this).showSpotAds(YoumiAdDemo.this,
-		// android.R.style.Theme_Translucent_NoTitleBar);
-		// //
-	}
-	
-	private void initShareSDK(){
-		ShareSDKUtils.prepare();
+		SpotManager.getInstance(this).showSpotAds(
+				this, new SpotDialogListener() {
+					@Override
+					public void onShowSuccess() {
+						Log.i("AppActivity", "灞曠ず鎴愬姛");
+						adsResultCallback(3);
+					}
+					@Override
+					public void onShowFailed() {
+						Log.i("AppActivity", "鏄剧ず閿欒");
+						adsResultCallback(4);
+					}
+					@Override
+					public void onSpotClosed() {
+						Log.e("AppActivity", "骞垮憡鍏抽棴");
+						adsResultCallback(5);
+					}
+				}); 
 	}
 	
 	@Override
 	public void onBackPressed() {
-		// 如果有需要，可以点击后退关闭插播广告。
 		if (!SpotManager.getInstance(AppActivity.this).disMiss(true)) {
 			super.onBackPressed();
 		}
@@ -133,7 +129,6 @@ public class AppActivity extends Cocos2dxActivity {
 	
 	@Override
 	protected void onStop() {
-		// 如果不调用此方法，则按home键的时候会出现图标无法显示的情况。
 		SpotManager.getInstance(AppActivity.this).disMiss(false);
 		super.onStop();
 	}

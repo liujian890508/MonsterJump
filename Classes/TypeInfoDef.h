@@ -39,4 +39,14 @@ enum HeroState
 	kState_walk
 };
 
+enum AdsResultCode
+{
+	ads_adView_switch = 0,
+	ads_adView_success = 1,
+	ads_adView_failed = 2,
+	ads_spot_success = 3,
+	ads_spot_failed = 4,
+	ads_spot_closed = 5
+};
+
 #endif
