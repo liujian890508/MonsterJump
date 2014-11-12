@@ -53,6 +53,31 @@
 		  android:configChanges="keyboardHidden|orientation|screenSize"
 		  android:exported="true"
 		  android:screenOrientation="portrait" />
+		
+		<!-- 有米广告 -->
+		<activity
+		    android:name="net.youmi.android.AdBrowser"
+		    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+		    android:theme="@android:style/Theme.Light.NoTitleBar" >
+		</activity>
+		<service
+		    android:name="net.youmi.android.AdService"
+		    android:exported="false" >
+		</service>
+		<service
+		    android:name="net.youmi.android.ExpService"
+		    android:exported="false" >
+		</service>
+		<receiver
+		    android:name="net.youmi.android.AdReceiver" >
+		    <intent-filter>
+		        <action android:name="android.intent.action.PACKAGE_ADDED" />
+		        <data android:scheme="package" />
+		    </intent-filter>
+		</receiver>
+		<provider
+		    android:name="net.youmi.android.spot.SpotAdContentProvider"
+		    android:authorities="com.xiandiao.jump"/>
         
     </application>
 
@@ -71,4 +96,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest> 

@@ -39,6 +39,7 @@ void ShareManager::setShareAttribute(std::string key, std::string value)
 
 void ShareManager::setDefaultContent()
 {
+	this->clear();
 	this->setShareAttribute("content", "Catapult the box to help it go back home, Play Now!");
 	this->setShareAttribute("image", "http://b383.photo.store.qq.com/psb?/V14A5Hqd22F6Vu/pLIp9K3fHiBbto0dFR49AnvxrUimMQyZhlY7DFqIlSE!/b/dH1gVeTNFgAA&bo=mACYAAAAAAADByI!&rf=viewer_4");
 	this->setShareAttribute("title", "MonsterJump");
@@ -50,5 +51,10 @@ void ShareManager::setDefaultContent()
 void ShareManager::initShareSDK(std::string apiID)
 {
     C2DXShareSDK::open(apiID.c_str(), true);
+}
+
+void ShareManager::clear()
+{
+	m_pContent->removeAllObjects();
 }
 

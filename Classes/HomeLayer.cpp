@@ -3,6 +3,7 @@
 #include "Utils.h"
 #include "GameWorld.h"
 #include "ShareManager.h"
+#include "AdManager.h"
 
 HomeLayer::HomeLayer()
 {
@@ -25,8 +26,11 @@ bool HomeLayer::init()
         ShareMgr->setDefaultContent();
         ShareMgr->sendShare();
     });
-	auto menu = Menu::create(enterMenu, shareMenu, nullptr);
-    menu->alignItemsVerticallyWithPadding(20);
+	auto spotAds = MenuItemFont::create("SpotAds", [=](Ref* pSender){
+		AdMgr->showSpotAds();
+	});
+	auto menu = Menu::create(enterMenu, shareMenu, spotAds, nullptr);
+    menu->alignItemsVerticallyWithPadding(30);
 	this->addChild(menu);
 	menu->setPosition(VisibleRect::center());
 	return true;
