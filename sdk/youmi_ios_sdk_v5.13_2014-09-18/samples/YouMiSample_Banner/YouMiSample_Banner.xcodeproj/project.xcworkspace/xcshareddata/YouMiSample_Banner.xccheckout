@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A383CA30-9906-4874-BCFB-5DA940773C30</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YouMiSample_Banner</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8B28B2CC-8BF0-473B-9C2F-E2E73359DB46</key>
+		<string>ssh://git.umlife.net/ios-sdk/youmisdk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>samples/YouMiSample_Banner/YouMiSample_Banner.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8B28B2CC-8BF0-473B-9C2F-E2E73359DB46</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://git.umlife.net/ios-sdk/youmisdk.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8B28B2CC-8BF0-473B-9C2F-E2E73359DB46</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8B28B2CC-8BF0-473B-9C2F-E2E73359DB46</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dev</string>
+		</dict>
+	</array>
+</dict>
+</plist>

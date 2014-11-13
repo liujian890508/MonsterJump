@@ -28,6 +28,9 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 
+#import "YouMiConfig.h"
+#import "YouMiWall.h"
+
 @implementation AppController
 
 #pragma mark -
@@ -76,6 +79,10 @@ static AppDelegate s_sharedApplication;
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
+    
+    [YouMiConfig launchWithAppID:@"3c5fc2facd917b38" appSecret:@"c120d4b70ab3f858"];
+    [YouMiConfig setUseInAppStore:YES];
+    [YouMiConfig setFullScreenWindow:window];
 
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);

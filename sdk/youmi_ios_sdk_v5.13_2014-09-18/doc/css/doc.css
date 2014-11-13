@@ -1,0 +1,27 @@
+body {
+	padding-top: 60px;
+}
+.sdkhead {
+	padding-top: 60px;
+}
+
+
+/* Separators (hr) */
+.bs-docs-separator {
+  margin: 40px 0 39px;
+}
+
+/* Sections
+-------------------------------------------------- */
+
+/* padding for in-page bookmarks and fixed navbar */
+.sdksection {
+  padding-top: 60px;
+}
+.section > .page-header,
+.section > .lead {
+  color: #5a5a5a;
+}
+.section > ul li {
+  margin-bottom: 5px;
+}
