@@ -28,13 +28,23 @@ void NormalWall::checkContact(HeroSprite *heroSprite)
 		Point wallPos = this->getPosition();
 		Size wallSize = this->getContentSize();
 
-		if (this->getBoundingBox().containsPoint(heroPos) ||
-			this->getBoundingBox().containsPoint(heroPos + Point(30, 0)) ||
-			this->getBoundingBox().containsPoint(heroPos - Point(30, 0)))
+		if (std::abs(heroPos.y - (wallPos.y + wallSize.height / 2)) < 15)
 		{
-			float y = wallPos.y + wallSize.height / 2 - 10;
+			if (heroPos.x > wallPos.x - wallSize.width / 2 && heroPos.x < wallPos.x + wallSize.width / 2)
+			{
+				float y = wallPos.y + wallSize.height / 2 - 5;
+				if (std::fabs(y - heroPos.y) > 5)
+					heroSprite->setPositionY(y);
+			}
+		}
+
+		/*if (this->getBoundingBox().containsPoint(heroPos) ||
+			this->getBoundingBox().containsPoint(heroPos + Point(5, 0)) ||
+			this->getBoundingBox().containsPoint(heroPos - Point(5, 0)))
+		{
+			float y = wallPos.y + wallSize.height / 2 - 5;
 			if (std::fabs(y - heroPos.y) > 5)
 				heroSprite->setPositionY(y);
-		}
+		}*/
 	}
 }

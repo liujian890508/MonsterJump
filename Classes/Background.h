@@ -15,6 +15,8 @@ public:
 
 	bool initCloud();
 
+	void move(Point point);
+
 private:
 
 };

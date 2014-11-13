@@ -46,7 +46,7 @@ void HeroSprite::setAccelerometerEnabled(bool enabled)
 
 void HeroSprite::onAcceleration(Acceleration* acc, Event* unused_event)
 {
-    if( unused_event->getType() == Event::Type::ACCELERATION)
+    if( unused_event->getType() == Event::Type::ACCELERATION && std::abs(acc->x) > 0.03)
     {
         float sensitivity = 25.0;
         float maxVelocity = 30.0f;
