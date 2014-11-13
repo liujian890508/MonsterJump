@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Singleton.h"
+#include "TypeInfoDef.h"
 USING_NS_CC;
 
 class AdManager: public Singleton<AdManager>
@@ -12,6 +13,8 @@ public:
 	~AdManager();
 
 	void showSpotAds();
+
+	void resultRoute(int code);
 };
 
 #define AdMgr AdManager::getInstance()

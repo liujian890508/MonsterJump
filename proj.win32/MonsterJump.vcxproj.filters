@@ -108,6 +108,9 @@
     <ClCompile Include="..\Classes\GameLogic.cpp">
       <Filter>src\logic</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AdManager.cpp">
+      <Filter>src\manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GameLogic.h">
       <Filter>src\logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AdManager.h">
+      <Filter>src\manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

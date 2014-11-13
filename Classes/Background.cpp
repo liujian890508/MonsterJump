@@ -14,11 +14,15 @@ Background::~Background()
 
 bool Background::init()
 {
-	auto bgSprite = Sprite::create("bg.png");
+	auto bgSprite = Sprite::create("bg1.png");
 	this->addChild(bgSprite);
 	bgSprite->setPosition(VisibleRect::center());
 
 	this->initCloud();
+
+	auto treeSprite = Sprite::create("bg.png");
+	this->addChild(treeSprite, 0, 11);
+	treeSprite->setPosition(VisibleRect::center());
 
 	this->scheduleUpdate();
 
@@ -55,4 +59,11 @@ void Background::update(float dt)
 		}
 		sprite->setPosition(newPoint);
 	}
+}
+
+void Background::move(Point point)
+{
+	auto treeSprite = this->getChildByTag(11);
+	Point newPos = treeSprite->getPosition() - point;
+	treeSprite->setPosition(newPos);
 }

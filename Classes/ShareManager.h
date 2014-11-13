@@ -14,6 +14,7 @@ public:
 	void sendShare();
 	void setDefaultContent();
     void initShareSDK(std::string apiID);
+	void clear();
 
 private:
 	Dictionary		*m_pContent;
