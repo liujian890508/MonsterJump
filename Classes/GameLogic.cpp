@@ -3,6 +3,7 @@
 #include "GameWorld.h"
 #include "VisibleRect.h"
 #include "ObjectManager.h"
+#include "GameMap.h"
 
 GameLogic::GameLogic()
 {
@@ -31,6 +32,21 @@ bool GameLogic::initWithGameMap(GameWorld *gameWorld)
 
 void GameLogic::update(float dt)
 {
+	this->checkContact();
+    this->moveMapByHero();
+	this->loadMap();
+}
+
+void GameLogic::loadMap()
+{
+	if (ObjectMgr->size() < 40)
+	{
+		this->m_pGameWorld->getGameMap()->loadMap();
+	}
+}
+
+void GameLogic::checkContact()
+{
 	HeroSprite *heroSprite = this->m_pGameWorld->getHero();
 	for (unsigned int i = 0; i < ObjectMgr->size(); i++)
 	{
@@ -43,7 +59,6 @@ void GameLogic::update(float dt)
 			ObjectMgr->remove(i);
 		}
 	}
-    this->moveMapByHero();
 }
 
 void GameLogic::moveMapByHero()

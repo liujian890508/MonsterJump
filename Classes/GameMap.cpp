@@ -7,6 +7,7 @@
 #include "Bird.h"
 #include "Gold.h"
 #include "Spring.h"
+#include "Utils.h"
 #include "ObjectManager.h"
 
 #include "2d/CCFastTMXTiledMap.h"
@@ -27,6 +28,7 @@ GameMap::~GameMap()
 
 bool GameMap::init()
 {
+	this->m_nCurrentHeight = 0;
 	this->setContentSize(Size(640, 960));
 	this->ignoreAnchorPointForPosition(false);
 	this->setAnchorPoint(Vec2(0.5, 0.5));
@@ -36,18 +38,21 @@ bool GameMap::init()
 
 void GameMap::initWithMap()
 {
-	float height = 0.0f;
 	for (int i = 0; i < 10; i++)
 	{
-		auto map = experimental::TMXTiledMap::create(String::createWithFormat("map/map_%d.tmx", i + 1)->getCString());
-		this->addChild(map, 0, MAP_TAG + i);
-		map->setPosition(VisibleRect::leftBottom() + Point(0, height));
-		this->loadObject(map, height);
-		height += map->getMapSize().height * map->getTileSize().height;
+		this->loadMap(i + 1);
 	}
 }
 
-void GameMap::loadObject(experimental::TMXTiledMap *map, int height)
+void GameMap::loadMap(int mapId)
+{
+	this->m_nMapId = mapId;
+	auto map = experimental::TMXTiledMap::create(String::createWithFormat("map/map_%d.tmx", mapId)->getCString());
+	this->loadObject(map);
+	m_nCurrentHeight += map->getMapSize().height * map->getTileSize().height;
+}
+
+void GameMap::loadObject(experimental::TMXTiledMap *map)
 {
 	TMXObjectGroup *objectGroup = map->getObjectGroup("game");
 	if (objectGroup == nullptr) return;
@@ -61,7 +66,7 @@ void GameMap::loadObject(experimental::TMXTiledMap *map, int height)
 		{
 			auto normalWall = NormalWall::create(objProperties, gidProperties);
 			this->addChild(normalWall);
-            normalWall->setPosition(normalWall->getPosition() + Point(0, height));
+			normalWall->setPosition(normalWall->getPosition() + Point(0, m_nCurrentHeight));
 			ObjectMgr->put(normalWall);
 		}
 		else if (type == "hero")
@@ -72,38 +77,43 @@ void GameMap::loadObject(experimental::TMXTiledMap *map, int height)
 		{
 			auto collapsar = Collapsar::create(objProperties, gidProperties);
 			this->addChild(collapsar);
-			collapsar->setPosition(collapsar->getPosition() + Point(0, height));
+			collapsar->setPosition(collapsar->getPosition() + Point(0, m_nCurrentHeight));
 			ObjectMgr->put(collapsar);
 		}
 		else if (type == "plane")
 		{
 			auto plane = Plane::create(objProperties, gidProperties);
 			this->addChild(plane);
-			plane->setPosition(plane->getPosition() + Point(0, height));
+			plane->setPosition(plane->getPosition() + Point(0, m_nCurrentHeight));
 			ObjectMgr->put(plane);
 		}
 		else if (type == "bird")
 		{
 			auto bird = Bird::create(objProperties, gidProperties);
 			this->addChild(bird);
-			bird->setPosition(bird->getPosition() + Point(0, height));
+			bird->setPosition(bird->getPosition() + Point(0, m_nCurrentHeight));
 			ObjectMgr->put(bird);
 		}
 		else if (type == "gold")
 		{
 			auto gold = Gold::create(objProperties, gidProperties);
 			this->addChild(gold);
-			gold->setPosition(gold->getPosition() + Point(0, height));
+			gold->setPosition(gold->getPosition() + Point(0, m_nCurrentHeight));
 			ObjectMgr->put(gold);
 		}
 		else if (type == "spring")
 		{
 			auto spring = Spring::create(objProperties, gidProperties);
 			this->addChild(spring);
-			spring->setPosition(spring->getPosition() + Point(0, height));
+			spring->setPosition(spring->getPosition() + Point(0, m_nCurrentHeight));
 			ObjectMgr->put(spring);
 		}
 	}
+}
+
+void GameMap::update(float dt)
+{
+	CCLOG("%f -- %f", getPositionX(), getPositionY());
 }
 
 void GameMap::startGame()
@@ -132,4 +142,18 @@ void GameMap::setGameWorld(GameWorld *gameWorld)
 void GameMap::move(Point point)
 {
 	this->setPosition(this->getPosition() - point);
+}
+
+void GameMap::loadMap()
+{
+	int curId = m_nMapId;
+	if (curId >= MAXMAPID)
+	{
+		curId = Utils::getRandomInt(1, MAXMAPID);
+	}
+	else
+	{
+		curId++;
+	}
+	this->loadMap(curId);
 }

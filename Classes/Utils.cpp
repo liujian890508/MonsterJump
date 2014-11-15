@@ -37,6 +37,14 @@ Animate* Utils::getAnimate(std::string prefix, int begin, int end, float time)
 	return animate;
 }
 
+int Utils::getRandomInt(int min, int max)
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dis(min, max);
+	return dis(gen);
+}
+
 void Utils::testRandom()
 {
 	std::random_device rd;

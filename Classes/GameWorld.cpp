@@ -4,6 +4,8 @@
 #include "HeroSprite.h"
 #include "VisibleRect.h"
 #include "GameLogic.h"
+#include "Background.h"
+#include "ObjectManager.h"
 
 GameWorld::GameWorld()
 {
@@ -18,10 +20,13 @@ GameWorld::~GameWorld()
 
 bool GameWorld::init()
 {
+	m_pBgSprite = Background::create();
+	this->addChild(m_pBgSprite);
+
 	this->m_pGameLogic = GameLogic::create(this);
 	addKeyboardSupport();
-	this->initWithUI();
 	this->initWithMap();
+	this->initWithUI();
 	return true;
 }
  
@@ -61,6 +66,7 @@ bool GameWorld::initHeroSprite(ValueMap &objProperties, ValueMap& gidProperties)
 {
 	this->m_pHeroSprite = HeroSprite::create(objProperties,gidProperties);
 	this->m_pGameMap->addChild(m_pHeroSprite, 10);
+	ObjectMgr->put(m_pHeroSprite);
 	return true;
 }
 
@@ -80,18 +86,14 @@ void GameWorld::gameOver()
 void GameWorld::move(Point point)
 {
 	this->m_pGameMap->move(point);
-	this->m_pGameUI->move(point);
+	this->m_pBgSprite->move(point);
 }
 
 void GameWorld::update(float dt)
 {
+	this->m_pGameMap->update(dt);
 	this->m_pGameLogic->update(dt);
 }
-
-
-
-
-
 
 void GameWorld::onKeyPressed( cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event )
 {

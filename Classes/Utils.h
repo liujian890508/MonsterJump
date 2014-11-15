@@ -15,6 +15,8 @@ public:
 
 	static Animate* getAnimate(std::string prefix, int begin, int end, float time = 0.1f);
 
+	static int getRandomInt(int min, int max);
+
 	static void testRandom();
 };
 

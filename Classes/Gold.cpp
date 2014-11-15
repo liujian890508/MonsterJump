@@ -19,6 +19,7 @@ bool Gold::initEntity()
 	this->getTexture()->setAliasTexParameters();
 	this->setPosition(_initVec + getContentSize() / 2);
 	this->setEntityType(kType_Gold);
+
 	return true;
 }
 

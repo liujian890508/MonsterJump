@@ -4,6 +4,8 @@
 #include "BaseLayer.h"
 #include "TypeInfoDef.h"
 
+#define MAXMAPID 10
+
 class GameWorld;
 class GameMap: public BaseLayer<GameMap>
 {
@@ -13,12 +15,15 @@ public:
 
 	virtual bool init();
 	void initWithMap();
-	void loadObject(experimental::TMXTiledMap *map, int height);
+	void loadObject(experimental::TMXTiledMap *map);
 	virtual bool databind(void *data);
 
 	void startGame();
 	void gameOver();
 
+	void update(float dt);
+	void loadMap();
+	void loadMap(int mapId);
 	void move(Point point);
 
 	void setGameWorld(GameWorld *gameWorld);
@@ -26,6 +31,8 @@ public:
 
 private:
 	GameWorld		*m_pGameWorld;
+	int				m_nCurrentHeight;
+	int				m_nMapId;
 };
 
 #endif

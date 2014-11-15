@@ -7,6 +7,7 @@ class GameMap;
 class GameUI;
 class HeroSprite;
 class GameLogic;
+class Background;
 class GameWorld: public BaseLayer<GameWorld>
 {
 public:
@@ -43,6 +44,7 @@ private:
 	GameUI		*m_pGameUI;
 	HeroSprite  *m_pHeroSprite;
 	GameLogic	*m_pGameLogic;
+	Background	*m_pBgSprite;
 };
 
 #endif

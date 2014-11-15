@@ -20,6 +20,8 @@ public:
 	void update(float dt);
     
     void moveMapByHero();
+	void checkContact();
+	void loadMap();
 
 private:
 	GameWorld		*m_pGameWorld;
