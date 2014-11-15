@@ -37,5 +37,9 @@ void ObjectManager::remove(int i)
 
 void ObjectManager::remove(BaseSprite* entity)
 {
-
+	std::vector<BaseSprite*>::iterator it = std::find(_allObjects.begin(), _allObjects.end(), entity);
+	if (it != _allObjects.end())
+	{
+		_allObjects.erase(it);
+	}
 }

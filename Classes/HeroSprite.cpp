@@ -46,7 +46,7 @@ void HeroSprite::setAccelerometerEnabled(bool enabled)
 
 void HeroSprite::onAcceleration(Acceleration* acc, Event* unused_event)
 {
-    if( unused_event->getType() == Event::Type::ACCELERATION)
+    if( unused_event->getType() == Event::Type::ACCELERATION && std::abs(acc->x) > 0.03)
     {
         float sensitivity = 25.0;
         float maxVelocity = 30.0f;
@@ -120,10 +120,10 @@ void HeroSprite::changeState(HeroState state)
 	switch (state)
 	{
 	case kState_fall:
-		animate = Utils::getAnimate("rabbit_", 7, 12, 0.05);
+		animate = Utils::getAnimate("rabbit_", 7, 12, 0.05f);
 		break;
 	case kState_jump:
-		animate = Utils::getAnimate("rabbit_", 1, 6, 0.05);
+		animate = Utils::getAnimate("rabbit_", 1, 6, 0.05f);
 		break;
 	case kState_rush:
 		animate = Utils::getAnimate("rabbit_", 13, 18);

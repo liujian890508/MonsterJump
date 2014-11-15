@@ -10,9 +10,16 @@ public:
 	Gold();
 	~Gold();
 
+	virtual void checkContact(HeroSprite *heroSprite);
+
+	void playMoveAni();
+
 protected:
 	
 	bool initEntity();
+
+private:
+	bool		m_bIsContact;
 };
 
 #endif

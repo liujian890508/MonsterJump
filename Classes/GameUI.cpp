@@ -38,6 +38,5 @@ bool GameUI::init()
 
 void GameUI::move(Point point)
 {
-	Point newPos = m_pBgSprite->getPosition() - point;
-	m_pBgSprite->setPosition(newPos);
+	this->m_pBgSprite->move(point);
 }
