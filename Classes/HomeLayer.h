@@ -10,6 +10,8 @@ public:
 	~HomeLayer();
 
 	bool init();
+	bool initOther();
+	bool initRole();
 	bool loadResource();
 };
 
