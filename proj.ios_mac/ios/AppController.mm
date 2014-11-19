@@ -29,6 +29,8 @@
 #import "RootViewController.h"
 
 #import "YouMiConfig.h"
+#import "YouMiPointsManager.h"
+#import "YouMiView.h"
 #import "YouMiWall.h"
 
 @implementation AppController
@@ -80,9 +82,22 @@ static AppDelegate s_sharedApplication;
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
     
-    [YouMiConfig launchWithAppID:@"3c5fc2facd917b38" appSecret:@"c120d4b70ab3f858"];
     [YouMiConfig setUseInAppStore:YES];
+    [YouMiConfig setIsTesting:YES];
+    [YouMiConfig launchWithAppID:@"3c5fc2facd917b38" appSecret:@"c120d4b70ab3f858"];
+    [YouMiPointsManager enable];
+    [YouMiWall enable];
     [YouMiConfig setFullScreenWindow:window];
+	
+	CGRect rx = [UIScreen mainScreen].bounds;
+    CGFloat minLen = MIN(rx.size.width, rx.size.height);
+    CGFloat maxLen = MAX(rx.size.width, rx.size.height);
+    YouMiView *adView320x50=[[YouMiView alloc] initWithContentSizeIdentifier:YouMiBannerContentSizeIdentifier320x50 delegate:nil];
+    adView320x50.frame = CGRectMake(minLen - 320, maxLen - 50, CGRectGetWidth(adView320x50.bounds), CGRectGetHeight(adView320x50.bounds));
+    adView320x50.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.5];
+    [adView320x50 start];
+    [window addSubview:adView320x50];
+    [adView320x50 release];
 
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
