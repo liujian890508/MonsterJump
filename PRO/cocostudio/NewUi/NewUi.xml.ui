@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<UIProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectDir>D:\Work\cocos\WorkSpace\MonsterJump\PRO\cocostudio\NewUi</ProjectDir>
+  <Version>1.5.0.1</Version>
+  <Resources>D:\Work\cocos\WorkSpace\MonsterJump\PRO\cocostudio\NewUi\Resources</Resources>
+  <Name>NewUi</Name>
+  <JsonFileName>NewUi.json</JsonFileName>
+  <JsonFolder>D:\Work\cocos\WorkSpace\MonsterJump\PRO\cocostudio\NewUi\Json</JsonFolder>
+  <JsonList>
+    <string>UI_Setting.json</string>
+    <string>UI_Store.json</string>
+  </JsonList>
+  <CanvasSize>
+    <Width>640</Width>
+    <Height>800</Height>
+  </CanvasSize>
+  <filePath>D:\Work\cocos\WorkSpace\MonsterJump\PRO\cocostudio\NewUi\NewUi.xml.ui</filePath>
+  <ProjectType>UIProject</ProjectType>
+  <ResRelativePath />
+  <imageFileList />
+  <imagePngList>
+    <string>btn_rank.png</string>
+    <string>btn_rateus.png</string>
+    <string>btn_achivement.png</string>
+    <string>icon_music.png</string>
+    <string>icon_sound.png</string>
+    <string>progress_bg_01.png</string>
+    <string>progress_01.png</string>
+    <string>img_flyshoes.png</string>
+    <string>img_coinmagnet.png</string>
+    <string>img_rushrocket.png</string>
+    <string>img_doublejump.png</string>
+    <string>btn_getfresecoins.png</string>
+    <string>btn_buy.png</string>
+    <string>ui_store2_05.png</string>
+  </imagePngList>
+  <JsonSuffix>.json</JsonSuffix>
+  <CurrentUIJson>UI_Store.json</CurrentUIJson>
+</UIProject>
