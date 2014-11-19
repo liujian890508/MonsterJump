@@ -31,6 +31,9 @@
   <image width="58" height="57" source="item/item_spring.png"/>
  </tile>
  <tile id="6">
+  <properties>
+   <property name="type" value="spring"/>
+  </properties>
   <image width="57" height="57" source="item/item_spring2.png"/>
  </tile>
  <tile id="7">

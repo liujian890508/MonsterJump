@@ -4,6 +4,8 @@
 
 HeroSprite::HeroSprite()
 {
+	this->_accelerated = DEFAULT_ACCELERATED;
+	this->_velocity = DEFAULT_VELOCITY;
 }
 
 
@@ -93,12 +95,14 @@ void HeroSprite::setPositionY(float y)
 	_previousPos = Point(_previousPos.x, y);
 	this->_startPos = y;
 	this->changeState(kState_jump);
+	this->_velocity = DEFAULT_VELOCITY;
 }
 
 void HeroSprite::update(float dt)
 {
-	_time += dt * 3.0f;
-	float s = VELOCITY * _time + ACCELERATED * _time * _time / 2;
+	_time += dt * 2.5f;
+	//215 = 49 * t
+	float s = this->_velocity * _time + _accelerated * _time * _time / 2;
 	MoveDir dir = _previousPos.y > getPositionY() ? MoveDir_Down : MoveDir_Up;
 	this->changeDir(dir);
 	_previousPos = getPosition();

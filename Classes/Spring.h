@@ -10,8 +10,13 @@ public:
 	Spring();
 	~Spring();
 
+	virtual void checkContact(HeroSprite *heroSprite);
+
 protected:
 	bool initEntity();
+
+private:
+	bool m_bIsContact;
 };
 
 #endif

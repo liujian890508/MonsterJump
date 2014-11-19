@@ -4,8 +4,8 @@
 #include "BaseEntity.h"
 #include "TypeInfoDef.h"
 
-#define VELOCITY 215
-#define ACCELERATED -98
+#define DEFAULT_VELOCITY 215.0f
+#define DEFAULT_ACCELERATED -98.0f
 
 class HeroSprite: public BaseEntity<HeroSprite>
 {
@@ -33,6 +33,11 @@ public:
 	void changeDir(MoveDir dir);
 
 	void setOffset(float offset);
+
+	float getVelocity() const { return _velocity; }
+	void setVelocity(float velocity){ _velocity = velocity; }
+	float getAccelerated() const { return _accelerated; }
+	void setAccelerated(float acceler){ _accelerated = acceler; }
 protected:
 
 	bool initEntity();
@@ -46,6 +51,8 @@ private:
 	float			_offset;
 	float			_time;
 	float			_startPos;
+	float			_velocity;
+	float			_accelerated;
 };
 
 #endif
