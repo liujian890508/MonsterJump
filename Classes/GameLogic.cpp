@@ -68,7 +68,7 @@ void GameLogic::moveMapByHero()
     if( worldPos.y > VisibleRect::center().y)
     {
 		this->m_pGameWorld->move(Point(0, worldPos.y - VisibleRect::center().y));
-    }
+    } 
 	if (worldPos.y <= 0)
 	{
 		m_pGameWorld->gameOver();

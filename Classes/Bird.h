@@ -13,6 +13,8 @@ public:
 protected:
 
 	bool initEntity();
+
+	void flyAnimate();
 };
 
 #endif

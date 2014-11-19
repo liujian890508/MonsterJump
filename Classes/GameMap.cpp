@@ -38,7 +38,7 @@ bool GameMap::init()
 
 void GameMap::initWithMap()
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		this->loadMap(i + 1);
 	}
@@ -113,7 +113,7 @@ void GameMap::loadObject(experimental::TMXTiledMap *map)
 
 void GameMap::update(float dt)
 {
-	CCLOG("%f -- %f", getPositionX(), getPositionY());
+	
 }
 
 void GameMap::startGame()

@@ -16,13 +16,15 @@ bool Background::init()
 {
 	auto bgSprite = Sprite::create("bg1.png");
 	this->addChild(bgSprite);
-	bgSprite->setPosition(VisibleRect::center());
+	bgSprite->setAnchorPoint(Vec2(0.5, 0.0));
+	bgSprite->setPosition(VisibleRect::bottom());
 
 	this->initCloud();
 
 	auto treeSprite = Sprite::create("bg.png");
 	this->addChild(treeSprite, 0, 11);
-	treeSprite->setPosition(VisibleRect::center());
+	treeSprite->setAnchorPoint(Vec2(0.5, 0.0));
+	treeSprite->setPosition(VisibleRect::bottom());
 
 	this->scheduleUpdate();
 
