@@ -8,4 +8,8 @@
     <Project>UI_Store</Project>
     <GuidesList />
   </GuidesProject>
+  <GuidesProject>
+    <Project>UI_IAP</Project>
+    <GuidesList />
+  </GuidesProject>
 </ArrayOfGuidesProject>

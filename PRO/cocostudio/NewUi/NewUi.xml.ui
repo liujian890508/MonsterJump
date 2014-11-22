@@ -9,6 +9,7 @@
   <JsonList>
     <string>UI_Setting.json</string>
     <string>UI_Store.json</string>
+    <string>UI_IAP.json</string>
   </JsonList>
   <CanvasSize>
     <Width>640</Width>
@@ -33,7 +34,14 @@
     <string>btn_getfresecoins.png</string>
     <string>btn_buy.png</string>
     <string>ui_store2_05.png</string>
+    <string>ui_store2_03.png</string>
+    <string>img_iap_02.png</string>
+    <string>img_iap_01.png</string>
+    <string>img_iap_04.png</string>
+    <string>img_iap_03.png</string>
+    <string>btn_buy2.png</string>
+    <string>btn_getfresecoins.png</string>
   </imagePngList>
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>UI_Store.json</CurrentUIJson>
+  <CurrentUIJson>UI_IAP.json</CurrentUIJson>
 </UIProject>
