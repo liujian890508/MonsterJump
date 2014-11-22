@@ -33,6 +33,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/Background.cpp \
 				   ../../Classes/Spring.cpp \
 				   ../../Classes/AdManager.cpp \
+				   ../../Classes/Store.cpp \
+				   ../../Classes/Setting.cpp \
 				   ../../Classes/C2DXShareSDK/Android/JSON/cJSON/cJSON.c \
 				   ../../Classes/C2DXShareSDK/Android/JSON/CCJSONConverter.cpp \
 				   ../../Classes/C2DXShareSDK/Android/ShareSDKUtils.cpp \

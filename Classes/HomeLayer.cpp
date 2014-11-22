@@ -5,6 +5,8 @@
 #include "ShareManager.h"
 #include "AdManager.h"
 #include "Background.h"
+#include "Setting.h"
+#include "Store.h"
 
 HomeLayer::HomeLayer()
 {
@@ -23,8 +25,8 @@ bool HomeLayer::init()
 	this->addChild(background);
 
 	auto logoSprite = Sprite::create("ui/text_gametittle.png");
-	this->addChild(logoSprite);
-	logoSprite->setPosition(VisibleRect::center() + Point(0, 300));
+	this->addChild(logoSprite, 0, 10);
+	logoSprite->setPosition(VisibleRect::center() + Point(0, 250));
 
 	auto playerMenu = MenuItemImage::create("ui/btn_play.png", "ui/btn_play.png", [=](Ref *pSender){
         std::tuple<int, std::string> param = std::make_tuple(12, "Hello World");
@@ -38,16 +40,19 @@ bool HomeLayer::init()
 
 	this->initOther();
 	this->initRole();
+
+	this->playLogoAni();
+
 	return true;
 }
 
 bool HomeLayer::initOther()
 {
 	auto settingMenu = MenuItemImage::create("ui/btn_setting.png", "ui/btn_setting.png", [=](Ref* pSender){
-		
+		Utils::replaceScene(Setting::create());
 	});
 	auto otherMenu = MenuItemImage::create("ui/btn_menu.png", "ui/btn_menu.png", [=](Ref *pSender){
-		
+		Utils::replaceScene(Store::create());
 	});
 	auto menu = Menu::create(settingMenu, otherMenu, nullptr);
 	menu->alignItemsHorizontallyWithPadding(30);
@@ -79,6 +84,17 @@ bool HomeLayer::initRole()
 	heroSprite->runAction(RepeatForever::create( animate));
 	this->addChild(heroSprite);
 	return true;
+}
+
+void HomeLayer::playLogoAni()
+{
+	auto logoSprite = this->getChildByTag(10);
+	logoSprite->setScale(0.9f);
+	auto seqAction = Sequence::create(
+		ScaleTo::create(1.0f, 1.0f),
+		ScaleTo::create(1.0f, 0.9f),
+		nullptr);
+	logoSprite->runAction(RepeatForever::create( seqAction));
 }
 
 bool HomeLayer::loadResource()

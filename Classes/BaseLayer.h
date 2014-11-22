@@ -2,6 +2,7 @@
 #define __BASELAYER_H__
 
 #include "cocos2d.h"
+#include "TypeInfoDef.h"
 USING_NS_CC;
 
 template<class T>

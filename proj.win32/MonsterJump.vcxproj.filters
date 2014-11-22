@@ -111,6 +111,15 @@
     <ClCompile Include="..\Classes\AdManager.cpp">
       <Filter>src\manager</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Store.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Setting.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BuyCoin.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -202,6 +211,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AdManager.h">
       <Filter>src\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Store.h">
+      <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Setting.h">
+      <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BuyCoin.h">
+      <Filter>src\layers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

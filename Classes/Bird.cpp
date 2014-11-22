@@ -24,7 +24,7 @@ bool Bird::initEntity()
 
 void Bird::flyAnimate()
 {
-	auto animate = Utils::getAnimate("bird_", 1, 13, 0.05);
+	auto animate = Utils::getAnimate("bird_", 1, 13, 0.05f);
 	this->runAction(RepeatForever::create( animate));
 	Point currentPos = this->getPosition() - Point(100, 0);
 	Point targetPos = Point(VisibleRect::right().x + 50, currentPos.y);

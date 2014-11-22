@@ -141,6 +141,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Background.cpp" />
     <ClCompile Include="..\Classes\Bird.cpp" />
+    <ClCompile Include="..\Classes\BuyCoin.cpp" />
     <ClCompile Include="..\Classes\C2DXShareSDK\C2DXShareSDK.cpp" />
     <ClCompile Include="..\Classes\Collapsar.cpp" />
     <ClCompile Include="..\Classes\Dialog.cpp" />
@@ -155,8 +156,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\NormalWall.cpp" />
     <ClCompile Include="..\Classes\ObjectManager.cpp" />
     <ClCompile Include="..\Classes\Plane.cpp" />
+    <ClCompile Include="..\Classes\Setting.cpp" />
     <ClCompile Include="..\Classes\ShareManager.cpp" />
     <ClCompile Include="..\Classes\Spring.cpp" />
+    <ClCompile Include="..\Classes\Store.cpp" />
     <ClCompile Include="..\Classes\Utils.cpp" />
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
     <ClCompile Include="..\Classes\HomeLayer.cpp" />
@@ -170,6 +173,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\BaseLayer.h" />
     <ClInclude Include="..\Classes\BaseSprite.h" />
     <ClInclude Include="..\Classes\Bird.h" />
+    <ClInclude Include="..\Classes\BuyCoin.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDK.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDKTypeDef.h" />
     <ClInclude Include="..\Classes\Collapsar.h" />
@@ -185,9 +189,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\NormalWall.h" />
     <ClInclude Include="..\Classes\ObjectManager.h" />
     <ClInclude Include="..\Classes\Plane.h" />
+    <ClInclude Include="..\Classes\Setting.h" />
     <ClInclude Include="..\Classes\ShareManager.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
     <ClInclude Include="..\Classes\Spring.h" />
+    <ClInclude Include="..\Classes\Store.h" />
     <ClInclude Include="..\Classes\TypeInfoDef.h" />
     <ClInclude Include="..\Classes\Utils.h" />
     <ClInclude Include="..\Classes\VisibleRect.h" />

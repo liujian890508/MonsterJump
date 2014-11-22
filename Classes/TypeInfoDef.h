@@ -49,4 +49,14 @@ enum AdsResultCode
 	ads_spot_closed = 5
 };
 
+enum LayerName
+{
+	layer_none = -1,
+	layer_Home = 0,
+	layer_BuyCoin = 1,
+	layer_GameWorld = 2,
+	layer_Setting = 3,
+	layer_Store = 4
+};
+
 #endif
