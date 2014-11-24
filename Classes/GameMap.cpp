@@ -62,51 +62,26 @@ void GameMap::loadObject(experimental::TMXTiledMap *map)
 		ValueMap objProperties = objects.at(i).asValueMap();
 		ValueMap gidProperties = map->getPropertiesForGID(objProperties["gid"].asInt()).asValueMap();
 		std::string type = gidProperties["type"].asString();
+		BaseSprite *entity = nullptr;
 		if (type == "brick")
-		{
-			auto normalWall = NormalWall::create(objProperties, gidProperties);
-			this->addChild(normalWall);
-			normalWall->setPosition(normalWall->getPosition() + Point(0, m_nCurrentHeight));
-			ObjectMgr->put(normalWall);
-		}
+			entity = NormalWall::create(objProperties, gidProperties);
 		else if (type == "hero")
-		{
 			this->m_pGameWorld->initHeroSprite(objProperties, gidProperties);
-		}
 		else if (type == "collapsar")
-		{
-			auto collapsar = Collapsar::create(objProperties, gidProperties);
-			this->addChild(collapsar);
-			collapsar->setPosition(collapsar->getPosition() + Point(0, m_nCurrentHeight));
-			ObjectMgr->put(collapsar);
-		}
+			entity = Collapsar::create(objProperties, gidProperties);
 		else if (type == "plane")
-		{
-			auto plane = Plane::create(objProperties, gidProperties);
-			this->addChild(plane);
-			plane->setPosition(plane->getPosition() + Point(0, m_nCurrentHeight));
-			ObjectMgr->put(plane);
-		}
+			entity = Plane::create(objProperties, gidProperties);
 		else if (type == "bird")
-		{
-			auto bird = Bird::create(objProperties, gidProperties);
-			this->addChild(bird);
-			bird->setPosition(bird->getPosition() + Point(0, m_nCurrentHeight));
-			ObjectMgr->put(bird);
-		}
+			entity = Bird::create(objProperties, gidProperties);
 		else if (type == "gold")
-		{
-			auto gold = Gold::create(objProperties, gidProperties);
-			this->addChild(gold);
-			gold->setPosition(gold->getPosition() + Point(0, m_nCurrentHeight));
-			ObjectMgr->put(gold);
-		}
+			entity = Gold::create(objProperties, gidProperties);
 		else if (type == "spring")
+			entity = Spring::create(objProperties, gidProperties);
+		if (entity != nullptr)
 		{
-			auto spring = Spring::create(objProperties, gidProperties);
-			this->addChild(spring);
-			spring->setPosition(spring->getPosition() + Point(0, m_nCurrentHeight));
-			ObjectMgr->put(spring);
+			this->addChild(entity);
+			entity->setPosition(entity->getPosition() + Point(0, m_nCurrentHeight));
+			ObjectMgr->put(entity);
 		}
 	}
 }

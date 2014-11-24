@@ -2,6 +2,7 @@
 #define __UTILS_H__
 
 #include "BaseLayer.h"
+#include "BaseSprite.h"
 
 class Utils
 {
@@ -18,6 +19,10 @@ public:
 	static int getRandomInt(int min, int max);
 
 	static void testRandom();
+
+	static void createPhysicsBox(BaseSprite *sprite, b2World *world);
+
+	static b2Vec2 cocosConverToB2(Point point);
 };
 
 template<typename T>
@@ -29,8 +34,9 @@ void Utils::replaceScene(BaseLayer<T> *layer, void *data)
 		scene->addChild(layer);
 		auto director = Director::getInstance();
 		auto oldScene = director->getRunningScene();
+		auto aniScene = TransitionPageTurn::create(0.5f, scene, true);
 		if (oldScene && layer->databind(data))
-			director->replaceScene(scene);
+			director->replaceScene(aniScene);
 		else
 			director->runWithScene(scene);
 	}

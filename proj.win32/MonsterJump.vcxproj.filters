@@ -37,6 +37,9 @@
     <Filter Include="src\items">
       <UniqueIdentifier>{58da0f7f-28fa-42b3-a91c-729fa4423c29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\contact">
+      <UniqueIdentifier>{941d651a-485e-45bb-b42d-636ee3e8e51b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -119,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\BuyCoin.cpp">
       <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ContactListener.cpp">
+      <Filter>src\contact</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\BuyCoin.h">
       <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ContactListener.h">
+      <Filter>src\contact</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

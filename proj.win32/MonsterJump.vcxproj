@@ -144,6 +144,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\BuyCoin.cpp" />
     <ClCompile Include="..\Classes\C2DXShareSDK\C2DXShareSDK.cpp" />
     <ClCompile Include="..\Classes\Collapsar.cpp" />
+    <ClCompile Include="..\Classes\ContactListener.cpp" />
     <ClCompile Include="..\Classes\Dialog.cpp" />
     <ClCompile Include="..\Classes\DialogManager.cpp" />
     <ClCompile Include="..\Classes\GameMap.cpp" />
@@ -177,6 +178,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDK.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDKTypeDef.h" />
     <ClInclude Include="..\Classes\Collapsar.h" />
+    <ClInclude Include="..\Classes\ContactListener.h" />
     <ClInclude Include="..\Classes\Dialog.h" />
     <ClInclude Include="..\Classes\DialogManager.h" />
     <ClInclude Include="..\Classes\GameMap.h" />

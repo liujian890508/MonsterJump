@@ -2,6 +2,8 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "Box2D\Box2D.h"
+#include "ContactListener.h"
 USING_NS_CC;
 
 class HelloWorld : public cocos2d::Layer
@@ -21,11 +23,16 @@ public:
 
 	void update(float dt);
 
+	void addBoxBodyForSprite(Sprite *sprite);
+
 private:
 	float _distance;
 	float _time;
 	Vec2 _previousPos;
 	Vec2 _startPosition;
+
+	b2World			*_world;
+	ContactListener		*_listener;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -1,5 +1,7 @@
 #include "Utils.h"
 
+#define PT_RATIO 32
+
 SpriteFrame* Utils::getSpriteFrame(std::string szSpriteFrameName)
 {
 	auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(szSpriteFrameName);
@@ -43,6 +45,32 @@ int Utils::getRandomInt(int min, int max)
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> dis(min, max);
 	return dis(gen);
+}
+
+void Utils::createPhysicsBox(BaseSprite *sprite, b2World *world)
+{
+	b2PolygonShape polygon;
+	polygon.SetAsBox((float)sprite->getContentSize().width / PT_RATIO / 2, (float)sprite->getContentSize().height / PT_RATIO / 2);
+
+	b2FixtureDef spriteShapeDef;
+	spriteShapeDef.shape = &polygon;
+	spriteShapeDef.density = 10.f;
+	spriteShapeDef.isSensor = true;   // 对象之间有碰撞检测但是又不想让它们有碰撞反应
+
+	b2BodyDef bd;
+	bd.type = b2_dynamicBody;
+	bd.position = b2Vec2((float)(sprite->getPosition().x / PT_RATIO),
+		(float)(sprite->getPosition().y / PT_RATIO));
+	bd.userData = sprite;
+
+	b2Body* spriteBody = world->CreateBody(&bd);
+	spriteBody->CreateFixture(&spriteShapeDef);
+}
+
+b2Vec2 Utils::cocosConverToB2(Point point)
+{
+	b2Vec2 pt = b2Vec2((float)(point.x / PT_RATIO), (float)(point.y / PT_RATIO));
+	return pt;
 }
 
 void Utils::testRandom()
