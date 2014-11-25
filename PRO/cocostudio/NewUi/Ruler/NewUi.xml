@@ -12,4 +12,8 @@
     <Project>UI_IAP</Project>
     <GuidesList />
   </GuidesProject>
+  <GuidesProject>
+    <Project>UI_Result</Project>
+    <GuidesList />
+  </GuidesProject>
 </ArrayOfGuidesProject>
