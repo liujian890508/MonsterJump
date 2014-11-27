@@ -80,5 +80,13 @@ bool Setting::initCoin()
 	this->addChild(menu);
 	menu->setPosition(VisibleRect::rightTop() - Point(coinBuyMenu->getContentSize().width / 2 - 10,
 		coinBuyMenu->getContentSize().height / 2 + 20));
+
+	std::string coin = Utils::getItem("coin");
+	TTFConfig ttfConfig("fonts/Marker Felt.ttf", 30);
+	auto coinLabel = Label::createWithTTF(ttfConfig, coin.c_str());
+	coinLabel->setAlignment(TextHAlignment::LEFT);
+	coinBuyMenu->addChild(coinLabel);
+	coinLabel->setPosition(Point(coinBuyMenu->getContentSize() / 2));
+
 	return true;
 }

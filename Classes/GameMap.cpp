@@ -98,7 +98,7 @@ void GameMap::startGame()
 
 void GameMap::gameOver()
 {
-	this->runAction(MoveBy::create(0.2f, Point(0, VisibleRect::top().y)));
+	this->runAction(MoveBy::create(0.2f, Point(0, VisibleRect::top().y + 50)));
 }
 
 bool GameMap::databind(void *data)

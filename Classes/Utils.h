@@ -3,6 +3,7 @@
 
 #include "BaseLayer.h"
 #include "BaseSprite.h"
+#include "storage\local-storage\LocalStorage.h"
 
 class Utils
 {
@@ -23,6 +24,13 @@ public:
 	static void createPhysicsBox(BaseSprite *sprite, b2World *world);
 
 	static b2Vec2 cocosConverToB2(Point point);
+
+	static std::string getItem(std::string key);
+	static void setItem(std::string key, std::string value);
+
+private:
+	static void lazyInit();
+	static bool		_isLoad;
 };
 
 template<typename T>

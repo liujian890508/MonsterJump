@@ -53,6 +53,8 @@ private:
 	float			_startPos;
 	float			_velocity;
 	float			_accelerated;
+	bool			_isStartGame;
+	bool			_isGameOver;
 };
 
 #endif

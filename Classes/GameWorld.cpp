@@ -72,6 +72,7 @@ bool GameWorld::initHeroSprite(ValueMap &objProperties, ValueMap& gidProperties)
 
 void GameWorld::startGame()
 {
+	this->m_pGameLogic->startGame();
 	this->m_pGameMap->startGame();
 	this->m_pHeroSprite->startJump();
 	this->scheduleUpdate();
@@ -79,7 +80,8 @@ void GameWorld::startGame()
 
 void GameWorld::gameOver()
 {
-	this->unscheduleUpdate();
+	this->m_pGameLogic->gameOver();
+	this->m_pHeroSprite->gameOver();
 	this->m_pGameMap->gameOver();
 }
 
@@ -91,6 +93,7 @@ void GameWorld::move(Point point)
 
 void GameWorld::update(float dt)
 {
+	this->m_pHeroSprite->update(dt);
 	this->m_pGameMap->update(dt);
 	this->m_pGameLogic->update(dt);
 }

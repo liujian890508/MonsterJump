@@ -7,6 +7,7 @@
 
 GameLogic::GameLogic()
 {
+	m_bIsStartGame = false;
 }
 
 
@@ -30,18 +31,29 @@ bool GameLogic::initWithGameMap(GameWorld *gameWorld)
 	return true;
 }
 
+void GameLogic::startGame()
+{
+	m_bIsStartGame = true;
+}
+
+void GameLogic::gameOver()
+{
+	m_bIsStartGame = false;
+}
+
 void GameLogic::update(float dt)
 {
+	if (!m_bIsStartGame) return;
+	this->loadMap();
 	this->checkContact();
     this->moveMapByHero();
-	this->loadMap();
 }
 
 void GameLogic::loadMap()
 {
 	if (ObjectMgr->size() < 60)
 	{
-		CCLOG("%d", ObjectMgr->size());
+		//CCLOG("%d", ObjectMgr->size());
 		this->m_pGameWorld->getGameMap()->loadMap();
 	}
 }
@@ -52,6 +64,7 @@ void GameLogic::checkContact()
 	for (unsigned int i = 0; i < ObjectMgr->size(); i++)
 	{
 		auto baseSprite = ObjectMgr->get(i);
+		if (baseSprite->getEntityType() == kType_Hero) continue;
 		baseSprite->checkContact(heroSprite);
 		Point worldPos = baseSprite->getParent()->convertToWorldSpace(baseSprite->getPosition());
 		if (worldPos.y < -baseSprite->getContentSize().height / 2)

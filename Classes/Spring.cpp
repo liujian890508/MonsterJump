@@ -31,7 +31,7 @@ void Spring::checkContact(HeroSprite *heroSprite)
 		auto seqAction = Sequence::create(
 			ScaleTo::create(0.1f, 0.2f),
 			CallFunc::create([=](){
-				heroSprite->setPositionY(this->getPosition().y);
+				heroSprite->setPositionY(heroSprite->getPositionY());
 				heroSprite->setVelocity(heroSprite->getVelocity() + 200.0f);
 			}),
 			ScaleTo::create(0.1f, 1.0f),

@@ -2,6 +2,8 @@
 
 #define PT_RATIO 32
 
+bool Utils::_isLoad = false;
+
 SpriteFrame* Utils::getSpriteFrame(std::string szSpriteFrameName)
 {
 	auto spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(szSpriteFrameName);
@@ -71,6 +73,33 @@ b2Vec2 Utils::cocosConverToB2(Point point)
 {
 	b2Vec2 pt = b2Vec2((float)(point.x / PT_RATIO), (float)(point.y / PT_RATIO));
 	return pt;
+}
+
+void Utils::lazyInit()
+{
+	if (Utils::_isLoad)
+	{
+		localStorageInit();
+		_isLoad = true;
+	}
+}
+
+std::string Utils::getItem(std::string key)
+{
+	if (!_isLoad)
+	{
+		Utils::lazyInit();
+	}
+	return localStorageGetItem(key);
+}
+
+void Utils::setItem(std::string key, std::string value)
+{
+	if (!_isLoad)
+	{
+		Utils::lazyInit();
+	}
+	localStorageSetItem(key, value);
 }
 
 void Utils::testRandom()

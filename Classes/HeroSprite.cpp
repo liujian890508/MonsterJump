@@ -6,6 +6,8 @@ HeroSprite::HeroSprite()
 {
 	this->_accelerated = DEFAULT_ACCELERATED;
 	this->_velocity = DEFAULT_VELOCITY;
+	this->_isStartGame = false;
+	this->_isGameOver = false;
 }
 
 
@@ -71,20 +73,21 @@ void HeroSprite::startJump()
 	_previousPos = getPosition();
 	this->setPositionY(getPositionY());
 	this->setAccelerometerEnabled(true);
-	this->scheduleUpdate();
+	this->_isStartGame = true;
 }
 
 void HeroSprite::gameOver()
 {
-	this->stopAllActions();
-	this->setAccelerometerEnabled(false);
-	this->unscheduleUpdate();
+	this->_isGameOver = true;
 }
 
 void HeroSprite::onExit()
 {
 	BaseEntity::onExit();
+	this->setAccelerometerEnabled(false);
+	this->stopAllActions();
 	this->gameOver();
+	this->_isStartGame = false;
 }
 
 void HeroSprite::setPositionY(float y)
@@ -100,6 +103,12 @@ void HeroSprite::setPositionY(float y)
 
 void HeroSprite::update(float dt)
 {
+	if (!_isStartGame) return;
+	Point wroldPos = this->getParent()->convertToWorldSpace(getPosition());
+	if (_isGameOver && wroldPos.y < -getContentSize().height)
+	{
+		_isStartGame = false;
+	}
 	_time += dt * 2.5f;
 	//215 = 49 * t
 	float s = this->_velocity * _time + _accelerated * _time * _time / 2;

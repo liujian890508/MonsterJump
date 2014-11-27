@@ -23,8 +23,12 @@ public:
 	void checkContact();
 	void loadMap();
 
+	void startGame();
+	void gameOver();
+
 private:
 	GameWorld		*m_pGameWorld;
+	bool			m_bIsStartGame;
 };
 
 #endif
