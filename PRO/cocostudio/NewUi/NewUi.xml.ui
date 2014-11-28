@@ -10,6 +10,7 @@
     <string>UI_Setting.json</string>
     <string>UI_Store.json</string>
     <string>UI_IAP.json</string>
+    <string>UI_Result.json</string>
   </JsonList>
   <CanvasSize>
     <Width>640</Width>
@@ -41,7 +42,13 @@
     <string>img_iap_03.png</string>
     <string>btn_buy2.png</string>
     <string>btn_getfresecoins.png</string>
+    <string>img_score_label.png</string>
+    <string>btn_share2.png</string>
+    <string>item_coin.png</string>
+    <string>btn_play2.png</string>
+    <string>btn_boost.png</string>
+    <string>ui_bg_rank.png</string>
   </imagePngList>
   <JsonSuffix>.json</JsonSuffix>
-  <CurrentUIJson>UI_IAP.json</CurrentUIJson>
+  <CurrentUIJson>UI_Result.json</CurrentUIJson>
 </UIProject>
