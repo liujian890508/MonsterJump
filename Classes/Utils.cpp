@@ -77,29 +77,18 @@ b2Vec2 Utils::cocosConverToB2(Point point)
 
 void Utils::lazyInit()
 {
-	if (Utils::_isLoad)
-	{
-		localStorageInit();
-		_isLoad = true;
-	}
+	
 }
 
 std::string Utils::getItem(std::string key)
 {
-	if (!_isLoad)
-	{
-		Utils::lazyInit();
-	}
-	return localStorageGetItem(key);
+	std::string item = UserDefault::getInstance()->getStringForKey(key.c_str(), "0");
+	return item;
 }
 
 void Utils::setItem(std::string key, std::string value)
 {
-	if (!_isLoad)
-	{
-		Utils::lazyInit();
-	}
-	localStorageSetItem(key, value);
+	UserDefault::getInstance()->setStringForKey(key.c_str(), value);
 }
 
 void Utils::testRandom()

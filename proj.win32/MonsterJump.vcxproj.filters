@@ -126,6 +126,9 @@
     <ClCompile Include="..\Classes\ContactListener.cpp">
       <Filter>src\contact</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ResultLayer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -229,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ContactListener.h">
       <Filter>src\contact</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResultLayer.h">
+      <Filter>src\layers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

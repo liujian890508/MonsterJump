@@ -3,7 +3,6 @@
 
 #include "BaseLayer.h"
 #include "BaseSprite.h"
-#include "storage\local-storage\LocalStorage.h"
 
 class Utils
 {

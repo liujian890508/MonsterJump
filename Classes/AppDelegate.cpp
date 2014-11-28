@@ -62,7 +62,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
-	
+	Utils::setItem("coin", "1000");
 
 	Utils::replaceScene(HomeLayer::create());
 

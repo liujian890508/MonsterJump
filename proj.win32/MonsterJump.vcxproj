@@ -157,6 +157,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\NormalWall.cpp" />
     <ClCompile Include="..\Classes\ObjectManager.cpp" />
     <ClCompile Include="..\Classes\Plane.cpp" />
+    <ClCompile Include="..\Classes\ResultLayer.cpp" />
     <ClCompile Include="..\Classes\Setting.cpp" />
     <ClCompile Include="..\Classes\ShareManager.cpp" />
     <ClCompile Include="..\Classes\Spring.cpp" />
@@ -191,6 +192,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\NormalWall.h" />
     <ClInclude Include="..\Classes\ObjectManager.h" />
     <ClInclude Include="..\Classes\Plane.h" />
+    <ClInclude Include="..\Classes\ResultLayer.h" />
     <ClInclude Include="..\Classes\Setting.h" />
     <ClInclude Include="..\Classes\ShareManager.h" />
     <ClInclude Include="..\Classes\Singleton.h" />

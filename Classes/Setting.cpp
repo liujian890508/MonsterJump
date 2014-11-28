@@ -1,6 +1,6 @@
 #include "Setting.h"
-#include "cocostudio\CCSGUIReader.h"
-#include "ui\CocosGUI.h"
+#include "cocostudio/CCSGUIReader.h"
+#include "ui/CocosGUI.h"
 #include "VisibleRect.h"
 #include "Utils.h"
 #include "HomeLayer.h"
@@ -82,6 +82,7 @@ bool Setting::initCoin()
 		coinBuyMenu->getContentSize().height / 2 + 20));
 
 	std::string coin = Utils::getItem("coin");
+	if (coin == "") coin = "0";
 	TTFConfig ttfConfig("fonts/Marker Felt.ttf", 30);
 	auto coinLabel = Label::createWithTTF(ttfConfig, coin.c_str());
 	coinLabel->setAlignment(TextHAlignment::LEFT);
