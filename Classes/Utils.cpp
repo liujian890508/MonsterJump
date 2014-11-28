@@ -1,5 +1,9 @@
 #include "Utils.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+
+#endif
+
 #define PT_RATIO 32
 
 bool Utils::_isLoad = false;
@@ -89,6 +93,11 @@ std::string Utils::getItem(std::string key)
 void Utils::setItem(std::string key, std::string value)
 {
 	UserDefault::getInstance()->setStringForKey(key.c_str(), value);
+}
+
+void Utils::showLeaderboard()
+{
+    
 }
 
 void Utils::testRandom()

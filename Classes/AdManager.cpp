@@ -5,6 +5,8 @@ extern "C"
 #include <jni.h>
 #include "jni/JniHelper.h"
 #include <android/log.h>
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "YouMiUtil.h"
 #endif
 
 AdManager::AdManager()
@@ -44,7 +46,7 @@ void AdManager::showSpotAds()
 		minfo.env->CallVoidMethod(jobj, minfo.methodID);
 	}
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-
+    YouMiUtil::showSpot();
 #endif
 }
 

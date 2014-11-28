@@ -2,7 +2,7 @@
 #define __CONTACTLISTENER_H__
 
 #include "cocos2d.h"
-#include "Box2D\Box2D.h"
+#include "Box2D/Box2D.h"
 #include "BaseSprite.h"
 USING_NS_CC;
 

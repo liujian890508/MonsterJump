@@ -1,6 +1,6 @@
 #include "BuyCoin.h"
-#include "cocostudio\CCSGUIReader.h"
-#include "ui\CocosGUI.h"
+#include "cocostudio/CCSGUIReader.h"
+#include "ui/CocosGUI.h"
 #include "Utils.h"
 #include "VisibleRect.h"
 #include "Setting.h"

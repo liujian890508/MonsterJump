@@ -26,6 +26,8 @@ public:
 
 	static std::string getItem(std::string key);
 	static void setItem(std::string key, std::string value);
+    
+    static void showLeaderboard();
 
 private:
 	static void lazyInit();
