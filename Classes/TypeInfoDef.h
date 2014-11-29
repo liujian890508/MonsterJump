@@ -46,7 +46,8 @@ enum AdsResultCode
 	ads_adView_failed = 2,
 	ads_spot_success = 3,
 	ads_spot_failed = 4,
-	ads_spot_closed = 5
+	ads_spot_closed = 5,
+	ads_offers_closed = 6
 };
 
 enum LayerName

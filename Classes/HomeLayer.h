@@ -13,6 +13,8 @@ public:
 	bool initOther();
 	bool initRole();
 	bool loadResource();
+
+	bool initTest();
 	
 	void playLogoAni();
 };

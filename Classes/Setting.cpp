@@ -5,6 +5,7 @@
 #include "Utils.h"
 #include "HomeLayer.h"
 #include "BuyCoin.h"
+#include "AdManager.h"
 using namespace ui;
 using namespace cocostudio;
 
@@ -39,14 +40,17 @@ bool Setting::init()
 	Button *achivement = static_cast<Button*>(widget->getChildByName("Button_5"));
 
 	btnRank->addClickEventListener([=](Ref * sender) {
+		AdMgr->showSpotAds();
 		CCLOG("-------------------------------------------1");
 	});
 
 	rateUs->addClickEventListener([=](Ref *sender){
+		AdMgr->showOffersWallDialog(200,200);
 		CCLOG("-------------------------------------------2");
 	});
 
 	achivement->addClickEventListener([=](Ref *sender){
+		AdMgr->showOffersWall();
 		CCLOG("-------------------------------------------3");
 	});
 

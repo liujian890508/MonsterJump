@@ -2,6 +2,7 @@
 #include "HomeLayer.h"
 #include "Utils.h"
 #include "ShareManager.h"
+#include "AdManager.h"
 #include "HelloWorldScene.h"
 
 USING_NS_CC;
@@ -63,6 +64,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
 	Utils::setItem("coin", "1000");
+	int points = AdMgr->queryPoints();
+	CCLOG("------------------Points:%d----------------", points);
+	bool flag = AdMgr->awardPoints(10);
+	CCLOG("-----------------%d----------------------", flag);
+	points = AdMgr->queryPoints();
+	CCLOG("------------------Points:%d----------------", points);
+	flag = AdMgr->spendPoints(5);
+	CCLOG("-----------------%d----------------------", flag);
+	points = AdMgr->queryPoints();
+	CCLOG("------------------Points:%d----------------", points);
 
 	Utils::replaceScene(HomeLayer::create());
 

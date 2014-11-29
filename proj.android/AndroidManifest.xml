@@ -72,7 +72,7 @@
 		    android:name="net.youmi.android.AdReceiver" >
 		    <intent-filter>
 		        <action android:name="android.intent.action.PACKAGE_ADDED" />
-		        <data android:scheme="package" />
+		        <data android:scheme="com.xiandiao.jump" />
 		    </intent-filter>
 		</receiver>
 		<provider

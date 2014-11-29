@@ -43,6 +43,36 @@ bool HomeLayer::init()
 
 	this->playLogoAni();
 
+	this->initTest();
+
+	return true;
+}
+
+static bool flag = false;
+bool HomeLayer::initTest()
+{
+	int points = AdMgr->queryPoints();
+	auto label = Label::createWithSystemFont("Score:" + std::to_string(points), "", 32);
+	label->setPosition(Point(300, 250));
+	this->addChild(label);
+
+	auto testMenu = MenuItemFont::create("TestMenu", [=](Ref *pSender){
+		if (!flag){
+			CCLOG("--------------------------hideBanner");
+			AdMgr->hideBanner();
+			flag = true;
+		}
+		else {
+			CCLOG("--------------------------showBanner");
+			AdMgr->showBanner();
+			flag = false;
+		}
+		int points = AdMgr->queryPoints();
+		label->setString("Score:" + std::to_string(points));
+	});
+	auto menu = Menu::create(testMenu, nullptr);
+	this->addChild(menu);
+	menu->setPosition(300, 200);
 	return true;
 }
 
