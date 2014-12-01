@@ -58,13 +58,13 @@ bool HomeLayer::initTest()
 
 	auto testMenu = MenuItemFont::create("TestMenu", [=](Ref *pSender){
 		if (!flag){
-			CCLOG("--------------------------hideBanner");
-			AdMgr->hideBanner();
+			CCLOG("--------------------------awardPoints");
+			AdMgr->awardPoints(10);
 			flag = true;
 		}
 		else {
-			CCLOG("--------------------------showBanner");
-			AdMgr->showBanner();
+			CCLOG("--------------------------awardPoints");
+			AdMgr->awardPoints(10);
 			flag = false;
 		}
 		int points = AdMgr->queryPoints();

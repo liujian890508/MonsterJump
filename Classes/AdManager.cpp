@@ -16,6 +16,11 @@ extern "C"
 	{
 		AdMgr->resultRoute(result);
 	}
+
+	void Java_com_xiandiao_jump_YouMiManager_pointsBalanceChange( JNIEnv *env,jobject thiz,jint points )
+	{
+		AdMgr->pointsBalanceChange(points);
+	}
 }
 
 jobject AdManager::getYouMiManager()
@@ -157,14 +162,12 @@ int AdManager::queryPoints()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	JniMethodInfo minfo;
-	jobject jobj = this->getYouMiManager();
-	bool b = JniHelper::getMethodInfo(minfo, "com/xiandiao/jump/YouMiManager", "queryPoints", "()I");
+	bool b = JniHelper::getStaticMethodInfo(minfo, "com/xiandiao/jump/YouMiManager", "queryPoints", "()I");
 	if (!b){
-		CCLOG("JniHelper::getMethodInfo error...");
+		CCLOG("JniHelper::getStaticMethodInfo error...");
 	}
 	else{
-		jint points = minfo.env->CallIntMethod(jobj, minfo.methodID);
-		minfo.env->DeleteLocalRef( minfo.classID);
+		jint points = minfo.env->CallStaticIntMethod(minfo.classID, minfo.methodID);
 		return (int) points;
 	}
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -177,13 +180,12 @@ bool AdManager::spendPoints(int amount)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	JniMethodInfo minfo;
-	jobject jobj = this->getYouMiManager();
-	bool b = JniHelper::getMethodInfo(minfo, "com/xiandiao/jump/YouMiManager", "spendPoints", "(I)Z");
+	bool b = JniHelper::getStaticMethodInfo(minfo, "com/xiandiao/jump/YouMiManager", "spendPoints", "(I)Z");
 	if (!b){
-		CCLOG("JniHelper::getMethodInfo error...");
+		CCLOG("JniHelper::getStaticMethodInfo error...");
 	}
 	else{
-		jboolean flag = minfo.env->CallBooleanMethod(jobj, minfo.methodID);
+		jboolean flag = minfo.env->CallStaticBooleanMethod(minfo.classID, minfo.methodID,amount);
 		minfo.env->DeleteLocalRef(minfo.classID);
 		return (bool)flag;
 	}
@@ -197,20 +199,23 @@ bool AdManager::awardPoints(int amount)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	JniMethodInfo minfo;
-	jobject jobj = this->getYouMiManager();
-	bool b = JniHelper::getMethodInfo(minfo, "com/xiandiao/jump/YouMiManager", "awardPoints", "(I)Z");
+	bool b = JniHelper::getStaticMethodInfo(minfo, "com/xiandiao/jump/YouMiManager", "awardPoints", "(I)Z");
 	if (!b){
-		CCLOG("JniHelper::getMethodInfo error...");
+		CCLOG("JniHelper::getStaticMethodInfo error...");
 	}
 	else{
-		jboolean flag = minfo.env->CallBooleanMethod(jobj, minfo.methodID);
-		minfo.env->DeleteLocalRef(minfo.classID);
+		jboolean flag = minfo.env->CallStaticBooleanMethod(minfo.classID, minfo.methodID, amount);
 		return (bool)flag;
 	}
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 
 #endif
 	return false;
+}
+
+void AdManager::pointsBalanceChange(int points)
+{
+	CCLOG("current Score: %d", points);
 }
 
 void AdManager::resultRoute(int code)

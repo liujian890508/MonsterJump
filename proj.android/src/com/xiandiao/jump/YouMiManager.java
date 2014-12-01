@@ -6,22 +6,22 @@ import net.youmi.android.banner.AdView;
 import net.youmi.android.banner.AdViewListener;
 import net.youmi.android.offers.OffersManager;
 import net.youmi.android.offers.OffersWallDialogListener;
+import net.youmi.android.offers.PointsChangeNotify;
 import net.youmi.android.offers.PointsManager;
 import net.youmi.android.spot.SpotDialogListener;
 import net.youmi.android.spot.SpotManager;
 
 import org.cocos2dx.cpp.AppActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-public class YouMiManager {
+public class YouMiManager implements PointsChangeNotify {
 	
 	// 以下常量为各种功能的标识，值随意起
 	private final static int SHOW_SPOT_AD = 100;
@@ -30,17 +30,14 @@ public class YouMiManager {
 
 	private final static int SHOW_OFFER_WALL = 200;
 	private final static int SHOW_OFFER_WALL_DIALOG = 201;
-	private final static int QUERY_POINTS = 202;
-	private final static int AWARD_POINTS = 203;
-	private final static int SPEND_POINTS = 204;
 	
-	private AppActivity content;
+	private static AppActivity content;
 	private AdView mBannerView;
 	private LinearLayout mBannerLayout;
 	private static Handler handler;
 	
-	public YouMiManager(AppActivity content) {
-		this.content = content;
+	public YouMiManager(AppActivity activity) {
+		content = activity;
 	}
 
 	public void init(){
@@ -49,11 +46,12 @@ public class YouMiManager {
 		AdManager.getInstance(content).setUserDataCollect(true);
 		SpotManager.getInstance(content).checkPermission(content);
 		OffersManager.getInstance(content).onAppLaunch();
+		PointsManager.getInstance(content).registerNotify(this);
+		
+		this.initHandler();
 		
 		this.initSport();
 		this.initAdView();
-		
-		this.initHandler();
 	}
 	
 	public void initSport(){
@@ -65,7 +63,7 @@ public class YouMiManager {
 	}
 	
 	public void initAdView(){
-		
+		showBanner();
 	}
 	
 	public void showBanner(){
@@ -99,9 +97,9 @@ public class YouMiManager {
 	 * 获取有米积分 
 	 * @return
 	 */
-	public int queryPoints(){
-		int myPointBalance = PointsManager.getInstance(content).queryPoints();
-		return myPointBalance;
+	public static int queryPoints(){
+		int points = PointsManager.getInstance(content).queryPoints();
+		return points;
 	}
 	
 	/**
@@ -109,7 +107,7 @@ public class YouMiManager {
 	 * @param amount
 	 * @return
 	 */
-	public boolean spendPoints(int amount){
+	public static boolean spendPoints(int amount){
 		boolean isSuccess = PointsManager.getInstance(content).spendPoints(amount);
 		return isSuccess;
 	}
@@ -119,7 +117,7 @@ public class YouMiManager {
 	 * @param amount
 	 * @return
 	 */
-	public boolean awardPoints(int amount){
+	public static boolean awardPoints(int amount){
 		boolean isSuccess = PointsManager.getInstance(content).awardPoints(amount);
 		return isSuccess;
 	}
@@ -148,6 +146,7 @@ public class YouMiManager {
 	}
 	
 	public void onDestroy(){
+		PointsManager.getInstance(content).unRegisterNotify(this);
 		SpotManager.getInstance(content).unregisterSceenReceiver();
 		OffersManager.getInstance(content).onAppExit();
 	}
@@ -158,6 +157,7 @@ public class YouMiManager {
 		msg.sendToTarget();
 	}
 	
+	@SuppressLint("HandlerLeak")
 	private void initHandler(){
 		handler = new Handler(){
 			@Override
@@ -231,5 +231,12 @@ public class YouMiManager {
 				super.handleMessage(msg);
 			}
 		};
+	}
+	
+	private native int pointsBalanceChange(int points);
+
+	@Override
+	public void onPointBalanceChange(int pointsBalance) {
+		this.pointsBalanceChange(pointsBalance);
 	}
 }

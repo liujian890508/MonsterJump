@@ -34,6 +34,8 @@ public:
 
 	void resultRoute(int code);
 
+	void pointsBalanceChange(int points);
+
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	jobject getAppActivity();
 	jobject getYouMiManager();

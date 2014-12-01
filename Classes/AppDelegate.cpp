@@ -63,18 +63,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
-	Utils::setItem("coin", "1000");
-	int points = AdMgr->queryPoints();
-	CCLOG("------------------Points:%d----------------", points);
-	bool flag = AdMgr->awardPoints(10);
-	CCLOG("-----------------%d----------------------", flag);
-	points = AdMgr->queryPoints();
-	CCLOG("------------------Points:%d----------------", points);
-	flag = AdMgr->spendPoints(5);
-	CCLOG("-----------------%d----------------------", flag);
-	points = AdMgr->queryPoints();
-	CCLOG("------------------Points:%d----------------", points);
-
 	Utils::replaceScene(HomeLayer::create());
 
 	//Director::getInstance()->replaceScene(HelloWorld::createScene());
