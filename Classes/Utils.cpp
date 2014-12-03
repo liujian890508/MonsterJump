@@ -1,4 +1,5 @@
 #include "Utils.h"
+#include "MessageDispatcher.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 
@@ -97,7 +98,12 @@ void Utils::setItem(std::string key, std::string value)
 
 void Utils::showLeaderboard()
 {
-    
+	
+}
+
+void Utils::initGlobalConfig()
+{
+	Director::getInstance()->getScheduler()->scheduleUpdate(MessageDis, Scheduler::PRIORITY_SYSTEM, false);
 }
 
 void Utils::testRandom()

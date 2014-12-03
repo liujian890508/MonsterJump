@@ -10,7 +10,7 @@ using namespace ui;
 
 BuyCoin::BuyCoin()
 {
-	this->_fromLayer = layer_none;
+	this->_fromLayer = kType_None;
 }
 
 
@@ -20,6 +20,8 @@ BuyCoin::~BuyCoin()
 
 bool BuyCoin::init()
 {
+	this->setEntityType(kType_BuyCoin);
+	this->setMessageEnabled(true);
 	this->initBackground();
 
 	auto widget = GUIReader::getInstance()->widgetFromJsonFile("ui/UI_IAP.json");
@@ -48,10 +50,10 @@ bool BuyCoin::initWithMenu()
 	auto closeMenu = MenuItemImage::create("ui/btn_back.png", "ui/btn_back.png", [=](Ref *pSender){
 		switch (this->_fromLayer)
 		{
-		case layer_Store:
+		case kType_Store:
 			Utils::replaceScene(Store::create());
 			break;
-		case layer_Setting:
+		case kType_Setting:
 			Utils::replaceScene(Setting::create());
 			break;
 		}
@@ -84,6 +86,12 @@ bool BuyCoin::initCoin()
 
 bool BuyCoin::databind(void *data)
 {
-	std::tie(_fromLayer) = *static_cast<std::tuple<LayerName>*>(data);
+	std::tie(_fromLayer) = *static_cast<std::tuple<EntityType>*>(data);
+	return true;
+}
+
+bool BuyCoin::handleMessage(const Telegram &msg)
+{
+	CCLOG("----------------------------BuyCoin message handle");
 	return true;
 }

@@ -6,13 +6,19 @@ USING_NS_CC;
 
 enum EntityType
 {
-	kType_Hero,
-	kType_Normal,
-	kType_Collapsar,
-	kType_Plane,
-	kType_Gold,
-	kType_Bird,
-	kType_Spring
+	kType_None			= -1,
+	kType_Hero			= 1,
+	kType_Normal		= 2,
+	kType_Collapsar		= 3,
+	kType_Plane			= 4,
+	kType_Gold			= 5,
+	kType_Bird			= 6,
+	kType_Spring		= 7,
+	kType_Home			= 8,
+	kType_BuyCoin		= 9,
+	kType_GameWorld		= 10,
+	kType_Setting		= 11,
+	kType_Store			= 12
 };
 
 enum MoveDir
@@ -48,16 +54,6 @@ enum AdsResultCode
 	ads_spot_failed = 4,
 	ads_spot_closed = 5,
 	ads_offers_closed = 6
-};
-
-enum LayerName
-{
-	layer_none = -1,
-	layer_Home = 0,
-	layer_BuyCoin = 1,
-	layer_GameWorld = 2,
-	layer_Setting = 3,
-	layer_Store = 4
 };
 
 #endif

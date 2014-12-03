@@ -63,6 +63,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+	Utils::initGlobalConfig();
 	Utils::replaceScene(HomeLayer::create());
 
 	//Director::getInstance()->replaceScene(HelloWorld::createScene());

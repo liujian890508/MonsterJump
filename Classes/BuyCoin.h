@@ -19,8 +19,10 @@ public:
 
 	bool databind(void *data);
 
+	bool handleMessage(const Telegram &msg);
+
 private:
-	LayerName		_fromLayer;
+	EntityType		_fromLayer;
 };
 
 #endif

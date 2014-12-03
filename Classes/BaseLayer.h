@@ -3,18 +3,50 @@
 
 #include "cocos2d.h"
 #include "TypeInfoDef.h"
+#include "MessageDispatcher.h"
+#include "MessageManager.h"
 USING_NS_CC;
 
 template<class T>
-class BaseLayer: public Node
+class BaseLayer: public Node, public MessageListener
 {
+protected:
+	bool			m_isMessageEnabled;
+	EntityType		m_entityType;
 public:
 	BaseLayer()
 	{
+		m_isMessageEnabled = false;
+		m_entityType = kType_None;
 	}
 	virtual ~BaseLayer()
 	{
+		setMessageEnabled(false);
 	}
+
+	void setMessageEnabled(bool flag)
+	{
+		if (m_isMessageEnabled != flag)
+		{
+			m_isMessageEnabled = flag;
+			if (m_isMessageEnabled)
+			{
+				MessageMgr->registerMessageHandle(this);
+			}
+			else
+			{
+				MessageMgr->removeMessageHandle(this);
+			}
+		}
+	}
+
+	virtual int getReveiver()
+	{
+		return this->m_entityType;
+	}
+
+	EntityType getEntityType(){ return m_entityType; }
+	void setEntityType(EntityType type) { this->m_entityType = type; }
 
 	virtual void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {};
 	virtual void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {} ;
@@ -29,6 +61,7 @@ public:
 
 	virtual bool init(){ return true; }
 	virtual bool databind(void *data){ return true; }
+	virtual bool handleMessage(const Telegram &msg){ return true; }
 
 	static T* create()
 	{

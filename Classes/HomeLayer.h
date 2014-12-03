@@ -17,6 +17,8 @@ public:
 	bool initTest();
 	
 	void playLogoAni();
+
+	bool handleMessage(const Telegram &msg);
 };
 
 #endif
