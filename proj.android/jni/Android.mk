@@ -38,6 +38,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/BuyCoin.cpp \
 				   ../../Classes/ResultLayer.cpp \
 				   ../../Classes/ContactListener.cpp \
+				   ../../Classes/MessageDispatcher.cpp \
+				   ../../Classes/MessageManager.cpp \
 				   ../../Classes/C2DXShareSDK/Android/JSON/cJSON/cJSON.c \
 				   ../../Classes/C2DXShareSDK/Android/JSON/CCJSONConverter.cpp \
 				   ../../Classes/C2DXShareSDK/Android/ShareSDKUtils.cpp \

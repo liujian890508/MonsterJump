@@ -13,6 +13,12 @@ void shareResultHandler(C2DXResponseState state, C2DXPlatType platType, Dictiona
 	case C2DXResponseStateCancel:
 		break;
 	}
+	Array *errorInfo = error->allKeys();
+	Object *pObj = nullptr;
+	CCARRAY_FOREACH(errorInfo, pObj)
+	{
+		
+	}
 }
 
 ShareManager::ShareManager()

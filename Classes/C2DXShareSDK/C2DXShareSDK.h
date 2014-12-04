@@ -107,7 +107,7 @@ namespace cn
             static void showShareMenu(Array *platTypes, Dictionary *content, C2DXShareResultEvent callback);
             
             /**
-             *	@brief	鏄剧ず鍒嗕韩鑿滃崟
+             *	@brief	鏄剧ず鍒嗕韩鑿滃崟 
              *
              *	@param 	platTypes 	骞冲彴绫诲瀷鍒楄〃
              *	@param 	content 	鍒嗕韩鍐呭

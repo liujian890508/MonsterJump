@@ -122,6 +122,10 @@ bool HomeLayer::initRole()
 bool HomeLayer::handleMessage(const Telegram &msg)
 {
 	CCLOG("-----------------------------------------------HomeLayer message handle");
+	if (msg.Msg == kMsg_pointsChange)
+	{
+		CCLOG("-------------------------%d", *(int*)msg.ExtraInfo);
+	}
 	return true;
 }
 
