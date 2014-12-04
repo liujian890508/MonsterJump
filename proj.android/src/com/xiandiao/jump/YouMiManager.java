@@ -118,6 +118,12 @@ public class YouMiManager implements PointsChangeNotify {
 	 * @return
 	 */
 	public static boolean awardPoints(int amount){
+		// 积分墙配置检查（没有使用“通过 Receiver来获取积分订单”功能）：
+		boolean flag = OffersManager.getInstance(content).checkOffersAdConfig();
+		System.out.println("flag:" + flag);
+		// 积分墙配置检查（使用“通过Receiver来获取积分订单”功能）：
+		/*flag = OffersManager.getInstance(content).checkOffersAdConfig(true);
+		System.out.println("flag:" + flag);*/
 		boolean isSuccess = PointsManager.getInstance(content).awardPoints(amount);
 		return isSuccess;
 	}

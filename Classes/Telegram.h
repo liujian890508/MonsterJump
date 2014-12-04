@@ -6,7 +6,7 @@
 
 enum message_type
 {
-
+	kMsg_pointsChange
 };
 
 struct Telegram

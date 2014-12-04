@@ -1,4 +1,5 @@
 #include "AdManager.h"
+#include "MessageDispatcher.h"
 
 AdManager::AdManager()
 {
@@ -216,6 +217,7 @@ bool AdManager::awardPoints(int amount)
 void AdManager::pointsBalanceChange(int points)
 {
 	CCLOG("current Score: %d", points);
+	MessageDis->DispatchMsg(0, 0, -1, kMsg_pointsChange, &points);
 }
 
 void AdManager::resultRoute(int code)
