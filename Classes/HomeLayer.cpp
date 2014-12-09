@@ -19,6 +19,9 @@ HomeLayer::~HomeLayer()
 
 bool HomeLayer::init()
 {
+	this->setEntityType(kType_Home);
+	this->setMessageEnabled(true);
+
 	this->loadResource();
 
 	auto background = Background::create();
@@ -113,6 +116,16 @@ bool HomeLayer::initRole()
 	auto animate = Utils::getAnimate("rabbit_", 25, 35);
 	heroSprite->runAction(RepeatForever::create( animate));
 	this->addChild(heroSprite);
+	return true;
+}
+
+bool HomeLayer::handleMessage(const Telegram &msg)
+{
+	CCLOG("-----------------------------------------------HomeLayer message handle");
+	if (msg.Msg == kMsg_pointsChange)
+	{
+		CCLOG("-------------------------%d", *(int*)msg.ExtraInfo);
+	}
 	return true;
 }
 

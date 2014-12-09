@@ -29,6 +29,8 @@ public:
     
     static void showLeaderboard();
 
+	static void initGlobalConfig();
+
 private:
 	static void lazyInit();
 	static bool		_isLoad;

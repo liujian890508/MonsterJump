@@ -154,6 +154,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Gold.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\HeroSprite.cpp" />
+    <ClCompile Include="..\Classes\MessageDispatcher.cpp" />
+    <ClCompile Include="..\Classes\MessageManager.cpp" />
     <ClCompile Include="..\Classes\NormalWall.cpp" />
     <ClCompile Include="..\Classes\ObjectManager.cpp" />
     <ClCompile Include="..\Classes\Plane.cpp" />
@@ -189,6 +191,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Gold.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\HeroSprite.h" />
+    <ClInclude Include="..\Classes\MessageDispatcher.h" />
+    <ClInclude Include="..\Classes\MessageManager.h" />
     <ClInclude Include="..\Classes\NormalWall.h" />
     <ClInclude Include="..\Classes\ObjectManager.h" />
     <ClInclude Include="..\Classes\Plane.h" />
@@ -198,6 +202,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Singleton.h" />
     <ClInclude Include="..\Classes\Spring.h" />
     <ClInclude Include="..\Classes\Store.h" />
+    <ClInclude Include="..\Classes\Telegram.h" />
     <ClInclude Include="..\Classes\TypeInfoDef.h" />
     <ClInclude Include="..\Classes\Utils.h" />
     <ClInclude Include="..\Classes\VisibleRect.h" />

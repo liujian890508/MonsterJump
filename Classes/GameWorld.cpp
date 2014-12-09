@@ -15,11 +15,15 @@ GameWorld::GameWorld()
 
 GameWorld::~GameWorld()
 {
+	ObjectMgr->clear();
 	delete this->m_pGameLogic;
 }
 
 bool GameWorld::init()
 {
+	this->setEntityType(kType_GameWorld);
+	this->setMessageEnabled(true);
+
 	m_pBgSprite = Background::create();
 	this->addChild(m_pBgSprite);
 

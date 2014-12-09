@@ -19,6 +19,9 @@ Store::~Store()
 
 bool Store::init()
 {
+	this->setEntityType(kType_Store);
+	this->setMessageEnabled(true);
+
 	auto bgSprite = Sprite::create("ui/ui_bg.png");
 	this->addChild(bgSprite);
 	bgSprite->setPosition(VisibleRect::center());
@@ -51,7 +54,7 @@ bool Store::initWithMenu()
 bool Store::initCoin()
 {
 	auto coinBuyMenu = MenuItemImage::create("ui/ui_coin_display.png", "ui/ui_coin_display.png", [=](Ref *pSender){
-		std::tuple<LayerName> param = std::make_tuple(layer_Store);
+		std::tuple<EntityType> param = std::make_tuple(kType_Store);
 		Utils::replaceScene(BuyCoin::create(), &param);
 	});
 	auto menu = Menu::create(coinBuyMenu, nullptr);
@@ -67,5 +70,11 @@ bool Store::initCoin()
 	coinBuyMenu->addChild(coinLabel);
 	coinLabel->setPosition(Point(coinBuyMenu->getContentSize() / 2));
 
+	return true;
+}
+
+bool Store::handleMessage(const Telegram &msg)
+{
+	CCLOG("----------------------------Store message handle");
 	return true;
 }

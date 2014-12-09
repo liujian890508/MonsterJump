@@ -20,6 +20,9 @@ Setting::~Setting()
 
 bool Setting::init()
 {
+	this->setEntityType(kType_Setting);
+	this->setMessageEnabled(true);
+
 	auto bgSprite = Sprite::create("ui/ui_bg.png");
 	this->addChild(bgSprite);
 	bgSprite->setPosition(VisibleRect::center());
@@ -77,7 +80,7 @@ bool Setting::initWithMenu()
 bool Setting::initCoin()
 {
 	auto coinBuyMenu = MenuItemImage::create("ui/ui_coin_display.png", "ui/ui_coin_display.png", [=](Ref *pSender){
-		std::tuple<LayerName> param = std::make_tuple(layer_Setting);
+		std::tuple<EntityType> param = std::make_tuple(kType_Setting);
 		Utils::replaceScene(BuyCoin::create(), &param);
 	});
 	auto menu = Menu::create(coinBuyMenu, nullptr);
@@ -93,5 +96,11 @@ bool Setting::initCoin()
 	coinBuyMenu->addChild(coinLabel);
 	coinLabel->setPosition(Point(coinBuyMenu->getContentSize() / 2));
 
+	return true;
+}
+
+bool Setting::handleMessage(const Telegram &msg)
+{
+	CCLOG("----------------------------Setting message handle");
 	return true;
 }

@@ -40,6 +40,9 @@
     <Filter Include="src\contact">
       <UniqueIdentifier>{941d651a-485e-45bb-b42d-636ee3e8e51b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\message">
+      <UniqueIdentifier>{700c332f-3eb6-4a54-96db-af84e00c3e4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -128,6 +131,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ResultLayer.cpp">
       <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MessageDispatcher.cpp">
+      <Filter>src\message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MessageManager.cpp">
+      <Filter>src\message</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +244,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ResultLayer.h">
       <Filter>src\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Telegram.h">
+      <Filter>src\message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MessageDispatcher.h">
+      <Filter>src\message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MessageManager.h">
+      <Filter>src\message</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

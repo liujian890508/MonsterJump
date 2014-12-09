@@ -14,6 +14,8 @@ public:
 	bool initWithMenu();
 
 	bool initCoin();
+
+	virtual bool handleMessage(const Telegram &msg);
 };
 
 #endif
