@@ -45,7 +45,7 @@ bool Setting::init()
 	});
 
 	rateUs->addClickEventListener([=](Ref *sender){
-		AdMgr->showOffersWallDialog(200,200);
+        Utils::showLeaderboard();
 		CCLOG("-------------------------------------------2");
 	});
 

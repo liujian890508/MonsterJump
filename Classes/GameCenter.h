@@ -22,5 +22,9 @@
 -(BOOL) isGameCenterAvailable;
 -(void) showLeaderboard;
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController;
+-(void) reportScore: (int64_t) score forCategory: (NSString*) category;
+-(void) retrieveTopTenScores;
+-(void) retrieveFriends;
+-(void) loadPlayerData: (NSArray *) identifiers;
 
 @end

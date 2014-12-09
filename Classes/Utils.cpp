@@ -1,7 +1,7 @@
 #include "Utils.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-
+#include "YouMiUtil.h"
 #endif
 
 #define PT_RATIO 32
@@ -97,7 +97,7 @@ void Utils::setItem(std::string key, std::string value)
 
 void Utils::showLeaderboard()
 {
-    
+    YouMiUtil::showLeaderboard();
 }
 
 void Utils::testRandom()

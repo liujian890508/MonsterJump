@@ -64,7 +64,7 @@ static UIViewController * currentModalViewController = nil;
 {
     if(!gameCenterAvailable) return;
     
-    [[GKLocalPlayer localPlayer] setAuthenticateHandler:^(UIViewController *viewController, NSError *error){
+    [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error){
         if (error == nil) {
             
             //成功处理
@@ -114,5 +114,96 @@ static UIViewController * currentModalViewController = nil;
         currentModalViewController = nil;
     }
 }
+
+- (void) reportScore: (int64_t) score forCategory: (NSString*) category
+{
+    GKScore *scoreReporter = [[[GKScore alloc] initWithCategory:category] autorelease];
+    scoreReporter.value = score;
+    
+    [scoreReporter reportScoreWithCompletionHandler:^(NSError *error) {
+        if (error != nil)
+        {
+            // handle the reporting error
+            NSLog(@"上传分数出错.");
+            //If your application receives a network error, you should not discard the score.
+            //Instead, store the score object and attempt to report the player’s process at
+            //a later time.
+        }else {
+            NSLog(@"上传分数成功");
+        }
+        
+    }];
+}
+
+- (void) retrieveTopTenScores
+{
+    GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
+    if (leaderboardRequest != nil)
+    {
+        leaderboardRequest.playerScope = GKLeaderboardPlayerScopeGlobal;
+        leaderboardRequest.timeScope = GKLeaderboardTimeScopeAllTime;
+        leaderboardRequest.range = NSMakeRange(1,10);
+        leaderboardRequest.category = @"TS_LB";
+        [leaderboardRequest loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error) {
+            if (error != nil){
+                // handle the error.
+                NSLog(@"下载失败");
+            }
+            if (scores != nil){
+                // process the score information.
+                NSLog(@"下载成功....");
+                NSArray *tempScore = [NSArray arrayWithArray:leaderboardRequest.scores];
+                for (GKScore *obj in tempScore) {
+                    NSLog(@"    playerID            : %@",obj.playerID);
+                    NSLog(@"    category            : %@",obj.category);
+                    NSLog(@"    date                : %@",obj.date);
+                    NSLog(@"    formattedValue    : %@",obj.formattedValue);
+                    NSLog(@"    value                : %d",obj.value);
+                    NSLog(@"    rank                : %d",obj.rank);
+                    NSLog(@"**************************************");
+                }
+            }
+        }];
+    }
+}
+
+- (void) retrieveFriends
+{
+    GKLocalPlayer *lp = [GKLocalPlayer localPlayer];
+    if (lp.authenticated)
+    {
+        [lp loadFriendsWithCompletionHandler:^(NSArray *friends, NSError *error) {
+            if (error == nil)
+            {
+                [self loadPlayerData:friends];
+            }
+            else
+            {
+                ;// report an error to the user.
+            }
+        }];
+        
+    }
+}
+
+- (void) loadPlayerData: (NSArray *) identifiers
+{
+    [GKPlayer loadPlayersForIdentifiers:identifiers withCompletionHandler:^(NSArray *players, NSError *error) {
+        if (error != nil)
+        {
+            // Handle the error.
+        }
+        if (players != nil)
+        {
+            NSLog(@"得到好友的alias成功");
+            GKPlayer *friend1 = [players objectAtIndex:0];
+            NSLog(@"friedns---alias---%@",friend1.alias);
+            NSLog(@"friedns---isFriend---%d",friend1.isFriend);
+            NSLog(@"friedns---playerID---%@",friend1.playerID);
+        }
+    }];
+}
+
+
 
 @end
