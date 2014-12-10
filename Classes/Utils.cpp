@@ -100,6 +100,11 @@ void Utils::showLeaderboard()
     YouMiUtil::showLeaderboard();
 }
 
+void Utils::initGlobalConfig()
+{
+    
+}
+
 void Utils::testRandom()
 {
 	std::random_device rd;
