@@ -57,12 +57,12 @@ bool Setting::init()
 		CCLOG("-------------------------------------------3");
 	});
 
-	LoadingBar *music = static_cast<LoadingBar*>(widget->getChildByName("ProgressBar_11"));
-	LoadingBar *sound = static_cast<LoadingBar*>(widget->getChildByName("ProgressBar_11_0"));
+	Slider *music = static_cast<Slider*>(widget->getChildByName("Slider_17"));
+	Slider *sound = static_cast<Slider*>(widget->getChildByName("Slider_17_0"));
 
-	music->setPercent(100);
-	sound->setPercent(50);
-
+    music->setPercent(100);
+    sound->setPercent(50);
+    
 	return this->initWithMenu();
 }
  

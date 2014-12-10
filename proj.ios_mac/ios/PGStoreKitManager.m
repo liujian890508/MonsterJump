@@ -1,5 +1,4 @@
 #import "PGStoreKitManager.h"
-#import "ViewController.h"
  
 @implementation PGStoreKitManager
  
@@ -58,7 +57,7 @@
             }else{
                 _enableGameCenter = YES;
                 if(viewController) {
-                    [_viewController presentViewController:viewController animated:YES completion:nil];
+                    [viewController presentViewController:viewController animated:YES completion:nil];
                 }
             }
         };
