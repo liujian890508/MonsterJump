@@ -20,10 +20,6 @@ public:
 
 	static void testRandom();
 
-	static void createPhysicsBox(BaseSprite *sprite, b2World *world);
-
-	static b2Vec2 cocosConverToB2(Point point);
-
 	static std::string getItem(std::string key);
 	static void setItem(std::string key, std::string value);
     
@@ -31,8 +27,11 @@ public:
 
 	static void initGlobalConfig();
 
+	static void disableScreenAutoLock(bool flag);
+
+	static std::string getUniquelyIdentifies();
+
 private:
-	static void lazyInit();
 	static bool		_isLoad;
 };
 

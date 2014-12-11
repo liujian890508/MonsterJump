@@ -7,7 +7,7 @@ class HomeLayer : public BaseLayer<HomeLayer>
 {
 public:
 	HomeLayer();
-	~HomeLayer();
+	virtual ~HomeLayer();
 
 	bool init();
 	bool initOther();

@@ -12,7 +12,7 @@ class GameWorld: public BaseLayer<GameWorld>
 {
 public:
 	GameWorld();
-	~GameWorld();
+	virtual ~GameWorld();
 	
 
 	bool init();

@@ -1,8 +1,15 @@
 #include "Utils.h"
 #include "MessageDispatcher.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+extern "C"
+#include <jni.h>
+#include "jni/JniHelper.h"
+#include <android/log.h>
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "YouMiUtil.h"
+#include "IOSUtil.h"
 #endif
 
 #define PT_RATIO 32
@@ -54,37 +61,6 @@ int Utils::getRandomInt(int min, int max)
 	return dis(gen);
 }
 
-void Utils::createPhysicsBox(BaseSprite *sprite, b2World *world)
-{
-	b2PolygonShape polygon;
-	polygon.SetAsBox((float)sprite->getContentSize().width / PT_RATIO / 2, (float)sprite->getContentSize().height / PT_RATIO / 2);
-
-	b2FixtureDef spriteShapeDef;
-	spriteShapeDef.shape = &polygon;
-	spriteShapeDef.density = 10.f;
-	spriteShapeDef.isSensor = true;   // 对象之间有碰撞检测但是又不想让它们有碰撞反应
-
-	b2BodyDef bd;
-	bd.type = b2_dynamicBody;
-	bd.position = b2Vec2((float)(sprite->getPosition().x / PT_RATIO),
-		(float)(sprite->getPosition().y / PT_RATIO));
-	bd.userData = sprite;
-
-	b2Body* spriteBody = world->CreateBody(&bd);
-	spriteBody->CreateFixture(&spriteShapeDef);
-}
-
-b2Vec2 Utils::cocosConverToB2(Point point)
-{
-	b2Vec2 pt = b2Vec2((float)(point.x / PT_RATIO), (float)(point.y / PT_RATIO));
-	return pt;
-}
-
-void Utils::lazyInit()
-{
-	
-}
-
 std::string Utils::getItem(std::string key)
 {
 	std::string item = UserDefault::getInstance()->getStringForKey(key.c_str(), "0");
@@ -98,12 +74,55 @@ void Utils::setItem(std::string key, std::string value)
 
 void Utils::showLeaderboard()
 {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	
+#endif
 }
 
 void Utils::initGlobalConfig()
 {
 	Director::getInstance()->getScheduler()->scheduleUpdate(MessageDis, Scheduler::PRIORITY_SYSTEM, false);
+}
+
+std::string Utils::getUniquelyIdentifies()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	JniMethodInfo minfo;
+	bool isHave = JniHelper::getStaticMethodInfo(minfo, "com/xiandiao/jump/Util", "getLocalMacAddress", "()Ljava/lang/String;");
+	if( isHave)
+	{
+		jstring jstr = (jstring)minfo.env->CallStaticObjectMethod(minfo.classID, minfo.methodID);
+		minfo.env->DeleteLocalRef(minfo.classID);
+		std::string ret = JniHelper::jstring2string(jstr);
+		minfo.env->DeleteLocalRef(jstr);
+		return ret;
+
+	}
+	else
+	{
+		CCLOG("JniHelper::getStaticMethodInfo error...");
+	}
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	return IOSUtil::getUniquelyIdentifies();
+#endif
+	return "";
+}
+
+void Utils::disableScreenAutoLock(bool flag)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	JniMethodInfo minfo;
+	bool b = JniHelper::getStaticMethodInfo(minfo, "com/xiandiao/jump/Util", "disableScreenAutoLock", "(Z)V");
+	if (!b){
+		CCLOG("JniHelper::getStaticMethodInfo error...");
+	}
+	else{
+		minfo.env->CallStaticObjectMethod(minfo.classID, minfo.methodID, flag);
+		minfo.env->DeleteLocalRef(minfo.classID);
+	}
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	IOSUtil::disableScreenAutoLock(flag);
+#endif
 }
 
 void Utils::testRandom()

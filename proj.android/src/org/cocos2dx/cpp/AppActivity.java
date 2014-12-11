@@ -31,12 +31,16 @@ import org.cocos2dx.lib.Cocos2dxActivity;
 import android.os.Bundle;
 import cn.sharesdk.ShareSDKUtils;
 
+import com.xiandiao.jump.GoogleBilling;
+import com.xiandiao.jump.Util;
 import com.xiandiao.jump.YouMiManager;
 
 public class AppActivity extends Cocos2dxActivity {
 	
 	private static AppActivity _instance;
 	private static YouMiManager _youMiManager;
+	private static Util _util;
+	private GoogleBilling _googleBilling;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,10 @@ public class AppActivity extends Cocos2dxActivity {
 		_instance = this;
 		_youMiManager = new YouMiManager(this);
 		_youMiManager.init();
+		_util = new Util(this);
+		_util.init();
+		
+		//_googleBilling = new GoogleBilling(this);
 		
 		this.initShareSDK();
 	}
@@ -61,19 +69,6 @@ public class AppActivity extends Cocos2dxActivity {
 	}
 	
 	public native void adsResultCallback(int resultCode);
-	
-	
-	public void showOffersWall(){
-		_youMiManager.showOffersWall();
-	}
-	
-	public void showOffersWallDialog(int width, int height){
-		_youMiManager.showOffersWallDialog(width, height);
-	}
-
-	public void showSpotAds(){
-		_youMiManager.showSpotAds();
-	}
 	
 	@Override
 	public void onBackPressed() {

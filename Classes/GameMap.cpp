@@ -23,7 +23,6 @@ GameMap::GameMap()
 
 GameMap::~GameMap()
 {
-	CC_SAFE_RELEASE(this->m_pGameWorld);
 }
 
 bool GameMap::init()
@@ -38,7 +37,7 @@ bool GameMap::init()
 
 void GameMap::initWithMap()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		this->loadMap(i + 1);
 	}
@@ -108,10 +107,7 @@ bool GameMap::databind(void *data)
 
 void GameMap::setGameWorld(GameWorld *gameWorld)
 {
-	CC_SAFE_RELEASE(m_pGameWorld);
 	m_pGameWorld = gameWorld;
-	CC_SAFE_RETAIN(m_pGameWorld);
-	
 }
 
 void GameMap::move(Point point)
