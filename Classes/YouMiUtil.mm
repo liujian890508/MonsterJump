@@ -11,10 +11,11 @@
 #import "YouMiPointsManager.h"
 #import "YouMiWallSpot.h"
 #import "YouMiWallSpotView.h"
+#import "GameCenter.h"
 
 void YouMiUtil::showOffers(bool flag)
 {
-    [YouMiWall showOffers:NO didShowBlock:^{
+    [YouMiWall showOffers:YES didShowBlock:^{
         NSLog(@"有米积分墙已显示");
     }didDismissBlock:^{
         NSLog(@"有米积分墙已退出");
@@ -29,9 +30,9 @@ int YouMiUtil::getYouMiScore()
     return score;
 }
 
-void YouMiUtil::spendPoints(int score)
+bool YouMiUtil::spendPoints(int score)
 {
-    [YouMiPointsManager spendPoints:score];
+    return [YouMiPointsManager spendPoints:score];
 }
 
 void YouMiUtil::showSpot()
@@ -42,4 +43,9 @@ void YouMiUtil::showSpot()
             NSLog(@"积分插播退出");
         }];
     }
+}
+
+void YouMiUtil::showLeaderboard()
+{
+    [[GameCenter getInstance] showLeaderboard];
 }

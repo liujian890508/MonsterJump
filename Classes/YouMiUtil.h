@@ -16,9 +16,11 @@ public:
     
     static int getYouMiScore();
     
-    static void spendPoints(int score);
+    static bool spendPoints(int score);
     
     static void showSpot();
+    
+    static void showLeaderboard();
 };
 
 #endif /* defined(__GameJump__YouMiUtil__) */

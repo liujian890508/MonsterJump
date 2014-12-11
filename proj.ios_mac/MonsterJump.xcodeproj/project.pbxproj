@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
+		1D242C791A38945D0095003E /* MessageDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D242C741A38945D0095003E /* MessageDispatcher.cpp */; };
+		1D242C7A1A38945D0095003E /* MessageManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D242C761A38945D0095003E /* MessageManager.cpp */; };
 		1D3C66001A0E4C7B000C7AF2 /* Bird.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C65F61A0E4C7B000C7AF2 /* Bird.cpp */; };
 		1D3C66011A0E4C7B000C7AF2 /* Collapsar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C65F81A0E4C7B000C7AF2 /* Collapsar.cpp */; };
 		1D3C66021A0E4C7B000C7AF2 /* Gold.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C65FA1A0E4C7B000C7AF2 /* Gold.cpp */; };
@@ -159,6 +161,11 @@
 /* Begin PBXFileReference section */
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
+		1D242C741A38945D0095003E /* MessageDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageDispatcher.cpp; sourceTree = "<group>"; };
+		1D242C751A38945D0095003E /* MessageDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDispatcher.h; sourceTree = "<group>"; };
+		1D242C761A38945D0095003E /* MessageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageManager.cpp; sourceTree = "<group>"; };
+		1D242C771A38945D0095003E /* MessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageManager.h; sourceTree = "<group>"; };
+		1D242C781A38945D0095003E /* Telegram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telegram.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3C65F51A0E4C7B000C7AF2 /* BaseSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSprite.h; sourceTree = "<group>"; };
 		1D3C65F61A0E4C7B000C7AF2 /* Bird.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bird.cpp; sourceTree = "<group>"; };
@@ -626,6 +633,11 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1D242C741A38945D0095003E /* MessageDispatcher.cpp */,
+				1D242C751A38945D0095003E /* MessageDispatcher.h */,
+				1D242C761A38945D0095003E /* MessageManager.cpp */,
+				1D242C771A38945D0095003E /* MessageManager.h */,
+				1D242C781A38945D0095003E /* Telegram.h */,
 				1DC065AA1A28A2D1007A9C9D /* ResultLayer.cpp */,
 				1DC065AB1A28A2D1007A9C9D /* ResultLayer.h */,
 				1DC065A71A28A2C2007A9C9D /* ContactListener.cpp */,
@@ -919,6 +931,8 @@
 				1DBFCD681A05CAA7005AB74D /* Dialog.cpp in Sources */,
 				1D565A841A20D7FC00999935 /* Store.cpp in Sources */,
 				1D565A7C1A20D7DB00999935 /* BuyCoin.cpp in Sources */,
+				1D242C7A1A38945D0095003E /* MessageManager.cpp in Sources */,
+				1D242C791A38945D0095003E /* MessageDispatcher.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1DBFCD691A05CAA7005AB74D /* DialogManager.cpp in Sources */,
 				1D565A7F1A20D7E800999935 /* Setting.cpp in Sources */,

@@ -137,7 +137,7 @@ void AdManager::showOffersWall()
 		minfo.env->DeleteLocalRef( minfo.classID);
 	}
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-
+    YouMiUtil::showOffers(true);
 #endif
 }
 
@@ -172,7 +172,7 @@ int AdManager::queryPoints()
 		return (int) points;
 	}
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-
+    return YouMiUtil::getYouMiScore();
 #endif
 	return 0;
 }
@@ -191,7 +191,7 @@ bool AdManager::spendPoints(int amount)
 		return (bool)flag;
 	}
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-
+    return YouMiUtil::spendPoints(amount);
 #endif
 	return false;
 }
