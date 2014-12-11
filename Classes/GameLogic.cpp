@@ -51,10 +51,8 @@ void GameLogic::update(float dt)
 
 void GameLogic::loadMap()
 {
-	CCLOG("%d", ObjectMgr->size());
 	if (ObjectMgr->size() < 60)
 	{
-		CCLOG("--------------------------------------------");
 		this->m_pGameWorld->getGameMap()->loadMap();
 	}
 }

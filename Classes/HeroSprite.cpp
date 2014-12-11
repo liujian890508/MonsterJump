@@ -136,7 +136,7 @@ void HeroSprite::changeState(HeroState state)
 		animate = Utils::getAnimate("rabbit_", 7, 12, 0.05f);
 		break;
 	case kState_jump:
-		animate = Utils::getAnimate("rabbit_", 1, 6, 0.05f);
+		animate = Utils::getAnimate("rabbit_", 1, 6, 0.08f);
 		break;
 	case kState_rush:
 		animate = Utils::getAnimate("rabbit_", 13, 18);

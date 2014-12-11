@@ -6,6 +6,7 @@
 #include "HomeLayer.h"
 #include "BuyCoin.h"
 #include "AdManager.h"
+#include "SimpleAudioEngine.h"
 using namespace ui;
 using namespace cocostudio;
 
@@ -60,9 +61,20 @@ bool Setting::init()
 	Slider *music = static_cast<Slider*>(widget->getChildByName("Slider_17"));
 	Slider *sound = static_cast<Slider*>(widget->getChildByName("Slider_17_0"));
 
-    music->setPercent(100);
-    sound->setPercent(50);
-    
+	int backgroundVolume = CocosDenshion::SimpleAudioEngine::getInstance()->getBackgroundMusicVolume();
+	music->setPercent(backgroundVolume * 100);
+	int effectVolume = CocosDenshion::SimpleAudioEngine::getInstance()->getEffectsVolume();
+	sound->setPercent(effectVolume * 100);
+
+	music->addEventListener([=](Ref *pSender, Slider::EventType event){
+		int percent = music->getPercent();
+		CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(percent / 100);
+	});
+
+	sound->addEventListener([=](Ref *pSender, Slider::EventType event){
+		int percent = music->getPercent();
+		CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(percent / 100);
+	});
 	return this->initWithMenu();
 }
  
