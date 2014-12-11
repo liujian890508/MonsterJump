@@ -40,6 +40,7 @@
 		1D867B7E1A123C700014D2F5 /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D867B7D1A123C700014D2F5 /* libYouMi.a */; };
 		1D867B801A123CC50014D2F5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D867B7F1A123CC50014D2F5 /* CFNetwork.framework */; };
 		1D867B821A123CE50014D2F5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D867B811A123CE50014D2F5 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1DBCC03A1A39C74700136BE0 /* IOSUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCC0391A39C74700136BE0 /* IOSUtil.mm */; };
 		1DBFCD621A05CAA7005AB74D /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD341A05CAA7005AB74D /* AppDelegate.cpp */; };
 		1DBFCD661A05CAA7005AB74D /* C2DXShareSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD431A05CAA7005AB74D /* C2DXShareSDK.cpp */; };
 		1DBFCD671A05CAA7005AB74D /* C2DXiOSShareSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DBFCD481A05CAA7005AB74D /* C2DXiOSShareSDK.mm */; };
@@ -220,6 +221,8 @@
 		1D867B7D1A123C700014D2F5 /* libYouMi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYouMi.a; sourceTree = "<group>"; };
 		1D867B7F1A123CC50014D2F5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		1D867B811A123CE50014D2F5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		1DBCC0381A39C74700136BE0 /* IOSUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSUtil.h; sourceTree = "<group>"; };
+		1DBCC0391A39C74700136BE0 /* IOSUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IOSUtil.mm; sourceTree = "<group>"; };
 		1DBDF5E71A07B318003212BD /* TypeInfoDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeInfoDef.h; sourceTree = "<group>"; };
 		1DBFCD341A05CAA7005AB74D /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		1DBFCD351A05CAA7005AB74D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -633,6 +636,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1DBCC0381A39C74700136BE0 /* IOSUtil.h */,
+				1DBCC0391A39C74700136BE0 /* IOSUtil.mm */,
 				1D242C741A38945D0095003E /* MessageDispatcher.cpp */,
 				1D242C751A38945D0095003E /* MessageDispatcher.h */,
 				1D242C761A38945D0095003E /* MessageManager.cpp */,
@@ -917,6 +922,7 @@
 				1D3C66011A0E4C7B000C7AF2 /* Collapsar.cpp in Sources */,
 				1DBFCD731A05CAA7005AB74D /* VisibleRect.cpp in Sources */,
 				1D867B461A1239E20014D2F5 /* Background.cpp in Sources */,
+				1DBCC03A1A39C74700136BE0 /* IOSUtil.mm in Sources */,
 				1DBFCD671A05CAA7005AB74D /* C2DXiOSShareSDK.mm in Sources */,
 				1DBFCD701A05CAA7005AB74D /* NormalWall.cpp in Sources */,
 				1D565A851A20D7FC00999935 /* YouMiUtil.mm in Sources */,

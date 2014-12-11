@@ -9,26 +9,21 @@ class Utils
 public:
 	template<typename T>
 	static void replaceScene(BaseLayer<T> *layer, void *data = nullptr);
-
 	static SpriteFrame* getSpriteFrame(std::string szSpriteFrameName);
-
 	static Sprite* createSprite(std::string szSpriteName);
-
 	static Animate* getAnimate(std::string prefix, int begin, int end, float time = 0.1f);
-
 	static int getRandomInt(int min, int max);
-
 	static void testRandom();
 
 	static std::string getItem(std::string key);
 	static void setItem(std::string key, std::string value);
     
     static void showLeaderboard();
+    static void retrieveTopTenScores(std::string category);
+    static void reportScore(int score, std::string category);
 
 	static void initGlobalConfig();
-
 	static void disableScreenAutoLock(bool flag);
-
 	static std::string getUniquelyIdentifies();
 
 private:

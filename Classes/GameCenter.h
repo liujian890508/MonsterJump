@@ -23,7 +23,7 @@
 -(void) showLeaderboard;
 -(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController;
 -(void) reportScore: (int64_t) score forCategory: (NSString*) category;
--(void) retrieveTopTenScores;
+-(void) retrieveTopTenScores: (NSString*) category;
 -(void) retrieveFriends;
 -(void) loadPlayerData: (NSArray *) identifiers;
 

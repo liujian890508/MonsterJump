@@ -135,7 +135,7 @@ static UIViewController * currentModalViewController = nil;
     }];
 }
 
-- (void) retrieveTopTenScores
+- (void) retrieveTopTenScores: (NSString*) category
 {
     GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
     if (leaderboardRequest != nil)
@@ -143,11 +143,12 @@ static UIViewController * currentModalViewController = nil;
         leaderboardRequest.playerScope = GKLeaderboardPlayerScopeGlobal;
         leaderboardRequest.timeScope = GKLeaderboardTimeScopeAllTime;
         leaderboardRequest.range = NSMakeRange(1,10);
-        leaderboardRequest.category = @"TS_LB";
+        leaderboardRequest.category = category;
         [leaderboardRequest loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error) {
             if (error != nil){
                 // handle the error.
                 NSLog(@"下载失败");
+                NSLog(@"%@", error);
             }
             if (scores != nil){
                 // process the score information.

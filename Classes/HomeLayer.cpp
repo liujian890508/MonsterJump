@@ -60,18 +60,19 @@ bool HomeLayer::initTest()
 	this->addChild(label);
 
 	auto testMenu = MenuItemFont::create("TestMenu", [=](Ref *pSender){
-		if (!flag){
-			CCLOG("--------------------------awardPoints");
-			AdMgr->awardPoints(10);
-			flag = true;
-		}
-		else {
-			CCLOG("--------------------------awardPoints");
-			AdMgr->awardPoints(10);
-			flag = false;
-		}
-		int points = AdMgr->queryPoints();
-		label->setString("Score:" + std::to_string(points));
+//		if (!flag){
+//			CCLOG("--------------------------awardPoints");
+//			AdMgr->awardPoints(10);
+//			flag = true;
+//		}
+//		else {
+//			CCLOG("--------------------------awardPoints");
+//			AdMgr->awardPoints(10);
+//			flag = false;
+//		}
+//		int points = AdMgr->queryPoints();
+//		label->setString("Score:" + std::to_string(points));
+        Utils::reportScore(10, "1");
 	});
 	auto menu = Menu::create(testMenu, nullptr);
 	this->addChild(menu);

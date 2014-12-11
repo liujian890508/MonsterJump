@@ -75,8 +75,23 @@ void Utils::setItem(std::string key, std::string value)
 void Utils::showLeaderboard()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	
+    IOSUtil::showLeaderboard();
 #endif
+}
+
+void Utils::retrieveTopTenScores(std::string category)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    IOSUtil::retrieveTopTenScores(category);
+#endif
+}
+
+void Utils::reportScore(int score, std::string category)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    IOSUtil::reportScore(score, category);
+#endif
+
 }
 
 void Utils::initGlobalConfig()

@@ -17,10 +17,14 @@ class IOSUtil
 {
 public:
     static std::string getUniquelyIdentifies();
-
-	static CCSize getFontSize(const char *content, const char *fontName, int fontSize);
     
     static void disableScreenAutoLock(bool flag);
+    
+    static void showLeaderboard();
+    
+    static void retrieveTopTenScores(std::string &category);
+    
+    static void reportScore(int score, std::string &category);
 };
 
 #endif /* defined(__Shqmm__FMIOSUtil__) */

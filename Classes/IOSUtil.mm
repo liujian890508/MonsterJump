@@ -9,6 +9,7 @@
 #include "IOSUtil.h"
 
 #include <AdSupport/AdSupport.h>
+#include "GameCenter.h"
 
 static CGSize calculateStringSize(NSString *str, id font, CGSize *constrainSize)
 {
@@ -38,45 +39,23 @@ static CGSize calculateStringSize(NSString *str, id font, CGSize *constrainSize)
 
 std::string IOSUtil::getUniquelyIdentifies()
 {
-    NSString *uniStr = NULL;
-    if( [[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
-    {
-        NSLog(@"device version: 6.0");
-        uniStr = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    }
-    else if( [[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
-    {
-        NSLog(@"deivce version: 5.0");
-        CFUUIDRef puuid = CFUUIDCreate(nil);
-        CFStringRef uuidString = CFUUIDCreateString(nil, puuid);
-        uniStr = (NSString*)CFStringCreateCopy(NULL, uuidString);
-        CFRelease(puuid);
-        CFRelease(uuidString);
-    }
-    return [uniStr cStringUsingEncoding: NSUTF8StringEncoding];
-}
-
-CCSize IOSUtil::getFontSize(const char *content, const char *fontName, int fontSize)
-{
-	NSString *str = [NSString stringWithUTF8String:content];
-    NSString *fntName = [NSString stringWithUTF8String:fontName];
-    
-    CGSize dim, constrainSize;
-    
-    id font = [UIFont fontWithName:fntName size:fontSize];
-    if(font)
-    {
-        dim = calculateStringSize(str, font, &constrainSize);
-    }
-    else
-    {
-        font = [UIFont systemFontOfSize:fontSize];
-        if(font)
-        {
-            dim = calculateStringSize(str, font, &constrainSize);
-        }
-    }
-    return CCSizeMake(dim.width, dim.height);
+//    NSString *uniStr = NULL;
+//    if( [[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)
+//    {
+//        NSLog(@"device version: 6.0");
+//        uniStr = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+//    }
+//    else if( [[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
+//    {
+//        NSLog(@"deivce version: 5.0");
+//        CFUUIDRef puuid = CFUUIDCreate(nil);
+//        CFStringRef uuidString = CFUUIDCreateString(nil, puuid);
+//        uniStr = (NSString*)CFStringCreateCopy(NULL, uuidString);
+//        CFRelease(puuid);
+//        CFRelease(uuidString);
+//    }
+//    return [uniStr cStringUsingEncoding: NSUTF8StringEncoding];
+    return "";
 }
 
 void IOSUtil::disableScreenAutoLock(bool flag)
@@ -86,8 +65,23 @@ void IOSUtil::disableScreenAutoLock(bool flag)
     }else{
         [UIApplication sharedApplication].idleTimerDisabled = NO;
     }
-    
-    
+}
+
+void IOSUtil::showLeaderboard()
+{
+    [[GameCenter getInstance] showLeaderboard];
+}
+
+void IOSUtil::retrieveTopTenScores(std::string &category)
+{
+    NSString *nsCategroy = [NSString stringWithUTF8String:category.c_str()];
+    [[GameCenter getInstance]retrieveTopTenScores: nsCategroy];
+}
+
+void IOSUtil::reportScore(int score, std::string &category)
+{
+    NSString *nsCategory = [NSString stringWithUTF8String:category.c_str()];
+    [[GameCenter getInstance] reportScore:score forCategory:nsCategory];
 }
 
 
