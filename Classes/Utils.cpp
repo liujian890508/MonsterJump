@@ -94,33 +94,16 @@ void Utils::reportScore(int score, std::string category)
 
 }
 
+void Utils::showCommentary()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	IOSUtil::showCommentary();
+#endif
+}
+
 void Utils::initGlobalConfig()
 {
 	Director::getInstance()->getScheduler()->scheduleUpdate(MessageDis, Scheduler::PRIORITY_SYSTEM, false);
-}
-
-std::string Utils::getUniquelyIdentifies()
-{
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-	JniMethodInfo minfo;
-	bool isHave = JniHelper::getStaticMethodInfo(minfo, "com/xiandiao/jump/Util", "getLocalMacAddress", "()Ljava/lang/String;");
-	if( isHave)
-	{
-		jstring jstr = (jstring)minfo.env->CallStaticObjectMethod(minfo.classID, minfo.methodID);
-		minfo.env->DeleteLocalRef(minfo.classID);
-		std::string ret = JniHelper::jstring2string(jstr);
-		minfo.env->DeleteLocalRef(jstr);
-		return ret;
-
-	}
-	else
-	{
-		CCLOG("JniHelper::getStaticMethodInfo error...");
-	}
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	return IOSUtil::getUniquelyIdentifies();
-#endif
-	return "";
 }
 
 void Utils::disableScreenAutoLock(bool flag)

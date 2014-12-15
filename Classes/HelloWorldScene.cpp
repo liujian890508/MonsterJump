@@ -30,6 +30,8 @@ bool HelloWorld::init()
         return false;
     }
 
+	this->removeFromParent();
+
 	auto winSize = Director::getInstance()->getWinSize();
 
 	auto sprite = Sprite::create("cloud_1.png");

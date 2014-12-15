@@ -6,8 +6,13 @@
 
 class DialogManager: public Singleton<DialogManager>
 {
+	friend class Singleton<DialogManager>;
+private:
+	DialogManager(){}
+	DialogManager(const DialogManager&);
+	DialogManager& operator=(const DialogManager&);
 public:
-
+	~DialogManager(){}
 	
 };
 

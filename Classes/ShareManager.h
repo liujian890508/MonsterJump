@@ -7,8 +7,12 @@ using namespace cn::sharesdk;
 
 class ShareManager: public Singleton<ShareManager>
 {
-public:
+	friend class Singleton<ShareManager>;
+private:
 	ShareManager();
+	ShareManager(const ShareManager&);
+	ShareManager& operator=(const ShareManager&);
+public:
 	~ShareManager();
 	void setShareAttribute(std::string key, std::string value);
 	void sendShare();

@@ -16,15 +16,16 @@ USING_NS_CC;
 class IOSUtil
 {
 public:
-    static std::string getUniquelyIdentifies();
     
+	//
     static void disableScreenAutoLock(bool flag);
-    
+	
+	//GameCenter
     static void showLeaderboard();
-    
     static void retrieveTopTenScores(std::string &category);
-    
     static void reportScore(int score, std::string &category);
+	
+	static void showCommentary();
 };
 
 #endif /* defined(__Shqmm__FMIOSUtil__) */

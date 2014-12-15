@@ -7,8 +7,12 @@
 
 class ObjectManager: public Singleton<ObjectManager>
 {
-public:
+	friend class Singleton<ObjectManager>;
+private:
 	ObjectManager(){}
+	ObjectManager(const ObjectManager&);
+	ObjectManager& operator=(const ObjectManager&);
+public:
 	~ObjectManager(){};
 
 	void put(BaseSprite* t);

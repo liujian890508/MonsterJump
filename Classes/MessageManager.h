@@ -7,15 +7,16 @@
 
 class MessageManager: public Singleton<MessageManager>
 {
+	friend class Singleton<MessageManager>;
 	typedef std::map<int, MessageListener*> MessageListenerMap;
 	typedef MessageListenerMap::iterator MessageListenerIt;
 private:
 	MessageListenerMap		_listenerMap;
 private:
+	MessageManager(){}
 	MessageManager(const MessageManager&);
 	MessageManager& operator=(const MessageManager&);
 public:
-	MessageManager(){}
 	~MessageManager();
 
 	void registerMessageHandle(MessageListener *listener);

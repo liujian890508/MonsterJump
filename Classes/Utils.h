@@ -18,13 +18,16 @@ public:
 	static std::string getItem(std::string key);
 	static void setItem(std::string key, std::string value);
     
+	//GameCenter
     static void showLeaderboard();
     static void retrieveTopTenScores(std::string category);
     static void reportScore(int score, std::string category);
 
+	//ÆÀ¼Û
+	static void showCommentary();
+
 	static void initGlobalConfig();
 	static void disableScreenAutoLock(bool flag);
-	static std::string getUniquelyIdentifies();
 
 private:
 	static bool		_isLoad;

@@ -18,9 +18,13 @@ USING_NS_CC;
 
 class AdManager: public Singleton<AdManager>
 {
+	friend class Singleton<AdManager>;
+private:
+	AdManager(){}
+	AdManager(const AdManager&);
+	AdManager& operator=(const AdManager&);
 public:
-	AdManager();
-	~AdManager();
+	~AdManager(){}
 
 	void showBanner();
 	void hideBanner();

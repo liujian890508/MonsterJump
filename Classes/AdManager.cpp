@@ -1,15 +1,6 @@
 #include "AdManager.h"
 #include "MessageDispatcher.h"
 
-AdManager::AdManager()
-{
-}
-
-
-AdManager::~AdManager()
-{
-}
-
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 extern "C"
 {
