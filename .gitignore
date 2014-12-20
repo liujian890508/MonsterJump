@@ -1,4 +1,6 @@
-
-Classes/Utils.cpp
-
-Classes/Utils.cpp
+*.obj
+*.tlog
+*.pdb
+*.o
+*.d
+*.sdf
