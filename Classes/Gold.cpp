@@ -31,14 +31,18 @@ void Gold::checkContact(HeroSprite *heroSprite)
 	{
 		m_bIsContact = true;
 		this->playMoveAni();
+		//play get animation
+		//this->removeFromParentAndCleanup(true);
+		//ObjectMgr->remove(this);
+			
 	}
 }
 
 void Gold::playMoveAni()
 {
-	Point movePoint = this->convertToNodeSpace(VisibleRect::leftTop());
+	//Point movePoint = this->convertToNodeSpace(VisibleRect::leftTop());
 	auto seqAction = Sequence::create(
-		MoveTo::create(0.5f, movePoint),
+		FadeOut::create(0.5f),
 		CallFuncN::create([=](Node *pSender){
 			this->removeFromParent();
 			ObjectMgr->remove(this);
@@ -46,3 +50,4 @@ void Gold::playMoveAni()
 		nullptr);
 	this->runAction(seqAction);
 }
+

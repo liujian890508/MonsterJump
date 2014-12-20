@@ -98,7 +98,7 @@ bool HomeLayer::initOther()
 
 bool HomeLayer::initRole()
 {
-	auto heroSprite = Sprite::create("map/rabbit_walk_1.png");
+	auto heroSprite = Sprite::create();
 	heroSprite->setAnchorPoint(Vec2(0.5, 0));
 	Point currentPos = VisibleRect::leftBottom() + Point(heroSprite->getContentSize().width / 2, 150);
 	Point targetPos = VisibleRect::rightBottom() + Point(-heroSprite->getContentSize().width / 2, 150);
