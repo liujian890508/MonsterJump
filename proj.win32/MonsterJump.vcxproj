@@ -141,6 +141,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Background.cpp" />
     <ClCompile Include="..\Classes\Bird.cpp" />
+    <ClCompile Include="..\Classes\BrokenWall.cpp" />
     <ClCompile Include="..\Classes\BuyCoin.cpp" />
     <ClCompile Include="..\Classes\C2DXShareSDK\C2DXShareSDK.cpp" />
     <ClCompile Include="..\Classes\Collapsar.cpp" />
@@ -177,6 +178,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\BaseLayer.h" />
     <ClInclude Include="..\Classes\BaseSprite.h" />
     <ClInclude Include="..\Classes\Bird.h" />
+    <ClInclude Include="..\Classes\BrokenWall.h" />
     <ClInclude Include="..\Classes\BuyCoin.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDK.h" />
     <ClInclude Include="..\Classes\C2DXShareSDK\C2DXShareSDKTypeDef.h" />

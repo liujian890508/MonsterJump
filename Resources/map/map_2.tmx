@@ -57,7 +57,7 @@
   </tile>
   <tile id="10">
    <properties>
-    <property name="type" value="brick"/>
+    <property name="type" value="brick_broken"/>
    </properties>
    <image width="170" height="64" source="Stone elements/bg_platform_04.png"/>
   </tile>
@@ -83,7 +83,7 @@
  <objectgroup name="game">
   <object gid="8" x="210" y="951"/>
   <object gid="9" x="9" y="759"/>
-  <object gid="10" x="357" y="675"/>
+  <object gid="10" x="220" y="600"/>
   <object gid="11" x="449" y="846"/>
   <object gid="11" x="423" y="481"/>
   <object gid="10" x="16" y="243"/>
@@ -94,5 +94,6 @@
   <object gid="4" x="260" y="337.5"/>
   <object gid="4" x="260" y="287.5"/>
   <object gid="4" x="260" y="237.5"/>
+  <object gid="1" x="220" y="887.5"/>
  </objectgroup>
 </map>

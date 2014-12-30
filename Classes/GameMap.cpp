@@ -12,6 +12,7 @@
 
 #include "2d/CCFastTMXTiledMap.h"
 #include "2d/CCFastTMXLayer.h"
+#include "BrokenWall.h"
 
 #define MAP_TAG 10
 
@@ -37,15 +38,17 @@ bool GameMap::init()
 
 void GameMap::initWithMap()
 {
-	for (int i = 0; i < 1; i++)
-	{
-		this->loadMap(i + 1);
-	}
+// 	for (int i = 0; i < 1; i++)
+// 	{
+// 		this->loadMap(i + 1);
+// 	}
+	this->loadMap(2);
 }
 
 void GameMap::loadMap(int mapId)
 {
 	this->m_nMapId = mapId;
+
 	auto map = experimental::TMXTiledMap::create(String::createWithFormat("map/map_%d.tmx", mapId)->getCString());
 	this->loadObject(map);
 	m_nCurrentHeight += map->getMapSize().height * map->getTileSize().height;
@@ -64,6 +67,8 @@ void GameMap::loadObject(experimental::TMXTiledMap *map)
 		BaseSprite *entity = nullptr;
 		if (type == "brick")
 			entity = NormalWall::create(objProperties, gidProperties);
+		else if (type == "brick_broken")
+			entity = BrokenWall::create(objProperties, gidProperties);
 		else if (type == "hero")
 			this->m_pGameWorld->initHeroSprite(objProperties, gidProperties);
 		else if (type == "collapsar")

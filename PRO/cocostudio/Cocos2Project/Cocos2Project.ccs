@@ -4,9 +4,11 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="MainScene.csd" />
-        <Image Name="brick_04_01.png" />
-        <Image Name="brick_04_02.png" />
-        <Project Name="Node.csd" />
+        <Project Name="brick_break.csd" />
+        <Folder Name="effect">
+          <Image Name="brick_04_01.png" />
+          <Image Name="brick_04_02.png" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

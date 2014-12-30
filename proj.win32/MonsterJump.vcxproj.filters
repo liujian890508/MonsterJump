@@ -138,6 +138,9 @@
     <ClCompile Include="..\Classes\MessageManager.cpp">
       <Filter>src\message</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\BrokenWall.cpp">
+      <Filter>src\wall</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -253,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\MessageManager.h">
       <Filter>src\message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BrokenWall.h">
+      <Filter>src\wall</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
