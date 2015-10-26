@@ -4,7 +4,7 @@
 #include "BaseLayer.h"
 #include "TypeInfoDef.h"
 
-#define MAXMAPID 10
+#define MAXMAPID 1
 
 class GameWorld;
 class GameMap: public BaseLayer<GameMap>

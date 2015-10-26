@@ -44,7 +44,7 @@ void GameLogic::gameOver()
 void GameLogic::update(float dt)
 {
 	if (!m_bIsStartGame) return;
-	this->loadMap();
+	//this->loadMap();
 	this->checkContact();
     this->moveMapByHero();
 }
