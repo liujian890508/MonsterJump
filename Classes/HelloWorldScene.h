@@ -25,6 +25,9 @@ public:
 
 	void addBoxBodyForSprite(Sprite *sprite);
 
+	virtual bool onTouchBegan(Touch *touch, Event *unused_event);
+	virtual void onTouchEnded(Touch *touch, Event *unused_event);
+
 private:
 	float _distance;
 	float _time;

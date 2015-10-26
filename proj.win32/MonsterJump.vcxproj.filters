@@ -43,6 +43,9 @@
     <Filter Include="src\message">
       <UniqueIdentifier>{700c332f-3eb6-4a54-96db-af84e00c3e4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\component">
+      <UniqueIdentifier>{f971bbb5-b762-4054-a974-fcb8b5b346fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -138,6 +141,7 @@
     <ClCompile Include="..\Classes\MessageManager.cpp">
       <Filter>src\message</Filter>
     </ClCompile>
+    <ClCompile Include="DrawLine3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -254,6 +258,7 @@
     <ClInclude Include="..\Classes\MessageManager.h">
       <Filter>src\message</Filter>
     </ClInclude>
+    <ClInclude Include="DrawLine3D.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -1,18 +1,23 @@
 #include "Utils.h"
 #include "MessageDispatcher.h"
-
+#include "ShareManager.h"
+#include "PluginManager.h"
+#include "PluginProtocol.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 extern "C"
 #include <jni.h>
 #include "jni/JniHelper.h"
 #include <android/log.h>
+#include "PluginJniHelper.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "YouMiUtil.h"
 #include "IOSUtil.h"
 #endif
 
 #define PT_RATIO 32
+
+using namespace plugin;
 
 bool Utils::_isLoad = false;
 
@@ -103,6 +108,14 @@ void Utils::showCommentary()
 
 void Utils::initGlobalConfig()
 {
+	ShareMgr->initShareSDK("2f5d7a211988");
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	PluginJniHelper::setJavaVM(JniHelper::getJavaVM());
+	PluginProtocol *protocol = PluginManager::getInstance()->loadPlugin("IAPAlipay");
+	protocol->setDebugMode(true);
+	std::string pluginVersion = protocol->getPluginVersion();
+	CCLOG("----------------%s", pluginVersion.c_str());
+#endif
 	Director::getInstance()->getScheduler()->scheduleUpdate(MessageDis, Scheduler::PRIORITY_SYSTEM, false);
 }
 

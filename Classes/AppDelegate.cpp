@@ -1,8 +1,6 @@
 #include "AppDelegate.h"
 #include "HomeLayer.h"
 #include "Utils.h"
-#include "ShareManager.h"
-#include "AdManager.h"
 #include "HelloWorldScene.h"
 
 USING_NS_CC;
@@ -27,7 +25,6 @@ void AppDelegate::initGLContextAttrs()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    ShareMgr->initShareSDK("2f5d7a211988");
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
@@ -63,10 +60,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+	CCLOG("load config file begin--------------------------");
 	Utils::initGlobalConfig();
-	Utils::replaceScene(HomeLayer::create());
+	CCLOG("load config file end--------------------------");
+	//Utils::replaceScene(HomeLayer::create());
 
-	//Director::getInstance()->replaceScene(HelloWorld::createScene());
+	Director::getInstance()->replaceScene(HelloWorld::createScene());
 
     return true;
 }

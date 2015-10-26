@@ -52,7 +52,9 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON/cJSON
 
 LOCAL_STATIC_LIBRARIES := cocos2dx_static
+LOCAL_STATIC_LIBRARIES += PluginProtocolStatic
 
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,.)
+$(call import-module,plugin/protocols/proj.android/jni)

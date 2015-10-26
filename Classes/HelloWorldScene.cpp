@@ -1,6 +1,19 @@
 #include "HelloWorldScene.h"
 #include "VisibleRect.h"
+#include "PluginManager.h"
+#include "PluginProtocol.h"
+#include "ui/UILayout.h"
+#include "ui/UIRichText.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+extern "C"
+#include <jni.h>
+#include "jni/JniHelper.h"
+#include <android/log.h>
+#include "PluginJniHelper.h"
+#endif
 
+using namespace ui;
+using namespace plugin;
 USING_NS_CC;
 
 #define PT_RATIO 32
@@ -25,36 +38,41 @@ bool HelloWorld::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !Layer::init() )
-    {
-        return false;
-    }
+	if (!Layer::init())
+	{
+		return false;
+	}
 
-	this->removeFromParent();
+	auto size = Director::getInstance()->getWinSize();
+	auto camera = Camera::createPerspective(60, (float)size.width / size.height, 1, 1000);
+	camera->setCameraFlag(CameraFlag::USER1);
+	this->addChild(camera);
+	this->setCameraMask(2);
 
-	auto winSize = Director::getInstance()->getWinSize();
-
-	auto sprite = Sprite::create("cloud_1.png");
+	auto sprite = Sprite::create("rabbit_walk_1.png");
 	this->addChild(sprite);
-	sprite->setPosition(winSize / 2);
-	sprite->setScale(0.01f);
+	sprite->setPosition(size / 2);
 
-	auto openMenu = MenuItemFont::create("Open", [=](Ref *pSender){
-		sprite->runAction(Sequence::create(
-			EaseBackOut::create(ScaleTo::create(0.4f, 1.0f)),
-			nullptr));
-	});
-	auto closeMenu = MenuItemFont::create("Close", [=](Ref *pSender){
-		sprite->runAction(Sequence::create(
-			EaseBackIn::create(ScaleTo::create(0.4f, 0.01f)),
-			nullptr));
-	});
-	auto menu = Menu::create(openMenu, closeMenu, nullptr);
-	this->addChild(menu);
-	menu->setPosition(Point(100, 100));
-	menu->alignItemsVerticallyWithPadding(30);
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+	listener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	
+
+	float zEye = Director::getInstance()->getZEye();
+
     return true;
+}
+
+bool HelloWorld::onTouchBegan(Touch *touch, Event *unused_event)
+{
+	CCLOG("--------------------------onTouchBegan");
+	return true;
+}
+
+void HelloWorld::onTouchEnded(Touch *touch, Event *unused_event)
+{
+	CCLOG("--------------------------onTouchEnded");
 }
 
 void HelloWorld::update(float t)

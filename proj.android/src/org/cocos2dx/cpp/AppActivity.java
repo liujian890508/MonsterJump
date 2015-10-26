@@ -27,11 +27,11 @@ THE SOFTWARE.
 package org.cocos2dx.cpp;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
+import org.cocos2dx.plugin.PluginWrapper;
 
 import android.os.Bundle;
 import cn.sharesdk.ShareSDKUtils;
 
-import com.xiandiao.jump.GoogleBilling;
 import com.xiandiao.jump.Util;
 import com.xiandiao.jump.YouMiManager;
 
@@ -40,7 +40,6 @@ public class AppActivity extends Cocos2dxActivity {
 	private static AppActivity _instance;
 	private static YouMiManager _youMiManager;
 	private static Util _util;
-	private GoogleBilling _googleBilling;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +50,11 @@ public class AppActivity extends Cocos2dxActivity {
 		_util = new Util(this);
 		_util.init();
 		
-		//_googleBilling = new GoogleBilling(this);
-		
 		this.initShareSDK();
+		this.initPlugin();
 	}
+	
+	
 	
 	public static Object getInstance(){
 		return _instance;
@@ -62,6 +62,10 @@ public class AppActivity extends Cocos2dxActivity {
 	
 	public static Object getYouMiManager(){
 		return _youMiManager;
+	}
+	
+	private void initPlugin(){
+		PluginWrapper.init(this);
 	}
 	
 	private void initShareSDK(){
